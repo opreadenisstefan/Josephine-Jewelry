@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Josephine Jewelry</title>
+  <meta name="description" content="Josephine Jewelry - bijuterii premium elegante pentru momente speciale.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SPLASH SCREEN -->
+  <div id="splashScreen" class="splash-screen">
+    <div class="splash-inner">
+      <img src="logo.png" class="splash-logo" alt="Josephine Jewelry">
+      <span class="splash-brand-title">JOSEPHINE</span>
+      <span class="splash-brand-sub">JEWELRY</span>
+      <div class="splash-tagline">Rafinament în Fiecare Detaliu</div>
+      <div class="splash-loader"></div>
+    </div>
+  </div>
+
+  <div class="top-bar">
+    LIVRARE RAPIDĂ • BIJUTERII PREMIUM • JOSEPHINE JEWELRY
+  </div>
+
+  <header class="header overlay-header" id="mainHeader">
+    <div class="logo-container">
+      <img src="logo.png" class="logo" alt="Logo Josephine Jewelry">
+      <div class="brand-text">
+        <h1>JOSEPHINE</h1>
+        <p>JEWELRY</p>
+      </div>
+    </div>
+
+    <nav class="menu premium-menu">
+      <a href="#noutati">Noutăți</a>
+
+      <div class="menu-dropdown">
+        <a href="categorie.html?gen=femei&tip=toate&titlu=Femei">Femei</a>
+        <div class="dropdown-menu">
+          <a href="categorie.html?gen=femei&tip=inele&titlu=Femei%20-%20Inele">Inele</a>
+          <a href="categorie.html?gen=femei&tip=lanturi&titlu=Femei%20-%20Lănțișoare">Lănțișoare</a>
+          <a href="categorie.html?gen=femei&tip=bratari&titlu=Femei%20-%20Brățări">Brățări</a>
+          <a href="categorie.html?gen=femei&tip=cercei&titlu=Femei%20-%20Cercei">Cercei</a>
+          <a href="categorie.html?gen=femei&tip=ceasuri&titlu=Femei%20-%20Ceasuri">Ceasuri</a>
+          <a href="categorie.html?gen=femei&tip=brose&titlu=Femei%20-%20Broșe">Broșe</a>
+        </div>
+      </div>
+
+      <div class="menu-dropdown">
+        <a href="categorie.html?gen=barbati&tip=toate&titlu=Bărbați">Bărbați</a>
+        <div class="dropdown-menu">
+          <a href="categorie.html?gen=barbati&tip=inele&titlu=Bărbați%20-%20Inele">Inele</a>
+          <a href="categorie.html?gen=barbati&tip=lanturi&titlu=Bărbați%20-%20Lănțișoare">Lănțișoare</a>
+          <a href="categorie.html?gen=barbati&tip=ceasuri&titlu=Bărbați%20-%20Ceasuri">Ceasuri</a>
+        </div>
+      </div>
+
+      <div class="menu-dropdown">
+        <a href="categorie.html?gen=copii&tip=toate&titlu=Copii">Copii</a>
+        <div class="dropdown-menu">
+          <a href="categorie.html?gen=copii&tip=lanturi&titlu=Copii%20-%20Lănțișoare">Lănțișoare</a>
+          <a href="categorie.html?gen=copii&tip=bratari&titlu=Copii%20-%20Brățări">Brățări</a>
+        </div>
+      </div>
+
+      <a href="#catalog">Catalog</a>
+      <a href="jewelry-configurator-app/index.html" style="color:#C9A86C;font-weight:500;">✦ Configurator 3D</a>
+      <a href="#oferte" style="color:#D4AF5A;font-weight:400;">✦ Ofertele Lunii</a>
+      <a href="wishlist.html" style="color:rgba(224,85,119,0.85)">♥ Favorite<span class="wishlist-badge" id="wishlistNavBadge" style="display:none"></span></a>
+      <a href="#contact">Contact</a>
+      <a href="#despre">Despre noi</a>
+      <a href="#echipa">Echipa</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" title="Schimbă tema">☀</button>
+      <button class="cart-toggle" onclick="toggleCart()">
+        Coș <span id="cartCount">0</span>
+      </button>
+      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Meniu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <span class="mobile-nav-gem">◆ ◆ ◆</span>
+    <a href="#noutati" onclick="closeMobileNav()">Noutăți</a>
+    <a href="categorie.html?gen=femei&tip=toate&titlu=Femei" onclick="closeMobileNav()">Femei</a>
+    <a href="categorie.html?gen=barbati&tip=toate&titlu=Bărbați" onclick="closeMobileNav()">Bărbați</a>
+    <a href="categorie.html?gen=copii&tip=toate&titlu=Copii" onclick="closeMobileNav()">Copii</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="#catalog" onclick="closeMobileNav()">Catalog</a>
+    <a href="jewelry-configurator-app/index.html" onclick="closeMobileNav()" style="color:var(--gold-light)">✦ Configurator 3D</a>
+    <a href="wishlist.html" onclick="closeMobileNav()" style="color:rgba(224,85,119,0.85)">♥ Favorite</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
+
+  <section class="hero-video-section" id="noutati">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="./video/hero.mp4" type="video/mp4">
+      Browserul tău nu suportă video.
+    </video>
+
+    <div class="hero-dark-layer"></div>
+
+    <div class="hero-video-content">
+      <p class="hero-mini-label">JOSEPHINE JEWELRY</p>
+      <h2>Eleganță care strălucește în fiecare detaliu</h2>
+      <p class="hero-video-text">
+        Descoperă colecțiile Josephine create pentru femei, bărbați și copii.
+      </p>
+
+      <div class="hero-video-buttons">
+        <a href="#produse" class="hero-btn">Cumpără acum</a>
+        <a href="#catalog" class="hero-btn-outline">Descoperă catalogul</a>
+      </div>
+      <div class="hero-extra-btns">
+        <button class="hero-extra-btn" onclick="openGravura()">✦ Gravură Virtuală</button>
+        <button class="hero-extra-btn" onclick="openQuiz()">◆ Quiz de Stil</button>
+        <button class="hero-extra-btn" onclick="openSurprise()">✦ Surprinde-mă</button>
+        <a href="#gift-finder" class="hero-extra-btn">🎁 Gift Finder</a>
+        <a href="#pietre-pretioase" class="hero-extra-btn">◈ Pietre Prețioase</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROATĂ NOROC — BANNER -->
+  <div class="wheel-promo-bar">
+    <span class="wheel-promo-text">✦ Încearcă norocul — câștigă o reducere exclusivă!</span>
+    <button class="wheel-promo-btn" onclick="openWheel()">Rotește roata ✦</button>
+  </div>
+
+  <!-- ROATĂ NOROC — MODAL -->
+  <div class="wheel-overlay" id="wheelOverlay" onclick="if(event.target===this)closeWheel()">
+    <div class="wheel-modal">
+      <button class="wheel-close" onclick="closeWheel()">×</button>
+
+      <!-- PASUL 1: email -->
+      <div class="wheel-step" id="wheelStep1">
+        <div class="wheel-title-icon">◆</div>
+        <h3 class="wheel-heading">Câștigă o reducere!</h3>
+        <p class="wheel-subtext">Introdu adresa de email și rotește roata pentru o reducere exclusivă Josephine Jewelry.</p>
+        <div class="wheel-email-row">
+          <input type="email" id="wheelEmail" class="wheel-input" placeholder="adresa@email.ro" autocomplete="email">
+          <button class="wheel-go-btn" onclick="goToWheel()">Continuă ✦</button>
+        </div>
+        <p class="wheel-privacy">✦ Nu trimitem spam. Reducerea este valabilă la prima comandă.</p>
+      </div>
+
+      <!-- PASUL 2: roata -->
+      <div class="wheel-step" id="wheelStep2" style="display:none">
+        <p class="wheel-subtext" style="margin-bottom:20px">Apasă butonul și roata decide!</p>
+        <div class="wheel-arena">
+          <div class="wheel-pointer-wrap"><div class="wheel-pointer"></div></div>
+          <div class="wheel-face" id="wheelFace">
+            <div class="wheel-seg-label" style="--tx:48px;--ty:-48px">−5%</div>
+            <div class="wheel-seg-label" style="--tx:48px;--ty:42px">Transport<br>Gratuit</div>
+            <div class="wheel-seg-label" style="--tx:-48px;--ty:48px">−10%</div>
+            <div class="wheel-seg-label" style="--tx:-48px;--ty:-48px">−15%</div>
+            <div class="wheel-divider" style="--r:0deg"></div>
+            <div class="wheel-divider" style="--r:90deg"></div>
+            <div class="wheel-divider" style="--r:180deg"></div>
+            <div class="wheel-divider" style="--r:270deg"></div>
+          </div>
+          <div class="wheel-hub">✦</div>
+        </div>
+        <button class="wheel-spin-btn" id="wheelSpinBtn" onclick="spinWheel()">✦ Rotește roata!</button>
+      </div>
+
+      <!-- PASUL 3: rezultat -->
+      <div class="wheel-step" id="wheelStep3" style="display:none">
+        <div class="wheel-title-icon" id="wheelResultEmoji">🎉</div>
+        <h3 class="wheel-heading">Felicitări!</h3>
+        <p class="wheel-subtext" id="wheelResultText">Ai câștigat 10% reducere!</p>
+        <div class="wheel-code-box">
+          <span class="wheel-code" id="wheelResultCode">LUCKY10</span>
+          <button class="wheel-copy-btn" onclick="copyWheelCode()" id="wheelCopyBtn">Copiază</button>
+        </div>
+        <p class="wheel-code-note">Introdu codul în câmpul "Cod promoțional" la finalizarea comenzii.</p>
+        <a href="#produse" class="wheel-shop-btn" onclick="closeWheel()">✦ Cumpără acum</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BANDĂ GARANȚII -->
+  <div class="guarantee-strip">
+    <div class="guarantee-strip-inner">
+      <span class="guarantee-item"><span class="gi-icon">✦</span> 30 Zile Retur</span>
+      <span class="guarantee-sep">•</span>
+      <span class="guarantee-item"><span class="gi-icon">✦</span> Livrare Rapidă</span>
+      <span class="guarantee-sep">•</span>
+      <span class="guarantee-item"><span class="gi-icon">✦</span> Calitate Garantată</span>
+      <span class="guarantee-sep">•</span>
+      <span class="guarantee-item"><span class="gi-icon">✦</span> Ambalaj Premium</span>
+      <span class="guarantee-sep">•</span>
+      <span class="guarantee-item"><span class="gi-icon">✦</span> Bijuterii Autentice</span>
+    </div>
+  </div>
+
+  <section class="section" id="produse">
+    <h2>Produse</h2>
+
+    <div class="filters-bar">
+      <div class="search-wrap">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Caută după nume produs..."
+          oninput="renderHomeProducts(); updateAutocomplete()"
+          autocomplete="off"
+        >
+        <div class="autocomplete-dropdown" id="autocompleteDropdown"></div>
+      </div>
+
+      <select id="priceFilter" class="price-filter" onchange="renderHomeProducts()">
+        <option value="toate">Toate prețurile</option>
+        <option value="0-1500">0 - 1500 lei</option>
+        <option value="1500-3000">1500 - 3000 lei</option>
+        <option value="3000-6000">3000 - 6000 lei</option>
+        <option value="6000+">Peste 6000 lei</option>
+      </select>
+
+      <select id="sortFilter" class="sort-filter" onchange="renderHomeProducts()">
+        <option value="noutati">✦ Noutăți</option>
+        <option value="pret-asc">Preț ↑ (mic → mare)</option>
+        <option value="pret-desc">Preț ↓ (mare → mic)</option>
+        <option value="az">A → Z</option>
+        <option value="za">Z → A</option>
+      </select>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <!-- GIFT FINDER WIZARD -->
+  <section class="gift-finder-section" id="gift-finder">
+    <h2>Gift Finder</h2>
+    <p class="catalog-text">Spune-ne pentru cine și găsim bijuteria perfectă</p>
+
+    <div class="gf-bar">
+      <div class="gf-group">
+        <label class="gf-label">Persoana</label>
+        <select class="gf-sel" id="gfPerson">
+          <option value="">— Alege —</option>
+          <option value="femei">Ea</option>
+          <option value="barbati">El</option>
+          <option value="copii">Copil</option>
+        </select>
+      </div>
+      <div class="gf-group">
+        <label class="gf-label">Ocazia</label>
+        <select class="gf-sel" id="gfOccasion">
+          <option value="">— Alege —</option>
+          <option value="inele">Logodnă / Aniversare</option>
+          <option value="lanturi">Ziua de naștere</option>
+          <option value="bratari">Crăciun / Cadou</option>
+          <option value="cercei">Absolvire / Succes</option>
+          <option value="toate">Orice ocazie</option>
+        </select>
+      </div>
+      <div class="gf-group">
+        <label class="gf-label">Bugetul</label>
+        <select class="gf-sel" id="gfBudget">
+          <option value="">— Alege —</option>
+          <option value="0-1500">Sub 1.500 lei</option>
+          <option value="1500-3000">1.500 – 3.000 lei</option>
+          <option value="3000-6000">3.000 – 6.000 lei</option>
+          <option value="6000+">Fără limită</option>
+        </select>
+      </div>
+      <button class="gf-find-btn" onclick="runGiftFinder()">✦ Găsește cadoul</button>
+    </div>
+
+    <div class="gf-results" id="gfResults" style="display:none">
+      <p class="gf-results-label" id="gfResultsLabel"></p>
+      <div class="gf-grid" id="gfGrid"></div>
+    </div>
+  </section>
+
+  <section class="section section-offers" id="oferte">
+    <h2>Ofertele Lunii</h2>
+    <p class="catalog-text">Colecții selectate cu prețuri speciale — ofertă limitată</p>
+
+    <div class="offer-countdown">
+      <p class="countdown-label">Oferta expiră în</p>
+      <div class="countdown-display">
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-zile">00</span>
+          <span class="countdown-text">Zile</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-ore">00</span>
+          <span class="countdown-text">Ore</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-min">00</span>
+          <span class="countdown-text">Minute</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-sec">00</span>
+          <span class="countdown-text">Secunde</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-grid" id="oferteGrid"></div>
+  </section>
+
+  <!-- CUM FUNCȚIONEAZĂ -->
+  <section class="section how-it-works-section" id="cum-functioneaza">
+    <h2>Cum funcționează</h2>
+    <p class="catalog-text">Trei pași simpli spre bijuteria perfectă</p>
+
+    <div class="how-it-works-grid">
+      <div class="how-step">
+        <div class="how-step-circle">01</div>
+        <span class="how-step-icon">◈</span>
+        <h4>Alege</h4>
+        <p>Explorează colecțiile noastre premium și găsește bijuteria care îți reflectă personalitatea.</p>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step-circle">02</div>
+        <span class="how-step-icon">◇</span>
+        <h4>Comandă</h4>
+        <p>Adaugă în coș și finalizează comanda în câteva secunde, sau contactează-ne pe WhatsApp.</p>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step-circle">03</div>
+        <span class="how-step-icon">✦</span>
+        <h4>Primești</h4>
+        <p>Bijuteria ajunge la tine în ambalaj premium, gata de oferit sau de purtat cu mândrie.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GHID PIETRE PREȚIOASE -->
+  <section class="gem-guide-section section" id="pietre-pretioase">
+    <h2>Universul Pietrelor Prețioase</h2>
+    <p class="catalog-text">Click pe o piatră pentru a descoperi originea, duritatea și semnificația ei</p>
+
+    <div class="gem-grid-outer">
+      <div class="gem-grid">
+
+        <div class="gem-card" onclick="openGem('diamant')">
+          <div class="gem-visual" style="--glow:rgba(220,215,240,0.5)">
+            <img class="gem-photo" src="pietre/diamant.jpg" alt="Diamant"
+                 onerror="this.style.display='none';this.parentNode.style.background='radial-gradient(ellipse at 35% 30%,#fff,#C4B8E8 50%,#8060A8)'">
+          </div>
+          <span class="gem-name">Diamant</span>
+        </div>
+
+        <div class="gem-card" onclick="openGem('rubin')">
+          <div class="gem-visual" style="--glow:rgba(200,27,48,0.5)">
+            <img class="gem-photo" src="pietre/rubin.jpg" alt="Rubin"
+                 onerror="this.style.display='none';this.parentNode.style.background='radial-gradient(ellipse at 34% 28%,#FF8080,#CC1E35 40%,#420810)'">
+          </div>
+          <span class="gem-name">Rubin</span>
+        </div>
+
+        <div class="gem-card" onclick="openGem('safir')">
+          <div class="gem-visual" style="--glow:rgba(30,78,216,0.5)">
+            <img class="gem-photo" src="pietre/safir.jpg" alt="Safir"
+                 onerror="this.style.display='none';this.parentNode.style.background='radial-gradient(ellipse at 34% 28%,#6BA0FF,#1B52D8 40%,#070E50)'">
+          </div>
+          <span class="gem-name">Safir</span>
+        </div>
+
+        <div class="gem-card" onclick="openGem('smarald')">
+          <div class="gem-visual" style="--glow:rgba(5,150,105,0.5)">
+            <img class="gem-photo" src="pietre/smarald.jpg" alt="Smarald"
+                 onerror="this.style.display='none';this.parentNode.style.background='radial-gradient(ellipse at 32% 26%,#34D399,#059669 42%,#022C22)'">
+          </div>
+          <span class="gem-name">Smarald</span>
+        </div>
+
+        <div class="gem-card" onclick="openGem('ametist')">
+          <div class="gem-visual" style="--glow:rgba(124,58,237,0.5)">
+            <div class="gem-css-art gem-v-amethyst"></div>
+          </div>
+          <span class="gem-name">Ametist</span>
+        </div>
+
+        <div class="gem-card" onclick="openGem('perla')">
+          <div class="gem-visual" style="--glow:rgba(200,190,155,0.5)">
+            <img class="gem-photo" src="pietre/perla.jpg" alt="Perlă"
+                 onerror="this.style.display='none';this.parentNode.style.background='radial-gradient(ellipse at 32% 28%,#fff,#F5F0E8 38%,#C0AE8A)'">
+          </div>
+          <span class="gem-name">Perlă</span>
+        </div>
+
+        <div class="gem-card" onclick="openGem('opal')">
+          <div class="gem-visual" style="--glow:rgba(139,92,246,0.5)">
+            <img class="gem-photo" src="pietre/opal.jpg" alt="Opal"
+                 onerror="this.style.display='none';this.parentNode.style.background='conic-gradient(from 0deg,#A78BFA,#60A5FA,#34D399,#FBBF24,#F87171,#A78BFA)'">
+          </div>
+          <span class="gem-name">Opal</span>
+        </div>
+
+        <div class="gem-card" onclick="openGem('acvamarin')">
+          <div class="gem-visual" style="--glow:rgba(8,145,178,0.5)">
+            <div class="gem-css-art gem-v-aquamarine"></div>
+          </div>
+          <span class="gem-name">Acvamarin</span>
+        </div>
+
+      </div>
+
+      <div class="gem-info-panel" id="gemInfoPanel"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALE -->
+  <section class="section" id="testimoniale">
+    <h2>Ce spun clienții noștri</h2>
+    <p class="catalog-text">Experiențele celor care aleg Josephine Jewelry</p>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">„Am primit brățara Josephine ca cadou și am plâns de bucurie. Calitatea este excepțională, se vede că fiecare detaliu contează."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Maria C.</span>
+          <span class="testimonial-product">Brățară Rosey</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card testimonial-card-featured reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">„Mi-am cumpărat inelul Hannah pentru fiica mea la aniversarea ei. A fost copleșită. Ambalajul luxos, livrarea rapidă — perfecte."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Elena M.</span>
+          <span class="testimonial-product">Inel Hannah Lavender Petals</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">„Colierul Kyanite este exact cum arăta în poze — ba chiar mai frumos în realitate. Îl port zilnic de trei luni fără nicio problemă."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Andrei D.</span>
+          <span class="testimonial-product">Colier Kyanite</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="catalog">
+    <h2>Catalog Josephine Jewelry</h2>
+
+    <p class="catalog-text">
+      Răsfoiește catalogul nostru premium.
+    </p>
+
+    <div class="catalog-wrapper">
+      <div class="catalog-frame">
+        <div class="catalog-corner top-left"></div>
+        <div class="catalog-corner top-right"></div>
+        <div class="catalog-corner bottom-left"></div>
+        <div class="catalog-corner bottom-right"></div>
+
+        <button class="catalog-arrow catalog-arrow-left" onclick="prevCatalogPage()" aria-label="Pagina anterioară">←</button>
+
+        <img id="catalogImage" src="catlog/1.png" class="catalog-image" alt="Pagina 1 din catalog">
+
+        <button class="catalog-arrow catalog-arrow-right" onclick="nextCatalogPage()" aria-label="Pagina următoare">→</button>
+      </div>
+
+      <div class="catalog-nav">
+        <div class="catalog-counter" id="catalogCounter">Pagina 1 / 94</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTOARE ANIMATE -->
+  <section class="stats-section" id="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-counter" data-target="150" data-suffix="+">0+</span>
+        <span class="stat-label">Produse Premium</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-counter" data-target="500" data-suffix="+">0+</span>
+        <span class="stat-label">Clienți Fericiți</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-counter" data-target="3" data-suffix=" ani">0 ani</span>
+        <span class="stat-label">De Excelență</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-counter" data-target="100" data-suffix="%">0%</span>
+        <span class="stat-label">Calitate Garantată</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="despre">
+    <h2>Despre noi</h2>
+    <div class="despre-grid">
+      <div class="despre-text">
+        <p class="despre-lead">
+          Josephine Jewelry s-a născut dintr-o pasiune profundă pentru frumos și
+          dintr-o credință simplă: fiecare femeie, fiecare bărbat, merită să poarte
+          ceva ce îi reflectă povestea.
+        </p>
+        <p>
+          Fiecare piesă din colecțiile noastre este aleasă cu grijă, pentru calitatea
+          materialelor, precizia lucrăturii și acea scânteie subtilă care face
+          diferența dintre o bijuterie și o amintire.
+        </p>
+        <p>
+          De la inele fine cu pietre prețioase până la brățări cu caracter și ceasuri
+          cu personalitate, Josephine Jewelry însoțește momentele care contează —
+          cele de zi cu zi, la fel de mult ca cele de neuitat.
+        </p>
+        <div class="despre-values">
+          <div class="despre-value">
+            <span class="despre-value-num">100%</span>
+            <span class="despre-value-label">Calitate Premium</span>
+          </div>
+          <div class="despre-value">
+            <span class="despre-value-num">∞</span>
+            <span class="despre-value-label">Eleganță Atemporală</span>
+          </div>
+          <div class="despre-value">
+            <span class="despre-value-num">♦</span>
+            <span class="despre-value-label">Selecție Curatoriată</span>
+          </div>
+        </div>
+      </div>
+      <div class="despre-quote">
+        <blockquote>
+          „Rafinament în Fiecare Detaliu."
+        </blockquote>
+        <cite>— Josephine Jewelry</cite>
+
+        <!-- CERTIFICATE / AWARD BADGES -->
+        <div class="award-badges-row">
+          <div class="award-badge reveal">
+            <span class="award-badge-icon">✦</span>
+            <span class="award-badge-title">Excelență</span>
+            <span class="award-badge-sub">Business 2024</span>
+          </div>
+          <div class="award-badge reveal">
+            <span class="award-badge-icon">◆</span>
+            <span class="award-badge-title">Premium</span>
+            <span class="award-badge-sub">Calitate Certificată</span>
+          </div>
+          <div class="award-badge reveal">
+            <span class="award-badge-icon">♦</span>
+            <span class="award-badge-title">Top Brand</span>
+            <span class="award-badge-sub">Firmă de Exercițiu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="echipa">
+    <h2>Echipa noastră</h2>
+    <p class="catalog-text">Organigrama funcțională Josephine Jewelry</p>
+
+    <div class="org-chart-outer">
+      <div class="org-chart">
+
+        <!-- Level 1 — Manager -->
+        <div class="oc-root-tier">
+          <div class="oc-node oc-node-root">
+            <span class="oc-role">Manager</span>
+            <span class="oc-name">SANDU ADINA</span>
+          </div>
+        </div>
+
+        <!-- Level 2 — Departments -->
+        <div class="oc-l2-wrap">
+          <div class="oc-l2">
+
+            <!-- Asistent Manager -->
+            <div class="oc-dept">
+              <div class="oc-node">
+                <span class="oc-role">Asistent Manager</span>
+                <span class="oc-name">RADIVOICOVICI LARISA</span>
+              </div>
+            </div>
+
+            <!-- Director Marketing + agents -->
+            <div class="oc-dept">
+              <div class="oc-node">
+                <span class="oc-role">Director Marketing</span>
+                <span class="oc-name">DOBRE ANDREEA</span>
+              </div>
+              <div class="oc-sub-connector"></div>
+              <div class="oc-l3">
+                <div class="oc-subdept">
+                  <div class="oc-node oc-node-sm">
+                    <span class="oc-role">Agent Marketing</span>
+                    <span class="oc-name">IMBREA VANESA</span>
+                  </div>
+                </div>
+                <div class="oc-subdept">
+                  <div class="oc-node oc-node-sm">
+                    <span class="oc-role">Agent Marketing</span>
+                    <span class="oc-name">STAMATIN ANA</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Director Comercial + agents -->
+            <div class="oc-dept">
+              <div class="oc-node">
+                <span class="oc-role">Director Comercial</span>
+                <span class="oc-name">POPA ALEXANDRU</span>
+              </div>
+              <div class="oc-sub-connector"></div>
+              <div class="oc-l3">
+                <div class="oc-subdept">
+                  <div class="oc-node oc-node-sm">
+                    <span class="oc-role">Agent Comercial</span>
+                    <span class="oc-name">RANJA DAVID</span>
+                  </div>
+                </div>
+                <div class="oc-subdept">
+                  <div class="oc-node oc-node-sm">
+                    <span class="oc-role">Agent Comercial</span>
+                    <span class="oc-name">GACHE STEFAN</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Resurse Umane -->
+            <div class="oc-dept">
+              <div class="oc-node">
+                <span class="oc-role">Resurse Umane</span>
+                <span class="oc-name">GHIONEA SEBASTIAN</span>
+              </div>
+            </div>
+
+            <!-- IT -->
+            <div class="oc-dept">
+              <div class="oc-node">
+                <span class="oc-role">IT</span>
+                <span class="oc-name">OPREA DENIS</span>
+              </div>
+            </div>
+
+            <!-- Contabilitate -->
+            <div class="oc-dept">
+              <div class="oc-node">
+                <span class="oc-role">Contabilitate</span>
+                <span class="oc-name">TOADER ANDREEA</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDION -->
+  <section class="section" id="faq">
+    <h2>Întrebări frecvente</h2>
+    <p class="catalog-text">Tot ce trebuie să știi despre bijuteriile Josephine</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Ce materiale sunt folosite în bijuteriile Josephine?</span>
+          <span class="faq-question-icon">+</span>
+        </div>
+        <div class="faq-answer"><p>Bijuteriile noastre sunt realizate din argint 925, aur 14k și 18k, oțel inoxidabil premium și pietre semiprețioase naturale. Fiecare piesă trece printr-un control de calitate riguros înainte de a ajunge la tine.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Cât durează livrarea?</span>
+          <span class="faq-question-icon">+</span>
+        </div>
+        <div class="faq-answer"><p>Livrăm în toată România în 2–5 zile lucrătoare prin curier rapid. Comanda ta este ambalată cu grijă într-un pachet premium Josephine, gata de oferit sau purtat.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Pot returna un produs?</span>
+          <span class="faq-question-icon">+</span>
+        </div>
+        <div class="faq-answer"><p>Da, acceptăm retururi în termen de 30 de zile de la primire, pentru produse nedeterioriate și în ambalajul original. Contactează-ne pe WhatsApp sau email pentru a iniția procesul.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Cum știu mărimea potrivită pentru un inel?</span>
+          <span class="faq-question-icon">+</span>
+        </div>
+        <div class="faq-answer"><p>Folosește ghidul nostru de mărimi disponibil în pagina fiecărui inel. Măsoară circumferința degetului cu o sfoară și compară cu tabelul EU/US. Contactează-ne dacă ai nevoie de ajutor.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Oferiți bijuterii personalizate?</span>
+          <span class="faq-question-icon">+</span>
+        </div>
+        <div class="faq-answer"><p>Da! Prin Configuratorul 3D Josephine poți crea bijuteria visată — alege materialul, forma și piatra prețioasă. Sau contactează-ne pe WhatsApp pentru comenzi speciale.</p></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <p>Email:
+        <a href="mailto:jewelryjosephine715@gmail.com">jewelryjosephine715@gmail.com</a>
+      </p>
+
+      <p>Telefon:
+        <a href="tel:+40754334877">0754334877</a>
+      </p>
+
+      <p>F.E Josephine Jewelry S.A</p>
+    </div>
+
+    <div class="antet-liceu-wrap">
+      <div class="antet-liceu-corners">
+        <span class="antet-corner antet-tl"></span>
+        <span class="antet-corner antet-tr"></span>
+        <span class="antet-corner antet-bl"></span>
+        <span class="antet-corner antet-br"></span>
+      </div>
+      <div class="antet-liceu-inner">
+        <p class="antet-eyebrow">Proiect realizat în cadrul</p>
+        <img
+          src="logo-cevmg/logo-cevmg.png"
+          alt="Colegiul Economic Virgil Madgearu Galați"
+          class="antet-liceu-img"
+        >
+      </div>
+    </div>
+
+    <!-- MINI-HARTĂ LIVRARE -->
+    <div class="delivery-zone">
+      <div class="delivery-zone-text">
+        <h4>Livrare în toată România</h4>
+        <p>Expediăm bijuteriile Josephine oriunde în România. Livrare rapidă prin curier, în ambalaj premium sigilat.</p>
+        <div class="delivery-cities">
+          <span class="delivery-city">București</span>
+          <span class="delivery-city">Cluj</span>
+          <span class="delivery-city">Iași</span>
+          <span class="delivery-city">Timișoara</span>
+          <span class="delivery-city">Brașov</span>
+          <span class="delivery-city">Galați</span>
+          <span class="delivery-city">Constanța</span>
+          <span class="delivery-city">+ toate județele</span>
+        </div>
+      </div>
+      <div class="delivery-map-visual">
+        <div class="delivery-map-text">
+          <strong>ROMÂNIA</strong>
+          LIVRARE<br>NAȚIONALĂ
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING ACUM -->
+  <section class="section" id="trending">
+    <h2>Trending acum</h2>
+    <p class="catalog-text">Cele mai populare bijuterii Josephine în această săptămână</p>
+    <div class="product-grid" id="trendingGrid"></div>
+  </section>
+
+  <!-- VAZUTE RECENT -->
+  <section class="section recently-viewed-section" id="recentlyViewedSection" style="display:none">
+    <h3>Văzute recent</h3>
+    <div class="product-grid" id="recentlyViewedGrid"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="logo.png" class="footer-logo-img" alt="Josephine Jewelry">
+          <div>
+            <span class="footer-brand-name">JOSEPHINE</span>
+            <span class="footer-brand-sub">Jewelry</span>
+          </div>
+        </div>
+
+        <div class="footer-school-badge">
+          <img src="logo-cevmg/logo-cevmg.png" alt="CEVMG">
+          <span>Colegiul Economic<br>„Virgil Madgearu" Galați</span>
+        </div>
+
+        <p class="footer-tagline">Rafinament în Fiecare Detaliu.</p>
+
+        <div class="footer-info">
+          <p>F.E. Josephine Jewelry S.A. — firmă de exercițiu</p>
+          <p>Str. Strungarilor nr. 31, Galați</p>
+          <p>Tel: <a href="tel:+40754334877">0754 334 877</a></p>
+          <p>Email: <a href="mailto:jewelryjosephine715@gmail.com">jewelryjosephine715@gmail.com</a></p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn" aria-label="Facebook">f</a>
+          <a href="#" class="footer-social-btn" aria-label="Instagram">&#9678;</a>
+          <a href="#" class="footer-social-btn" aria-label="TikTok">&#9835;</a>
+        </div>
+      </div>
+
+      <!-- Colecții -->
+      <div class="footer-col">
+        <p class="footer-col-title">Colecții</p>
+        <ul class="footer-links">
+          <li><a href="categorie.html?gen=femei&tip=toate&titlu=Femei">Femei</a></li>
+          <li><a href="categorie.html?gen=femei&tip=inele&titlu=Inele">Inele</a></li>
+          <li><a href="categorie.html?gen=femei&tip=bratari&titlu=Brățări">Brățări</a></li>
+          <li><a href="categorie.html?gen=femei&tip=lanturi&titlu=Lănțișoare">Lănțișoare</a></li>
+          <li><a href="categorie.html?gen=barbati&tip=toate&titlu=Bărbați">Bărbați</a></li>
+          <li><a href="categorie.html?gen=copii&tip=toate&titlu=Copii">Copii</a></li>
+          <li><a href="jewelry-configurator-app/index.html">✦ Configurator 3D</a></li>
+        </ul>
+      </div>
+
+      <!-- Suport -->
+      <div class="footer-col">
+        <p class="footer-col-title">Suport</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Harta site</a></li>
+          <li><a href="#">Confidențialitate</a></li>
+          <li><a href="#">Politică retur</a></li>
+          <li><a href="#">Prevenire fraudă</a></li>
+          <li><a href="#produse">Noutăți</a></li>
+          <li><a href="#oferte">Oferte lunii</a></li>
+          <li><a href="wishlist.html">♥ Favorite</a></li>
+        </ul>
+      </div>
+
+      <!-- Companie -->
+      <div class="footer-col">
+        <p class="footer-col-title">Companie</p>
+        <ul class="footer-links">
+          <li><a href="#echipa">Organigramă</a></li>
+          <li><a href="#despre">Despre noi</a></li>
+          <li><a href="#despre">Misiune și Viziune</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://wa.me/40754334877" target="_blank">WhatsApp</a></li>
+          <li><a href="mailto:jewelryjosephine715@gmail.com">Email</a></li>
+          <li><a href="catalog">Catalog PDF</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Josephine Jewelry — Firmă de exercițiu creată în scop educațional</p>
+      <p>Adresă: Str. Strungarilor nr. 31 • Tel: 0236 446 248</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/40754334877?text=Bună ziua! Sunt interesat de bijuteriile Josephine." target="_blank" class="float-whatsapp-btn">
+      <svg class="float-whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.112 1.523 5.837L0 24l6.344-1.497A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.588-.476-5.1-1.31L2 22l1.347-4.776A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+      </svg>
+      <div class="float-whatsapp-info">
+        <strong>WhatsApp</strong>
+        <span>0754 334 877</span>
+      </div>
+    </a>
+
+    <button class="float-asistent-btn" onclick="toggleJosephineChat()" id="chatTriggerBtn">
+      <span class="float-asistent-icon">◆</span>
+      Asistent Josephine
+      <span class="jchat-trigger-badge" id="jchatBadge" style="display:none">1</span>
+    </button>
+  </div>
+
+  <!-- ══ JOSEPHINE AI CHAT WIDGET ══ -->
+  <div class="josephine-chat" id="josephineChat">
+
+    <div class="jchat-header">
+      <div class="jchat-avatar">◆</div>
+      <div class="jchat-header-info">
+        <span class="jchat-name">Luna ✦</span>
+        <span class="jchat-status"><span class="jchat-dot"></span> Online</span>
+      </div>
+      <button class="jchat-close" onclick="closeJosephineChat()">×</button>
+    </div>
+
+    <div class="jchat-messages" id="jchatMessages">
+      <div class="jchat-msg jchat-bot">
+        <div class="jchat-bubble">
+          Bună ziua! Sunt <strong>Luna</strong>, asistenta ta Josephine Jewelry. ✦<br>
+          Te pot ajuta să găsești bijuteria perfectă, să afli despre materiale sau să alegi cadoul ideal. Cu ce îți pot fi de folos?
+        </div>
+      </div>
+      <div class="jchat-suggestions" id="jchatSuggestions">
+        <button class="jchat-sug" onclick="sendSuggestion('Recomandă-mi un inel de logodnă')">💍 Inel logodnă</button>
+        <button class="jchat-sug" onclick="sendSuggestion('Ce bijuterie fac cadou de ziua de naștere?')">🎁 Idee cadou</button>
+        <button class="jchat-sug" onclick="sendSuggestion('Care e diferența dintre aur 14k și 18k?')">✦ Aur 14k vs 18k</button>
+        <button class="jchat-sug" onclick="sendSuggestion('Cum îmi măsor mărimea inelului?')">📏 Ghid mărimi</button>
+      </div>
+    </div>
+
+    <div class="jchat-input-row">
+      <input type="text" id="jchatInput" class="jchat-input"
+             placeholder="Scrie un mesaj..."
+             onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); sendChatMessage(); }">
+      <button class="jchat-send" onclick="sendChatMessage()" title="Trimite">&#10148;</button>
+    </div>
+
+    <div class="jchat-footer">Luna · Asistenta Josephine Jewelry</div>
+  </div>
+
+
+  <div id="site-notification" class="site-notification">
+    Produsul a fost adăugat în coș.
+  </div>
+
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Coșul tău <span class="cart-header-count" id="cartHeaderCount"></span></h3>
+      <button class="cart-close" onclick="closeCart()">×</button>
+    </div>
+
+    <div class="cart-body" id="cartItems"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">0,00 lei</strong>
+      </div>
+
+      <div class="cart-buttons">
+        <button class="cart-checkout" onclick="window.location.href='comanda.html'">✦ Plasează comanda</button>
+        <button class="cart-wa-ask" onclick="sendOrderWhatsApp()">💬 Întreabă pe WhatsApp</button>
+        <button class="cart-clear" onclick="clearCart()">Golește coșul</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="product-modal-overlay" id="productModalOverlay" onclick="closeProductModal()"></div>
+
+  <div class="product-modal" id="productModal">
+    <button class="product-modal-close" onclick="closeProductModal()">×</button>
+
+    <div class="product-modal-content">
+      <div class="product-modal-image-wrap">
+        <img id="productModalImage" src="logo.png" alt="Produs">
+      </div>
+
+      <div class="product-modal-info">
+        <p class="product-modal-category" id="productModalCategory">Categorie</p>
+        <h3 id="productModalTitle">Nume produs</h3>
+        <div class="live-viewers" id="liveViewers">
+          <span class="live-dot"></span>
+          <span id="liveViewersText">3 persoane se uită acum la acest produs</span>
+        </div>
+        <p id="productModalDescription">Descriere produs</p>
+        <div class="product-modal-price" id="productModalPrice">0 lei</div>
+
+        <!-- STOC URGENCY -->
+        <div class="modal-stock-badge" id="modalStockBadge" style="display:none"></div>
+
+        <!-- SELECTOR CANTITATE -->
+        <div class="modal-qty-row">
+          <span class="modal-qty-label">Cantitate</span>
+          <div class="modal-qty-ctrl">
+            <button class="qty-btn" onclick="changeModalQty(-1)">−</button>
+            <span class="qty-val" id="modalQtyVal">1</span>
+            <button class="qty-btn" onclick="changeModalQty(1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-modal-actions">
+          <button class="primary-btn" id="productModalCartBtn">Adaugă în coș</button>
+          <button class="secondary-btn" id="productModalWhatsAppBtn">Întreabă pe WhatsApp</button>
+          <button class="share-btn" id="shareProductBtn">&#8599; Share</button>
+        </div>
+        <button class="size-guide-btn" id="sizeGuideBtn" onclick="openSizeGuide()">&#9711; Ghid mărimi inele</button>
+      </div>
+    </div>
+
+    <!-- RELATED PRODUCTS -->
+    <div class="modal-related" id="modalRelated" style="display:none">
+      <p class="modal-related-title">S-ar putea să îți placă</p>
+      <div class="modal-related-grid" id="modalRelatedGrid"></div>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Înapoi sus">&#8679;</button>
+
+  <!-- RING SIZE GUIDE OVERLAY -->
+  <div class="size-guide-overlay" id="sizeGuideOverlay" onclick="if(event.target===this)closeSizeGuide()">
+    <div class="size-guide-box">
+      <button class="size-guide-close" onclick="closeSizeGuide()">&#10005;</button>
+      <h3>Ghid Mărimi Inele</h3>
+      <table class="size-guide-table">
+        <thead>
+          <tr>
+            <th>Mărime EU</th>
+            <th>Mărime US</th>
+            <th>Circumferință (mm)</th>
+            <th>Diametru (mm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>46</td><td>3</td><td>46</td><td>14.6</td></tr>
+          <tr><td>48</td><td>4</td><td>48</td><td>15.3</td></tr>
+          <tr><td>50</td><td>5</td><td>50</td><td>15.9</td></tr>
+          <tr><td>52</td><td>6</td><td>52</td><td>16.5</td></tr>
+          <tr><td>54</td><td>7</td><td>54</td><td>17.2</td></tr>
+          <tr><td>56</td><td>8</td><td>56</td><td>17.8</td></tr>
+          <tr><td>58</td><td>9</td><td>58</td><td>18.5</td></tr>
+          <tr><td>60</td><td>10</td><td>60</td><td>19.1</td></tr>
+          <tr><td>62</td><td>11</td><td>62</td><td>19.7</td></tr>
+        </tbody>
+      </table>
+      <p class="size-guide-note">Măsoară cu o sfoară circumferința degetului și compară cu valorile de mai sus.</p>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER POPUP -->
+  <div class="newsletter-overlay" id="newsletterOverlay">
+    <div class="newsletter-box">
+      <button class="newsletter-close" onclick="closeNewsletter()">×</button>
+      <div class="newsletter-gem">♦</div>
+      <h3>Oferte exclusive pentru tine</h3>
+      <p>Fii primul care află de colecțiile noi și reducerile lunii Josephine Jewelry.</p>
+      <div class="newsletter-input-row">
+        <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="adresa@email.ro">
+        <button class="newsletter-btn" onclick="subscribeNewsletter()">Abonează-mă</button>
+      </div>
+      <span class="newsletter-skip" onclick="closeNewsletter()">Nu, mulțumesc</span>
+    </div>
+  </div>
+
+  <!-- GDPR COOKIE CONSENT -->
+  <div id="cookieConsent" class="cookie-consent">
+    <p class="cookie-text">Folosim cookie-uri pentru a-ți oferi cea mai bună experiență pe site-ul nostru. Continuând navigarea, ești de acord cu <a href="#">Politica de confidențialitate</a> și utilizarea cookie-urilor.</p>
+    <div class="cookie-btns">
+      <button class="cookie-accept" onclick="acceptCookies()">Acceptă toate</button>
+      <button class="cookie-reject" onclick="rejectCookies()">Refuz</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       GHID PIETRE PREȚIOASE — JS
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    var GEM_DATA = {
+      diamant: {
+        name: 'Diamant', latin: 'Adamas',
+        color: 'Incolor / Alb strălucitor', colorHex: '#C0B8D8',
+        hardness: 10,
+        origin: 'Africa de Sud, Rusia, Canada, Australia',
+        symbol: 'Eternitate, puritate, forță indestructibilă',
+        zodiac: 'Berbec ♈  ·  Leu ♌',
+        month: 'Aprilie',
+        care: 'Curăță cu apă caldă și săpun moale, o dată pe lună',
+        fact: 'Cel mai dur material natural din lume — poate fi tăiat doar de alt diamant. Un diamant de 1 carat se formează la 150 km adâncime, sub presiuni de milioane de atmosfere, timp de miliarde de ani.'
+      },
+      rubin: {
+        name: 'Rubin', latin: 'Rubinus',
+        color: 'Roșu profund — „Sânge de porumbel"', colorHex: '#9B1B30',
+        hardness: 9,
+        origin: 'Myanmar (Birmania), Sri Lanka, Thailanda',
+        symbol: 'Pasiune, iubire eternă, energie vitală',
+        zodiac: 'Scorpion ♏  ·  Berbec ♈',
+        month: 'Iulie',
+        care: 'Evită produsele chimice; curăță cu perie moale și apă caldă',
+        fact: 'Rubinul aparține familiei corundum — exact ca safirul. Culoarea roșie vine din cromul prezent în structura cristalină. Un rubin de calitate superioară poate valora mai mult decât un diamant de aceeași greutate.'
+      },
+      safir: {
+        name: 'Safir', latin: 'Sapphirus',
+        color: 'Albastru royal / Cornflower Blue', colorHex: '#1E4ED8',
+        hardness: 9,
+        origin: 'Kashmir, Sri Lanka, Myanmar, Madagascar',
+        symbol: 'Loialitate, înțelepciune, protecție divină',
+        zodiac: 'Balanță ♎  ·  Pești ♓',
+        month: 'Septembrie',
+        care: 'Curăță cu apă și săpun neutru; evită curățătoarele cu ultrasunete',
+        fact: 'Safirul poate apărea în orice culoare cu excepția roșului — acela devine rubin. Inelul Prințesei Diana (purtat acum de Kate Middleton) este un safir de Kashmir de 12 carate înconjurat de 14 diamante.'
+      },
+      smarald: {
+        name: 'Smarald', latin: 'Smaragdus',
+        color: 'Verde intens / Verde colombian', colorHex: '#065F46',
+        hardness: 8,
+        origin: 'Columbia, Zambia, Brazilia, Zimbabwe',
+        symbol: 'Renaștere, prosperitate, conexiune cu natura',
+        zodiac: 'Taur ♉  ·  Gemeni ♊',
+        month: 'Mai',
+        care: 'Evită loviturile și curățătorii cu ultrasunete sau abur',
+        fact: 'Smaraldele sunt mai rare decât diamantele la aceeași calitate. Cleopatra era obsedată de smaralde și le considera simbolul regenerării eterne — le dăruia vizitatorilor importanți ca semn al puterii și gloriei sale.'
+      },
+      ametist: {
+        name: 'Ametist', latin: 'Amethystus',
+        color: 'Violet adânc / Mov lavandă', colorHex: '#6D28D9',
+        hardness: 7,
+        origin: 'Brazilia, Uruguay, Zambia, Madagascar',
+        symbol: 'Calm interior, intuiție, protecție spirituală',
+        zodiac: 'Vărsător ♒  ·  Pești ♓',
+        month: 'Februarie',
+        care: 'Ferește de lumina solară directă prelungită — culoarea poate pali',
+        fact: 'Grecii antici credeau că ametistul protejează împotriva beției — „amethystos" înseamnă „fără beție" în greacă. Episcopii medievali purtau inele cu ametist ca simbol al sobrietății și înțelepciunii divine.'
+      },
+      perla: {
+        name: 'Perlă', latin: 'Margarita',
+        color: 'Alb sidefat / Crem / Aur roz', colorHex: '#D4C5A0',
+        hardness: 3,
+        origin: 'Japonia (Akoya), China, Tahiti, Australia',
+        symbol: 'Puritate, feminitate, eleganță atemporală',
+        zodiac: 'Rac ♋  ·  Gemeni ♊',
+        month: 'Iunie',
+        care: 'Șterge cu cârpă moale după purtare; ferește de parfumuri și produse chimice',
+        fact: 'O perlă naturală se formează în 5–20 de ani. Cleopatra a dizolvat o perlă enormă în oțet și a băut-o pentru a câștiga un pariu că poate servi cel mai scump banchet din istorie — un gest de opulență rămas legendar.'
+      },
+      opal: {
+        name: 'Opal', latin: 'Opalus',
+        color: 'Iridescent — joc de culori unic', colorHex: '#7C3AED',
+        hardness: 6,
+        origin: 'Australia (95%), Etiopia, Mexic',
+        symbol: 'Creativitate, speranță, magia luminii',
+        zodiac: 'Balanță ♎  ·  Scorpion ♏',
+        month: 'Octombrie',
+        care: 'Ferește de căldură și medii uscate — conține apă în structura sa',
+        fact: 'Opalul conține 5–20% apă în structura sa cristalină. Fenomenul de joc de culori se numește opalescență și este cauzat de sfere microscopice de silice care difractă lumina. Fiecare opal din lume este unic.'
+      },
+      acvamarin: {
+        name: 'Acvamarin', latin: 'Aqua Marina',
+        color: 'Albastru pal / Turcoaz marin', colorHex: '#0891B2',
+        hardness: 8,
+        origin: 'Brazilia, Madagascar, Pakistan, Nigeria',
+        symbol: 'Curaj, serenitate, claritate mentală',
+        zodiac: 'Pești ♓  ·  Gemeni ♊',
+        month: 'Martie',
+        care: 'Stabil și rezistent; curăță cu apă caldă și săpun moale',
+        fact: 'Marinarii antici credeau că acvamarina este comoara sirenelor și o purtau pentru protecție pe mare. Numele înseamnă literal „apa mării" în latină. Cel mai mare acvamarin brut descoperit cânta 110 kilograme.'
+      }
+    };
+
+    var GEM_PHOTO = {
+      diamant:   'pietre/diamant.jpg',
+      rubin:     'pietre/rubin.jpg',
+      safir:     'pietre/safir.jpg',
+      smarald:   'pietre/smarald.jpg',
+      perla:     'pietre/perla.jpg',
+      opal:      'pietre/opal.jpg'
+    };
+    var GEM_CSS_ART = {
+      ametist:   'gem-v-amethyst',
+      acvamarin: 'gem-v-aquamarine'
+    };
+
+    function openGem(key) {
+      var d = GEM_DATA[key];
+      if (!d) return;
+
+      /* highlight active card */
+      document.querySelectorAll('.gem-card').forEach(function(c) {
+        c.classList.toggle('active', c.getAttribute('onclick') === "openGem('" + key + "')");
+      });
+
+      var panel = document.getElementById('gemInfoPanel');
+      var hPct  = (d.hardness / 10 * 100).toFixed(0);
+
+      /* Build panel visual — photo or CSS art */
+      var panelVisualHtml;
+      if (GEM_PHOTO[key]) {
+        panelVisualHtml = '<div class="gem-panel-visual"><img src="' + GEM_PHOTO[key] + '" alt="' + d.name + '" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
+      } else {
+        panelVisualHtml = '<div class="gem-panel-visual"><div class="gem-css-art ' + GEM_CSS_ART[key] + '" style="width:100%;height:100%"></div></div>';
+      }
+
+      panel.innerHTML =
+        '<div class="gem-panel-header">' +
+          panelVisualHtml +
+          '<div class="gem-panel-titles">' +
+            '<p class="gem-panel-name">' + d.name + '</p>' +
+            '<p class="gem-panel-latin">' + d.latin + '</p>' +
+          '</div>' +
+          '<div class="gem-color-badge">' +
+            '<span class="gem-color-dot" style="background:' + d.colorHex + '"></span>' +
+            '<span class="gem-color-text">' + d.color + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="gem-panel-grid">' +
+          '<div class="gem-info-item">' +
+            '<span class="gem-info-label">Duritate Mohs</span>' +
+            '<div class="hardness-row">' +
+              '<div class="hardness-bg"><div class="hardness-fill" style="width:' + hPct + '%"></div></div>' +
+              '<span class="hardness-num">' + d.hardness + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="gem-info-item">' +
+            '<span class="gem-info-label">Origine</span>' +
+            '<span class="gem-info-value">' + d.origin + '</span>' +
+          '</div>' +
+          '<div class="gem-info-item">' +
+            '<span class="gem-info-label">Simbol & Semnificație</span>' +
+            '<span class="gem-info-value">' + d.symbol + '</span>' +
+          '</div>' +
+          '<div class="gem-info-item">' +
+            '<span class="gem-info-label">Zodie asociată</span>' +
+            '<span class="gem-info-value">' + d.zodiac + '</span>' +
+          '</div>' +
+          '<div class="gem-info-item">' +
+            '<span class="gem-info-label">Piatra lunii</span>' +
+            '<span class="gem-info-value">' + d.month + '</span>' +
+          '</div>' +
+          '<div class="gem-info-item">' +
+            '<span class="gem-info-label">Îngrijire</span>' +
+            '<span class="gem-info-value">' + d.care + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="gem-fact-box">' +
+          '<span class="gem-fact-label">✦ Știai că...?</span>' +
+          '<p class="gem-fact-text">' + d.fact + '</p>' +
+        '</div>';
+
+      panel.style.display = '';
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+
+  <!-- ══ GRAVURĂ VIRTUALĂ MODAL ══ -->
+  <div class="gravura-overlay" id="gravuraOverlay" onclick="if(event.target===this)closeGravura()">
+    <div class="gravura-modal">
+      <button class="gravura-close" onclick="closeGravura()">×</button>
+      <p class="gravura-eyebrow">Josephine Jewelry</p>
+      <h3 class="gravura-title">GRAVURĂ VIRTUALĂ</h3>
+      <div class="gravura-canvas-wrap">
+        <canvas id="gravuraCanvas" width="240" height="240"></canvas>
+      </div>
+      <input type="text" class="gravura-input" id="gravuraText" maxlength="18"
+             placeholder="Scrie un nume sau mesaj..."
+             oninput="drawGravura()">
+      <div class="gravura-font-row">
+        <button class="gravura-font-btn active" onclick="setGravuraFont('cursive',this)">Script</button>
+        <button class="gravura-font-btn" onclick="setGravuraFont('serif',this)">Serif</button>
+        <button class="gravura-font-btn" onclick="setGravuraFont('sans-serif',this)">Modern</button>
+      </div>
+      <button class="gravura-cta" onclick="sendGravuraWhatsApp()">✦ Comandă cu gravură pe WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- ══ QUIZ DE STIL MODAL ══ -->
+  <div class="quiz-overlay" id="quizOverlay" onclick="if(event.target===this)closeQuiz()">
+    <div class="quiz-modal" id="quizModal">
+      <button class="quiz-close" onclick="closeQuiz()">×</button>
+
+      <!-- Quiz steps -->
+      <div id="quizStepView">
+        <div class="quiz-progress-wrap">
+          <div class="quiz-progress-fill" id="quizProgress" style="width:20%"></div>
+        </div>
+        <p class="quiz-step-label" id="quizStepLabel">Pasul 1 din 5</p>
+        <p class="quiz-question" id="quizQuestion"></p>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-nav">
+          <button class="quiz-back-btn" id="quizBackBtn" onclick="quizBack()" style="display:none">← Înapoi</button>
+          <button class="quiz-next-btn" id="quizNextBtn" onclick="quizNext()">Continuă →</button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div id="quizResultView" style="display:none">
+        <div class="quiz-results-header">
+          <p class="quiz-results-title">Bijuteriile perfecte pentru tine ✦</p>
+          <p class="quiz-results-sub" id="quizResultsSub"></p>
+        </div>
+        <div class="quiz-results-grid" id="quizResultsGrid"></div>
+        <button class="quiz-restart-btn" onclick="quizRestart()">↺ Reîncepe quizul</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SURPRINDE-MĂ MODAL ══ -->
+  <div class="surprise-overlay" id="surpriseOverlay" onclick="if(event.target===this)closeSurprise()">
+    <div class="surprise-modal">
+      <button class="surprise-close" onclick="closeSurprise()">×</button>
+      <p class="surprise-eyebrow">Josephine Jewelry</p>
+      <h3 class="surprise-title">SURPRINDE-MĂ ✦</h3>
+
+      <div class="gift-box-scene" id="giftBoxScene" onclick="openGiftBox()">
+        <div class="gift-box-body"></div>
+        <div class="gift-box-lid" id="giftBoxLid"></div>
+        <div class="gift-box-bow" id="giftBoxBow">🎀</div>
+        <div class="gift-sparkle" id="giftSparkle">💎</div>
+      </div>
+
+      <p id="surprisePrompt" style="font-family:var(--font-body);font-size:13px;color:var(--stone);margin-bottom:16px;">
+        Apasă pe cutie pentru a descoperi bijuteria surpriză!
+      </p>
+
+      <div class="surprise-reveal" id="surpriseReveal">
+        <img class="surprise-prod-img" id="surpriseProdImg" src="" alt="">
+        <p class="surprise-prod-name" id="surpriseProdName"></p>
+        <p class="surprise-prod-price" id="surpriseProdPrice"></p>
+        <div class="surprise-actions">
+          <button class="surprise-cart-btn" id="surpriseCartBtn">✦ Adaugă în coș</button>
+          <button class="surprise-retry-btn" onclick="retryGiftBox()">↺ Altă surpriză</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti container for Surprise Me -->
+  <div class="sp-confetti-wrap" id="spConfettiWrap"></div>
+
+  <script src="produse.js"></script>
+
+  <script>
+    const totalCatalogPages = 94;
+    let currentCatalogPage = 1;
+
+    function showCatalogPage() {
+      const catalogImage = document.getElementById("catalogImage");
+      const catalogCounter = document.getElementById("catalogCounter");
+
+      if (!catalogImage || !catalogCounter) return;
+
+      catalogImage.src = "catlog/" + currentCatalogPage + ".png";
+      catalogImage.alt = "Pagina " + currentCatalogPage + " din catalog";
+      catalogCounter.textContent = "Pagina " + currentCatalogPage + " / " + totalCatalogPages;
+    }
+
+    function nextCatalogPage() {
+      currentCatalogPage++;
+      if (currentCatalogPage > totalCatalogPages) {
+        currentCatalogPage = 1;
+      }
+      showCatalogPage();
+    }
+
+    function prevCatalogPage() {
+      currentCatalogPage--;
+      if (currentCatalogPage < 1) {
+        currentCatalogPage = totalCatalogPages;
+      }
+      showCatalogPage();
+    }
+
+    function renderHomeProducts() {
+      if (typeof renderHomepageProducts === "function") {
+        renderHomepageProducts("productGrid", "searchInput", "priceFilter");
+      }
+    }
+
+    window.addEventListener("scroll", function () {
+      const header = document.getElementById("mainHeader");
+      if (!header) return;
+
+      if (window.scrollY > 80) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "ArrowRight") {
+        nextCatalogPage();
+      }
+
+      if (event.key === "ArrowLeft") {
+        prevCatalogPage();
+      }
+    });
+
+    /* ── OFERTELE LUNII ── */
+    const OFERTE = [
+      { id: 6,  pretNou: "985 lei",    reducere: 20 },
+      { id: 81, pretNou: "1.080 lei",  reducere: 20 },
+      { id: 3,  pretNou: "1.600 lei",  reducere: 20 },
+      { id: 21, pretNou: "1.912 lei",  reducere: 20 },
+    ];
+
+    function renderOferteLunii() {
+      const grid = document.getElementById("oferteGrid");
+      if (!grid || typeof getProductById !== "function") return;
+      grid.innerHTML = "";
+
+      OFERTE.forEach(oferta => {
+        const product = getProductById(oferta.id);
+        if (!product) return;
+
+        const card = document.createElement("div");
+        card.className = "product-card offer-card reveal";
+        if (typeof revealObserver !== "undefined") revealObserver.observe(card);
+
+        const badge = document.createElement("div");
+        badge.className = "offer-badge";
+        badge.textContent = `−${oferta.reducere}%`;
+
+        const img = document.createElement("img");
+        img.className = "product-image";
+        img.alt = product.name;
+        img.loading = "lazy";
+        img.style.cursor = "pointer";
+        if (typeof getImagePath === "function") getImagePath(product.id, img);
+        img.addEventListener("click", () => openProductModal(product.id));
+
+        const h3 = document.createElement("h3");
+        h3.textContent = product.name;
+        h3.style.cursor = "pointer";
+        h3.addEventListener("click", () => openProductModal(product.id));
+
+        const p = document.createElement("p");
+        p.textContent = product.description;
+
+        const prices = document.createElement("div");
+        prices.className = "offer-prices";
+
+        const orig = document.createElement("span");
+        orig.className = "offer-price-original";
+        orig.textContent = product.price;
+
+        const newP = document.createElement("span");
+        newP.className = "offer-price-new";
+        newP.textContent = oferta.pretNou;
+
+        prices.appendChild(orig);
+        prices.appendChild(newP);
+
+        const actions = document.createElement("div");
+        actions.className = "product-card-actions";
+
+        const cartBtn = document.createElement("button");
+        cartBtn.className = "primary-card-btn";
+        cartBtn.textContent = "Adaugă în coș";
+        cartBtn.addEventListener("click", () => addToCart(product.id));
+
+        const detailsBtn = document.createElement("button");
+        detailsBtn.className = "secondary-card-btn";
+        detailsBtn.textContent = "Detalii";
+        detailsBtn.addEventListener("click", () => openProductModal(product.id));
+
+        actions.appendChild(cartBtn);
+        actions.appendChild(detailsBtn);
+
+        card.appendChild(badge);
+        card.appendChild(img);
+        card.appendChild(h3);
+        card.appendChild(p);
+        card.appendChild(prices);
+        card.appendChild(actions);
+        grid.appendChild(card);
+      });
+    }
+
+    /* ── COUNTDOWN TIMER ── */
+    (function () {
+      // Offer ends last day of current month at midnight
+      const now = new Date();
+      const end = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
+
+      function pad(n) { return String(n).padStart(2, "0"); }
+
+      function updateCountdown() {
+        const diff = end - new Date();
+        if (diff <= 0) {
+          document.getElementById("cd-zile").textContent = "00";
+          document.getElementById("cd-ore").textContent  = "00";
+          document.getElementById("cd-min").textContent  = "00";
+          document.getElementById("cd-sec").textContent  = "00";
+          return;
+        }
+        const days    = Math.floor(diff / 86400000);
+        const hours   = Math.floor((diff % 86400000) / 3600000);
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+        document.getElementById("cd-zile").textContent = pad(days);
+        document.getElementById("cd-ore").textContent  = pad(hours);
+        document.getElementById("cd-min").textContent  = pad(minutes);
+        document.getElementById("cd-sec").textContent  = pad(seconds);
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+
+    /* ── SWIPE ON CATALOG ── */
+    (function () {
+      var touchStartX = 0;
+      var catalogImg = document.getElementById("catalogImage");
+      if (!catalogImg) return;
+      catalogImg.addEventListener("touchstart", function (e) {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      catalogImg.addEventListener("touchend", function (e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) < 40) return;
+        if (dx < 0) nextCatalogPage();
+        else prevCatalogPage();
+      }, { passive: true });
+    })();
+
+    window.addEventListener("DOMContentLoaded", function () {
+      showCatalogPage();
+      renderHomeProducts();
+      renderOferteLunii();
+
+      if (typeof updateCartCount === "function") {
+        updateCartCount();
+      }
+
+      if (typeof renderCart === "function") {
+        renderCart();
+      }
+    });
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       GRAVURĂ VIRTUALĂ — JS
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    var gravuraFont = 'cursive';
+
+    function openGravura() {
+      document.getElementById('gravuraOverlay').classList.add('open');
+      drawGravura();
+    }
+    function closeGravura() {
+      document.getElementById('gravuraOverlay').classList.remove('open');
+    }
+    function setGravuraFont(font, btn) {
+      gravuraFont = font;
+      document.querySelectorAll('.gravura-font-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      drawGravura();
+    }
+    function drawGravura() {
+      var canvas = document.getElementById('gravuraCanvas');
+      var ctx = canvas.getContext('2d');
+      var W = canvas.width, H = canvas.height;
+      var cx = W / 2, cy = H / 2;
+      var R = 85, r = 54;
+      ctx.clearRect(0, 0, W, H);
+
+      /* ── Ring body ── */
+      var grad = ctx.createRadialGradient(cx - 18, cy - 18, 10, cx, cy, R);
+      grad.addColorStop(0,   '#FFE87C');
+      grad.addColorStop(0.4, '#C9A43A');
+      grad.addColorStop(0.7, '#A07820');
+      grad.addColorStop(1,   '#7A5A10');
+      ctx.beginPath();
+      ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.arc(cx, cy, r, 0, Math.PI * 2, true);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      /* ── Inner shadow ── */
+      var iGrad = ctx.createRadialGradient(cx, cy, r - 6, cx, cy, r + 4);
+      iGrad.addColorStop(0, 'rgba(0,0,0,0.35)');
+      iGrad.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath();
+      ctx.arc(cx, cy, r + 4, 0, Math.PI * 2);
+      ctx.arc(cx, cy, r - 6, 0, Math.PI * 2, true);
+      ctx.fillStyle = iGrad;
+      ctx.fill();
+
+      /* ── Shine highlight ── */
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.arc(cx, cy, r, 0, Math.PI * 2, true);
+      ctx.clip();
+      var shine = ctx.createLinearGradient(cx - R, cy - R, cx + R * 0.3, cy + R * 0.3);
+      shine.addColorStop(0, 'rgba(255,255,200,0.45)');
+      shine.addColorStop(0.5, 'rgba(255,255,255,0)');
+      ctx.fillStyle = shine;
+      ctx.fillRect(0, 0, W, H);
+      ctx.restore();
+
+      /* ── Engraved text along inner arc ── */
+      var text = (document.getElementById('gravuraText').value || '').trim();
+      if (!text) {
+        /* placeholder */
+        ctx.font = 'italic 13px ' + gravuraFont;
+        ctx.fillStyle = 'rgba(255,240,180,0.35)';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('scrie un mesaj...', cx, cy);
+        return;
+      }
+      var fontSize = Math.max(11, Math.min(22, Math.floor(160 / Math.max(text.length, 1))));
+      ctx.font = 'italic ' + fontSize + 'px ' + gravuraFont;
+      ctx.fillStyle = 'rgba(255,240,180,0.9)';
+      ctx.shadowColor = 'rgba(0,0,0,0.6)';
+      ctx.shadowBlur = 2;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      /* Curve text around inner ring */
+      var arcR = (R + r) / 2;
+      var totalAngle = Math.min(Math.PI * 1.5, (text.length * fontSize * 0.65) / arcR);
+      var startAngle = -Math.PI / 2 - totalAngle / 2;
+      var charAngle = text.length > 1 ? totalAngle / (text.length - 1) : 0;
+
+      for (var i = 0; i < text.length; i++) {
+        var angle = startAngle + i * charAngle;
+        ctx.save();
+        ctx.translate(cx + arcR * Math.cos(angle), cy + arcR * Math.sin(angle));
+        ctx.rotate(angle + Math.PI / 2);
+        ctx.fillText(text[i], 0, 0);
+        ctx.restore();
+      }
+      ctx.shadowBlur = 0;
+    }
+
+    function sendGravuraWhatsApp() {
+      var text = document.getElementById('gravuraText').value.trim();
+      var msg = text
+        ? 'Bună ziua! Doresc o bijuterie cu gravura: "' + text + '" (font: ' + gravuraFont + '). Vă rog să mă contactați.'
+        : 'Bună ziua! Sunt interesat de opțiunea de gravură personalizată. Vă rog să mă contactați.';
+      window.open('https://wa.me/40754334877?text=' + encodeURIComponent(msg), '_blank');
+    }
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       QUIZ DE STIL — JS
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    var QUIZ_STEPS = [
+      {
+        q: 'Ce stil te reprezintă?',
+        opts: ['Minimalist ◇','Romantic ♡','Îndrăzneț ◆','Clasic ✦'],
+        key: 'stil'
+      },
+      {
+        q: 'Pentru ce ocazie cauți bijuteria?',
+        opts: ['Zi de zi','Seară specială','Cadou de suflet','Momentul vieții'],
+        key: 'ocazie'
+      },
+      {
+        q: 'Ce material îți inspiră eleganță?',
+        opts: ['Aur cald','Argint pur','Oțel premium','Nu contează'],
+        key: 'material'
+      },
+      {
+        q: 'Ce tip de bijuterie cauți?',
+        opts: ['Inel','Colier / Lănțișor','Brățară','Cercei / Broșă'],
+        key: 'tip',
+        map: ['inele','lanturi','bratari','cercei']
+      },
+      {
+        q: 'Care este bugetul tău?',
+        opts: ['Sub 1.500 lei','1.500 – 3.000 lei','3.000 – 6.000 lei','Orice buget'],
+        key: 'buget',
+        map: ['0-1500','1500-3000','3000-6000','6000+']
+      }
+    ];
+
+    var quizStep = 0;
+    var quizAnswers = {};
+
+    function openQuiz() {
+      quizStep = 0;
+      quizAnswers = {};
+      document.getElementById('quizOverlay').classList.add('open');
+      document.getElementById('quizStepView').style.display = '';
+      document.getElementById('quizResultView').style.display = 'none';
+      renderQuizStep();
+    }
+    function closeQuiz() {
+      document.getElementById('quizOverlay').classList.remove('open');
+    }
+    function renderQuizStep() {
+      var step = QUIZ_STEPS[quizStep];
+      var pct = ((quizStep + 1) / QUIZ_STEPS.length) * 100;
+      document.getElementById('quizProgress').style.width = pct + '%';
+      document.getElementById('quizStepLabel').textContent = 'Pasul ' + (quizStep + 1) + ' din ' + QUIZ_STEPS.length;
+      document.getElementById('quizQuestion').textContent = step.q;
+      document.getElementById('quizBackBtn').style.display = quizStep > 0 ? '' : 'none';
+
+      var optContainer = document.getElementById('quizOptions');
+      optContainer.innerHTML = '';
+      step.opts.forEach(function(opt, i) {
+        var btn = document.createElement('button');
+        btn.className = 'quiz-opt' + (quizAnswers[step.key] === i ? ' sel' : '');
+        btn.textContent = opt;
+        btn.onclick = function() {
+          quizAnswers[step.key] = i;
+          optContainer.querySelectorAll('.quiz-opt').forEach(function(b){ b.classList.remove('sel'); });
+          btn.classList.add('sel');
+        };
+        optContainer.appendChild(btn);
+      });
+    }
+    function quizNext() {
+      var step = QUIZ_STEPS[quizStep];
+      if (quizAnswers[step.key] === undefined) {
+        /* auto-select first if nothing chosen */
+        quizAnswers[step.key] = 0;
+      }
+      if (quizStep < QUIZ_STEPS.length - 1) {
+        quizStep++;
+        renderQuizStep();
+      } else {
+        showQuizResults();
+      }
+    }
+    function quizBack() {
+      if (quizStep > 0) { quizStep--; renderQuizStep(); }
+    }
+    function quizRestart() {
+      quizStep = 0;
+      quizAnswers = {};
+      document.getElementById('quizStepView').style.display = '';
+      document.getElementById('quizResultView').style.display = 'none';
+      renderQuizStep();
+    }
+    function showQuizResults() {
+      /* Determine type */
+      var tipStep = QUIZ_STEPS.find(function(s){ return s.key === 'tip'; });
+      var tipIdx = quizAnswers['tip'] !== undefined ? quizAnswers['tip'] : 0;
+      var tipFilter = tipStep.map[tipIdx];
+
+      /* Determine budget */
+      var budgetStep = QUIZ_STEPS.find(function(s){ return s.key === 'buget'; });
+      var budgetIdx = quizAnswers['buget'] !== undefined ? quizAnswers['buget'] : 3;
+      var budgetRange = budgetStep.map[budgetIdx];
+
+      /* Filter products */
+      var results = [];
+      if (typeof productData !== 'undefined') {
+        Object.keys(productData).forEach(function(id) {
+          var p = productData[id];
+          if (!p || !p.type) return;
+          /* type match */
+          if (tipFilter !== 'cercei' && p.type !== tipFilter) return;
+          if (tipFilter === 'cercei' && p.type !== 'cercei' && p.type !== 'brose') return;
+          /* budget match */
+          if (budgetRange !== '6000+') {
+            var parts = budgetRange.split('-');
+            var minB = parseInt(parts[0]), maxB = parseInt(parts[1]);
+            var price = parseInt((p.price || '0').replace(/[^0-9]/g,''));
+            if (price < minB || price > maxB) return;
+          }
+          results.push({ id: parseInt(id), p: p });
+        });
+      }
+      /* shuffle & pick 6 */
+      results.sort(function(){ return Math.random() - 0.5; });
+      results = results.slice(0, 6);
+
+      /* fallback: just pick 6 random of the right type */
+      if (results.length < 3 && typeof productData !== 'undefined') {
+        results = [];
+        Object.keys(productData).forEach(function(id){ results.push({ id: parseInt(id), p: productData[id] }); });
+        results.sort(function(){ return Math.random() - 0.5; });
+        results = results.slice(0, 6);
+      }
+
+      /* Render */
+      var grid = document.getElementById('quizResultsGrid');
+      grid.innerHTML = '';
+      results.forEach(function(item) {
+        var card = document.createElement('div');
+        card.className = 'quiz-res-card';
+        var img = document.createElement('img');
+        img.className = 'quiz-res-img';
+        img.alt = item.p.name;
+        img.onerror = function(){ this.src = 'logo.png'; };
+        if (typeof getImagePath === 'function') getImagePath(item.id, img);
+        var name = document.createElement('p');
+        name.className = 'quiz-res-name';
+        name.textContent = item.p.name;
+        var price = document.createElement('p');
+        price.className = 'quiz-res-price';
+        price.textContent = item.p.price;
+        card.appendChild(img);
+        card.appendChild(name);
+        card.appendChild(price);
+        card.onclick = function() {
+          closeQuiz();
+          if (typeof openProductModal === 'function') openProductModal(item.id);
+        };
+        grid.appendChild(card);
+      });
+
+      var tipNames = ['inele','lănțișoare','brățări','cercei'];
+      document.getElementById('quizResultsSub').textContent =
+        'Am selectat ' + results.length + ' bijuterii din categoria ' + tipNames[tipIdx] + ' pentru tine';
+
+      document.getElementById('quizStepView').style.display = 'none';
+      document.getElementById('quizResultView').style.display = '';
+    }
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SURPRINDE-MĂ — JS
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    var surpriseProdId = null;
+    var giftBoxOpened = false;
+
+    function openSurprise() {
+      document.getElementById('surpriseOverlay').classList.add('open');
+      resetGiftBox();
+    }
+    function closeSurprise() {
+      document.getElementById('surpriseOverlay').classList.remove('open');
+    }
+    function resetGiftBox() {
+      giftBoxOpened = false;
+      document.getElementById('giftBoxLid').classList.remove('opened');
+      document.getElementById('giftSparkle').classList.remove('visible');
+      document.getElementById('surpriseReveal').classList.remove('visible');
+      document.getElementById('surprisePrompt').style.display = '';
+      document.getElementById('giftBoxScene').style.cursor = 'pointer';
+    }
+    function retryGiftBox() {
+      resetGiftBox();
+    }
+    function openGiftBox() {
+      if (giftBoxOpened) return;
+      giftBoxOpened = true;
+      document.getElementById('giftBoxScene').style.cursor = 'default';
+
+      /* Pick random product */
+      var ids = typeof productData !== 'undefined' ? Object.keys(productData) : [];
+      if (!ids.length) return;
+      var id = parseInt(ids[Math.floor(Math.random() * ids.length)]);
+      while (!productData[id] || !productData[id].name) {
+        id = parseInt(ids[Math.floor(Math.random() * ids.length)]);
+      }
+      surpriseProdId = id;
+      var p = productData[id];
+
+      /* Open lid */
+      document.getElementById('giftBoxLid').classList.add('opened');
+
+      setTimeout(function() {
+        document.getElementById('giftSparkle').classList.add('visible');
+      }, 500);
+
+      setTimeout(function() {
+        /* Populate product */
+        var img = document.getElementById('surpriseProdImg');
+        img.alt = p.name;
+        img.onerror = function(){ this.src = 'logo.png'; };
+        if (typeof getImagePath === 'function') getImagePath(id, img);
+        document.getElementById('surpriseProdName').textContent = p.name;
+        document.getElementById('surpriseProdPrice').textContent = p.price;
+        document.getElementById('surpriseReveal').classList.add('visible');
+        document.getElementById('surprisePrompt').style.display = 'none';
+
+        /* Confetti */
+        launchSpConfetti();
+      }, 700);
+
+      /* Cart button */
+      document.getElementById('surpriseCartBtn').onclick = function() {
+        if (typeof addToCart === 'function') addToCart(surpriseProdId);
+        closeSurprise();
+      };
+    }
+    function launchSpConfetti() {
+      var wrap = document.getElementById('spConfettiWrap');
+      if (!wrap) return;
+      var COLORS = ['#C9A43A','#E8C060','#A855F7','#C084FC','#FFD700','#FFFFFF','#F0ECFF'];
+      for (var i = 0; i < 90; i++) {
+        (function(idx) {
+          setTimeout(function() {
+            var el = document.createElement('div');
+            el.className = 'sp-cp';
+            var size  = 5 + Math.random() * 8;
+            var left  = Math.random() * 100;
+            var dur   = 2 + Math.random() * 2;
+            var delay = Math.random() * 0.6;
+            var rot   = (Math.random() > 0.5 ? 1 : -1) * (180 + Math.random() * 360) + 'deg';
+            var dx    = (Math.random() - 0.5) * 160 + 'px';
+            var color = COLORS[Math.floor(Math.random() * COLORS.length)];
+            var shape = Math.random() > 0.5 ? '50%' : '2px';
+            el.style.cssText =
+              'left:' + left + 'vw;width:' + size + 'px;height:' + size + 'px;' +
+              'background:' + color + ';border-radius:' + shape + ';' +
+              'animation-duration:' + dur + 's;animation-delay:' + delay + 's;' +
+              '--r:' + rot + ';--dx:' + dx + ';';
+            wrap.appendChild(el);
+            setTimeout(function(){ el.remove(); }, (dur + delay) * 1000 + 500);
+          }, idx * 15);
+        })(i);
+      }
+    }
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       GIFT FINDER — JS
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    function parsePriceLei(str) {
+      if (!str) return 0;
+      return parseInt(str.replace(/[^0-9]/g, '')) || 0;
+    }
+    function runGiftFinder() {
+      var person   = document.getElementById('gfPerson').value;
+      var occasion = document.getElementById('gfOccasion').value;
+      var budget   = document.getElementById('gfBudget').value;
+
+      var results = [];
+      if (typeof productData !== 'undefined') {
+        Object.keys(productData).forEach(function(id) {
+          var p = productData[id];
+          if (!p) return;
+          /* person filter */
+          if (person && p.gender !== person) return;
+          /* occasion / type filter */
+          if (occasion && occasion !== 'toate' && p.type !== occasion) return;
+          /* budget filter */
+          if (budget) {
+            var price = parsePriceLei(p.price);
+            if (budget === '0-1500' && price > 1500) return;
+            if (budget === '1500-3000' && (price < 1500 || price > 3000)) return;
+            if (budget === '3000-6000' && (price < 3000 || price > 6000)) return;
+            /* 6000+ — no filter */
+          }
+          results.push({ id: parseInt(id), p: p });
+        });
+      }
+
+      /* shuffle, max 8 */
+      results.sort(function(){ return Math.random() - 0.5; });
+      results = results.slice(0, 8);
+
+      var resultsEl = document.getElementById('gfResults');
+      var grid = document.getElementById('gfGrid');
+      var label = document.getElementById('gfResultsLabel');
+      grid.innerHTML = '';
+      resultsEl.style.display = '';
+
+      if (!results.length) {
+        grid.innerHTML = '<p class="gf-empty">Nu am găsit produse pentru filtrele selectate. Încearcă alte opțiuni.</p>';
+        label.textContent = '';
+        return;
+      }
+
+      var personLabel = { femei:'pentru ea', barbati:'pentru el', copii:'pentru copii', '':'' }[person] || '';
+      label.textContent = results.length + ' recomandări ' + personLabel;
+
+      results.forEach(function(item) {
+        var card = document.createElement('div');
+        card.className = 'product-card reveal';
+        if (typeof revealObserver !== 'undefined') revealObserver.observe(card);
+
+        var img = document.createElement('img');
+        img.className = 'product-image';
+        img.alt = item.p.name;
+        img.loading = 'lazy';
+        img.style.cursor = 'pointer';
+        img.onerror = function(){ this.src = 'logo.png'; };
+        if (typeof getImagePath === 'function') getImagePath(item.id, img);
+        img.onclick = function() { if (typeof openProductModal === 'function') openProductModal(item.id); };
+
+        var h3 = document.createElement('h3');
+        h3.textContent = item.p.name;
+        h3.style.cursor = 'pointer';
+        h3.onclick = function() { if (typeof openProductModal === 'function') openProductModal(item.id); };
+
+        var desc = document.createElement('p');
+        desc.textContent = item.p.description;
+
+        var price = document.createElement('div');
+        price.className = 'product-price';
+        price.textContent = item.p.price;
+
+        var actions = document.createElement('div');
+        actions.className = 'product-card-actions';
+
+        var cartBtn = document.createElement('button');
+        cartBtn.className = 'primary-card-btn';
+        cartBtn.textContent = 'Adaugă în coș';
+        cartBtn.onclick = function() { if (typeof addToCart === 'function') addToCart(item.id); };
+
+        var detailsBtn = document.createElement('button');
+        detailsBtn.className = 'secondary-card-btn';
+        detailsBtn.textContent = 'Detalii';
+        detailsBtn.onclick = function() { if (typeof openProductModal === 'function') openProductModal(item.id); };
+
+        actions.appendChild(cartBtn);
+        actions.appendChild(detailsBtn);
+        card.appendChild(img);
+        card.appendChild(h3);
+        card.appendChild(desc);
+        card.appendChild(price);
+        card.appendChild(actions);
+        grid.appendChild(card);
+      });
+
+      resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+</body>
+</html>

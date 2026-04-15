@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite — Josephine Jewelry</title>
+  <meta name="description" content="Produsele tale favorite Josephine Jewelry">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    LIVRARE RAPIDĂ • BIJUTERII PREMIUM • JOSEPHINE JEWELRY
+  </div>
+
+  <header class="header normal-header">
+    <div class="logo-container">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+        <img src="logo.png" class="logo" alt="Logo Josephine Jewelry">
+        <div class="brand-text">
+          <h1>JOSEPHINE</h1>
+          <p>JEWELRY</p>
+        </div>
+      </a>
+    </div>
+
+    <nav class="menu premium-menu">
+      <a href="index.html#noutati">Noutăți</a>
+      <a href="index.html#produse">Produse</a>
+      <a href="index.html#catalog">Catalog</a>
+      <a href="jewelry-configurator-app/index.html" style="color:#C9A86C;font-weight:500;">✦ Configurator 3D</a>
+      <a href="wishlist.html" style="color:rgba(224,85,119,0.85)">♥ Favorite</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="cart-toggle" onclick="toggleCart()">
+        Coș <span id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2 style="margin-bottom:8px">♥ Produsele tale favorite</h2>
+    <p class="catalog-text" style="margin-bottom:40px">Bijuteriile pe care le-ai salvat</p>
+
+    <div id="wishlistEmpty" style="display:none;text-align:center;padding:80px 20px;">
+      <div style="font-size:52px;margin-bottom:20px;opacity:0.3">♡</div>
+      <p style="font-family:var(--font-heading);font-style:italic;font-size:20px;color:var(--stone);margin-bottom:24px">
+        Nu ai produse salvate încă
+      </p>
+      <a href="index.html#produse" style="
+        display:inline-block;
+        padding:14px 32px;
+        background:linear-gradient(135deg,var(--gold),var(--gold-light));
+        color:var(--purple-deep);
+        font-family:var(--font-body);
+        font-size:11px;
+        letter-spacing:2px;
+        text-transform:uppercase;
+        text-decoration:none;
+        transition:opacity 0.2s;
+      ">Descoperă colecțiile</a>
+    </div>
+
+    <div class="product-grid" id="wishlistGrid"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="logo.png" class="footer-logo-img" alt="Josephine Jewelry">
+          <div><span class="footer-brand-name">JOSEPHINE</span><span class="footer-brand-sub">Jewelry</span></div>
+        </div>
+        <div class="footer-school-badge">
+          <img src="logo-cevmg/logo-cevmg.png" alt="CEVMG">
+          <span>Colegiul Economic<br>„Virgil Madgearu" Galați</span>
+        </div>
+        <p class="footer-tagline">Rafinament în Fiecare Detaliu.</p>
+        <div class="footer-info">
+          <p>F.E. Josephine Jewelry S.A.</p>
+          <p>Tel: <a href="tel:+40754334877">0754 334 877</a></p>
+          <p>Email: <a href="mailto:jewelryjosephine715@gmail.com">jewelryjosephine715@gmail.com</a></p>
+        </div>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">&#9678;</a>
+          <a href="#" class="footer-social-btn">&#9835;</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Colecții</p>
+        <ul class="footer-links">
+          <li><a href="categorie.html?gen=femei&tip=toate&titlu=Femei">Femei</a></li>
+          <li><a href="categorie.html?gen=barbati&tip=toate&titlu=Bărbați">Bărbați</a></li>
+          <li><a href="categorie.html?gen=copii&tip=toate&titlu=Copii">Copii</a></li>
+          <li><a href="jewelry-configurator-app/index.html">✦ Configurator 3D</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Suport</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Înapoi acasă</a></li>
+          <li><a href="#">Politică retur</a></li>
+          <li><a href="wishlist.html">♥ Favorite</a></li>
+          <li><a href="index.html#oferte">Oferte lunii</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Companie</p>
+        <ul class="footer-links">
+          <li><a href="index.html#echipa">Organigramă</a></li>
+          <li><a href="index.html#despre">Despre noi</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="https://wa.me/40754334877" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Josephine Jewelry — Firmă de exercițiu creată în scop educațional</p>
+      <p>Adresă: Str. Strungarilor nr. 31 • Tel: 0236 446 248</p>
+    </div>
+  </footer>
+
+  <div class="floating-buttons">
+    <a href="https://wa.me/40754334877?text=Bună ziua! Sunt interesat de bijuteriile Josephine." target="_blank" class="float-whatsapp-btn">
+      <svg class="float-whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.112 1.523 5.837L0 24l6.344-1.497A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.588-.476-5.1-1.31L2 22l1.347-4.776A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <div class="float-whatsapp-info"><strong>WhatsApp</strong><span>0754 334 877</span></div>
+    </a>
+    <a href="https://wa.me/40754334877?text=Bună! Aș dori ajutor să aleg o bijuterie." target="_blank" class="float-asistent-btn">
+      <span class="float-asistent-icon">◆</span> Asistent Josephine
+    </a>
+  </div>
+
+  <div id="site-notification" class="site-notification">
+    Produsul a fost adăugat în coș.
+  </div>
+
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Coșul tău <span class="cart-header-count" id="cartHeaderCount"></span></h3>
+      <button class="cart-close" onclick="closeCart()">×</button>
+    </div>
+    <div class="cart-body" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">0,00 lei</strong>
+      </div>
+      <div class="cart-buttons">
+        <button class="cart-checkout" onclick="window.location.href='comanda.html'">✦ Plasează comanda</button>
+        <button class="cart-wa-ask" onclick="sendOrderWhatsApp()">💬 Întreabă pe WhatsApp</button>
+        <button class="cart-clear" onclick="clearCart()">Golește coșul</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="product-modal-overlay" id="productModalOverlay" onclick="closeProductModal()"></div>
+
+  <div class="product-modal" id="productModal">
+    <button class="product-modal-close" onclick="closeProductModal()">×</button>
+    <div class="product-modal-content">
+      <div class="product-modal-image-wrap">
+        <img id="productModalImage" src="logo.png" alt="Produs">
+      </div>
+      <div class="product-modal-info">
+        <p class="product-modal-category" id="productModalCategory">Categorie</p>
+        <h3 id="productModalTitle">Nume produs</h3>
+        <div class="live-viewers" id="liveViewers">
+          <span class="live-dot"></span>
+          <span id="liveViewersText">3 persoane se uită acum la acest produs</span>
+        </div>
+        <p id="productModalDescription">Descriere produs</p>
+        <div class="product-modal-price" id="productModalPrice">0 lei</div>
+        <div class="product-modal-actions">
+          <button class="primary-btn" id="productModalCartBtn">Adaugă în coș</button>
+          <button class="secondary-btn" id="productModalWhatsAppBtn">Întreabă pe WhatsApp</button>
+          <button class="share-btn" id="shareProductBtn">&#8599; Share</button>
+        </div>
+        <button class="size-guide-btn" id="sizeGuideBtn" onclick="openSizeGuide()">&#9711; Ghid mărimi inele</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RING SIZE GUIDE -->
+  <div class="size-guide-overlay" id="sizeGuideOverlay" onclick="if(event.target===this)closeSizeGuide()">
+    <div class="size-guide-box">
+      <button class="size-guide-close" onclick="closeSizeGuide()">&#10005;</button>
+      <h3>Ghid Mărimi Inele</h3>
+      <table class="size-guide-table">
+        <thead>
+          <tr><th>Mărime EU</th><th>Mărime US</th><th>Circumferință (mm)</th><th>Diametru (mm)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>46</td><td>3</td><td>46</td><td>14.6</td></tr>
+          <tr><td>48</td><td>4</td><td>48</td><td>15.3</td></tr>
+          <tr><td>50</td><td>5</td><td>50</td><td>15.9</td></tr>
+          <tr><td>52</td><td>6</td><td>52</td><td>16.5</td></tr>
+          <tr><td>54</td><td>7</td><td>54</td><td>17.2</td></tr>
+          <tr><td>56</td><td>8</td><td>56</td><td>17.8</td></tr>
+          <tr><td>58</td><td>9</td><td>58</td><td>18.5</td></tr>
+          <tr><td>60</td><td>10</td><td>60</td><td>19.1</td></tr>
+          <tr><td>62</td><td>11</td><td>62</td><td>19.7</td></tr>
+        </tbody>
+      </table>
+      <p class="size-guide-note">Măsoară cu o sfoară circumferința degetului și compară cu valorile de mai sus.</p>
+    </div>
+  </div>
+
+  <script src="produse.js"></script>
+</body>
+</html>

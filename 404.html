@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina nu a fost găsită — Josephine Jewelry</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #B8922A;
+      --gold-light: #D4AF5A;
+      --purple-deep: #160B2E;
+      --purple-dark: #2D1259;
+      --purple-mid: #7C3AED;
+      --cream: #F5F0FF;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Jost', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--purple-deep);
+      color: #e8d5ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      overflow: hidden;
+    }
+
+    /* Stars background */
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(200,160,255,0.6);
+      animation: twinkle var(--dur, 3s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50%       { opacity: 0.9; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+    }
+
+    .gem-wrap {
+      margin: 0 auto 32px;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,160,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: gemFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes gemFloat {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    .gem-wrap::before {
+      content: '';
+      position: absolute;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,160,255,0.15);
+    }
+
+    .gem-inner {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple-mid));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gem-inner svg { display: block; }
+
+    .four-oh-four {
+      font-family: var(--font-display);
+      font-size: clamp(72px, 18vw, 130px);
+      font-weight: 600;
+      letter-spacing: 8px;
+      line-height: 1;
+      background: linear-gradient(135deg, #e8d5ff 0%, #c87fff 50%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c87fff, transparent);
+      margin: 16px auto;
+    }
+
+    .title {
+      font-family: var(--font-heading);
+      font-size: clamp(20px, 4vw, 30px);
+      font-weight: 400;
+      color: #e8d5ff;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: rgba(200,160,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 13px 32px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--purple-deep);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 13px 32px;
+      border: 1px solid rgba(200,160,255,0.4);
+      color: rgba(200,160,255,0.8);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: rgba(200,160,255,0.7);
+      color: #e8d5ff;
+    }
+
+    .logo-bar {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: rgba(200,160,255,0.6);
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 4px;
+      z-index: 10;
+    }
+
+    .logo-bar img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      filter: brightness(0) invert(1) opacity(0.5);
+    }
+
+    .bottom-label {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(200,160,255,0.3);
+      text-transform: uppercase;
+      white-space: nowrap;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+
+  <a href="index.html" class="logo-bar">
+    <img src="logo.png" alt="Logo">
+    JOSEPHINE JEWELRY
+  </a>
+
+  <div class="content">
+    <div class="gem-wrap">
+      <div class="gem-inner">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <polygon points="13,2 24,9 24,19 13,26 2,19 2,9"
+            stroke="#c87fff" stroke-width="1"
+            fill="rgba(150,80,255,0.35)"/>
+          <polygon points="13,6 20,11 20,17 13,22 6,17 6,11"
+            stroke="rgba(220,190,255,0.4)" stroke-width="0.5"
+            fill="rgba(200,160,255,0.1)"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="four-oh-four">404</div>
+    <div class="divider"></div>
+    <h1 class="title">Pagina nu a fost găsită</h1>
+    <p class="subtitle">
+      Se pare că bijuteria pe care o cauți a dispărut în eleganță.<br>
+      Dar colecția noastră te așteaptă.
+    </p>
+
+    <div class="cta-group">
+      <a href="index.html" class="btn-primary">✦ Înapoi la colecții</a>
+      <a href="index.html#produse" class="btn-outline">Vezi produse</a>
+    </div>
+  </div>
+
+  <div class="bottom-label">Josephine Jewelry · Eleganță în fiecare detaliu</div>
+
+  <script>
+    // Generate stars
+    const container = document.getElementById("stars");
+    for (let i = 0; i < 120; i++) {
+      const s = document.createElement("div");
+      s.className = "star";
+      const size = Math.random() * 2.2 + 0.4;
+      s.style.cssText = `
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        width: ${size}px;
+        height: ${size}px;
+        --dur: ${(Math.random() * 3 + 2).toFixed(1)}s;
+        --delay: ${(Math.random() * 4).toFixed(1)}s;
+      `;
+      container.appendChild(s);
+    }
+  </script>
+</body>
+</html>

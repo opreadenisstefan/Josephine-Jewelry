@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plasează Comanda - Josephine Jewelry</title>
+  <meta name="description" content="Finalizează comanda ta Josephine Jewelry">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    LIVRARE RAPIDĂ • BIJUTERII PREMIUM • JOSEPHINE JEWELRY
+  </div>
+
+  <header class="header normal-header">
+    <div class="logo-container">
+      <a href="index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;">
+        <img src="logo.png" class="logo" alt="Logo Josephine Jewelry">
+        <div class="brand-text">
+          <h1>JOSEPHINE</h1>
+          <p>JEWELRY</p>
+        </div>
+      </a>
+    </div>
+
+    <nav class="menu premium-menu">
+      <a href="index.html">← Înapoi la produse</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="index.html#produse" class="checkout-back-link">Continuă cumpărăturile</a>
+    </div>
+  </header>
+
+  <!-- CHECKOUT PAGE -->
+  <main class="checkout-page">
+
+    <div class="checkout-hero">
+      <p class="hero-mini-label" style="display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">
+        <span style="display:inline-block;width:28px;height:1px;background:var(--gold);"></span>
+        JOSEPHINE JEWELRY
+      </p>
+      <h2 class="checkout-heading">Plasează comanda</h2>
+      <p class="checkout-subtext">Completează datele de livrare și confirmăm comanda prin WhatsApp în cel mai scurt timp.</p>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="checkout-progress">
+      <div class="cp-track">
+        <div class="cp-fill" id="cpFill"></div>
+      </div>
+      <div class="cp-steps">
+        <div class="cp-step active" id="cpStep1">
+          <div class="cp-dot"><span>1</span></div>
+          <span class="cp-label">Date personale</span>
+        </div>
+        <div class="cp-step" id="cpStep2">
+          <div class="cp-dot"><span>2</span></div>
+          <span class="cp-label">Adresă livrare</span>
+        </div>
+        <div class="cp-step" id="cpStep3">
+          <div class="cp-dot"><span>3</span></div>
+          <span class="cp-label">Confirmare</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkout-grid" id="checkoutGrid">
+
+      <!-- ─── LEFT: FORM ─── -->
+      <div class="checkout-form-col">
+        <form id="orderForm" class="order-form" novalidate>
+
+          <!-- ══ STEP 1: DATE PERSONALE ══ -->
+          <div class="form-step" id="formStep1">
+            <h3 class="checkout-col-title">Date personale</h3>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="f-nume">Nume <span class="req">*</span></label>
+                <input class="form-input" type="text" id="f-nume" name="nume" required placeholder="Ionescu">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-prenume">Prenume <span class="req">*</span></label>
+                <input class="form-input" type="text" id="f-prenume" name="prenume" required placeholder="Maria">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="f-telefon">Telefon <span class="req">*</span></label>
+                <input class="form-input" type="tel" id="f-telefon" name="telefon" required placeholder="07xx xxx xxx">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-email">Email</label>
+                <input class="form-input" type="email" id="f-email" name="email" placeholder="email@exemplu.ro">
+              </div>
+            </div>
+
+            <div class="step-nav">
+              <button type="button" class="step-next-btn" onclick="goStep(2)">Continuă <span>→</span></button>
+            </div>
+          </div>
+
+          <!-- ══ STEP 2: ADRESĂ LIVRARE ══ -->
+          <div class="form-step hidden" id="formStep2">
+            <h3 class="checkout-col-title">Adresă de livrare</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="f-adresa">Adresă <span class="req">*</span></label>
+              <input class="form-input" type="text" id="f-adresa" name="adresa" required placeholder="Str. Exemplu nr. 10, ap. 3">
+            </div>
+
+            <div class="form-row-3">
+              <div class="form-group">
+                <label class="form-label" for="f-oras">Oraș <span class="req">*</span></label>
+                <input class="form-input" type="text" id="f-oras" name="oras" required placeholder="București">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-judet">Județ <span class="req">*</span></label>
+                <input class="form-input" type="text" id="f-judet" name="judet" required placeholder="Ilfov">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-cod">Cod poștal</label>
+                <input class="form-input" type="text" id="f-cod" name="cod" placeholder="010101">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-obs">Observații</label>
+              <textarea class="form-input form-textarea" id="f-obs" name="observatii" rows="3"
+                placeholder="Instrucțiuni speciale, culoare preferată, dedicație..."></textarea>
+            </div>
+
+            <div class="step-nav">
+              <button type="button" class="step-back-btn" onclick="goStep(1)"><span>←</span> Înapoi</button>
+              <button type="button" class="step-next-btn" onclick="goStep(3)">Continuă <span>→</span></button>
+            </div>
+          </div>
+
+          <!-- ══ STEP 3: CONFIRMARE ══ -->
+          <div class="form-step hidden" id="formStep3">
+            <h3 class="checkout-col-title">Confirmare comandă</h3>
+
+            <!-- REVIEW DATE -->
+            <div class="step3-review" id="step3Review"></div>
+
+            <!-- GIFT WRAP -->
+            <div class="form-group gift-wrap-group">
+              <label class="gift-wrap-label">
+                <input type="checkbox" id="f-gift" name="gift" class="gift-checkbox">
+                <span class="gift-label-text">
+                  🎁 Ambalaj cadou premium
+                  <span class="gift-price">+25 lei</span>
+                </span>
+              </label>
+            </div>
+
+            <!-- PROMO CODE -->
+            <div class="form-group promo-group">
+              <label class="form-label">Cod promoțional</label>
+              <div class="promo-row">
+                <input type="text" class="form-input promo-input" id="promoCode" placeholder="ex: JOSEPHINE10">
+                <button type="button" class="promo-apply-btn" onclick="applyPromo()">Aplică</button>
+              </div>
+              <div class="promo-msg" id="promoMsg"></div>
+            </div>
+
+            <div class="form-note">
+              <span class="req">*</span> Comanda va fi confirmată prin WhatsApp în cel mai scurt timp.
+            </div>
+
+            <div class="step-nav">
+              <button type="button" class="step-back-btn" onclick="goStep(2)"><span>←</span> Înapoi</button>
+            </div>
+
+            <div class="checkout-actions">
+              <button type="submit" class="checkout-btn-primary" id="submitBtn">
+                <span class="btn-icon">✦</span>
+                Plasează comanda
+              </button>
+              <button type="button" class="checkout-btn-whatsapp" onclick="askOnWhatsApp()">
+                <span class="btn-icon">💬</span>
+                Întreabă pe WhatsApp
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- ─── RIGHT: ORDER SUMMARY ─── -->
+      <div class="checkout-summary-col">
+        <h3 class="checkout-col-title">Rezumat comandă</h3>
+
+        <div class="summary-items" id="checkoutItems">
+          <p class="summary-empty">Se încarcă coșul...</p>
+        </div>
+
+        <div class="summary-divider"></div>
+
+        <div class="summary-total-row">
+          <span class="summary-total-label">Total estimat</span>
+          <strong class="summary-total-val" id="checkoutTotal">0,00 lei</strong>
+        </div>
+
+        <div class="summary-delivery-note">
+          Costul livrării va fi comunicat la confirmare.
+        </div>
+
+        <div class="summary-security">
+          <span class="security-dot">♦</span>
+          <span>Datele tale sunt în siguranță</span>
+          <span class="security-dot">♦</span>
+          <span>Plata la livrare disponibilă</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Confirmation overlay -->
+  <div class="confirm-overlay" id="confirmOverlay">
+    <div class="confirm-box">
+      <div class="confirm-icon">✦</div>
+      <h3>Comanda a fost trimisă!</h3>
+      <p>Vei fi redirecționat pe WhatsApp pentru confirmare. Echipa noastră te va contacta în curând.</p>
+      <button onclick="document.getElementById('confirmOverlay').classList.remove('show'); window.location.href='index.html'">
+        Înapoi la produse
+      </button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="logo.png" class="footer-logo-img" alt="Josephine Jewelry">
+          <div><span class="footer-brand-name">JOSEPHINE</span><span class="footer-brand-sub">Jewelry</span></div>
+        </div>
+        <div class="footer-school-badge">
+          <img src="logo-cevmg/logo-cevmg.png" alt="CEVMG">
+          <span>Colegiul Economic<br>„Virgil Madgearu" Galați</span>
+        </div>
+        <p class="footer-tagline">Rafinament în Fiecare Detaliu.</p>
+        <div class="footer-info">
+          <p>F.E. Josephine Jewelry S.A.</p>
+          <p>Tel: <a href="tel:+40754334877">0754 334 877</a></p>
+          <p>Email: <a href="mailto:jewelryjosephine715@gmail.com">jewelryjosephine715@gmail.com</a></p>
+        </div>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">&#9678;</a>
+          <a href="#" class="footer-social-btn">&#9835;</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Colecții</p>
+        <ul class="footer-links">
+          <li><a href="categorie.html?gen=femei&tip=toate&titlu=Femei">Femei</a></li>
+          <li><a href="categorie.html?gen=barbati&tip=toate&titlu=Bărbați">Bărbați</a></li>
+          <li><a href="categorie.html?gen=copii&tip=toate&titlu=Copii">Copii</a></li>
+          <li><a href="jewelry-configurator-app/index.html">✦ Configurator 3D</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Suport</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Înapoi acasă</a></li>
+          <li><a href="#">Politică retur</a></li>
+          <li><a href="wishlist.html">♥ Favorite</a></li>
+          <li><a href="index.html#oferte">Oferte lunii</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Companie</p>
+        <ul class="footer-links">
+          <li><a href="index.html#echipa">Organigramă</a></li>
+          <li><a href="index.html#despre">Despre noi</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="https://wa.me/40754334877" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Josephine Jewelry — Firmă de exercițiu creată în scop educațional</p>
+      <p>Adresă: Str. Strungarilor nr. 31 • Tel: 0236 446 248</p>
+    </div>
+  </footer>
+
+  <div class="floating-buttons">
+    <a href="https://wa.me/40754334877?text=Bună ziua! Sunt interesat de bijuteriile Josephine." target="_blank" class="float-whatsapp-btn">
+      <svg class="float-whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.112 1.523 5.837L0 24l6.344-1.497A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.588-.476-5.1-1.31L2 22l1.347-4.776A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <div class="float-whatsapp-info"><strong>WhatsApp</strong><span>0754 334 877</span></div>
+    </a>
+    <a href="https://wa.me/40754334877?text=Bună! Aș dori ajutor să aleg o bijuterie." target="_blank" class="float-asistent-btn">
+      <span class="float-asistent-icon">◆</span> Asistent Josephine
+    </a>
+  </div>
+
+  <script src="produse.js"></script>
+
+  <script>
+    const WA_PHONE = "40754334877";
+
+    /* ── PARSE & FORMAT ── */
+    function _parsePrice(str) {
+      return parseFloat(String(str).replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+    }
+    function _formatPrice(val) {
+      return new Intl.NumberFormat("ro-RO", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(val) + " lei";
+    }
+
+    /* ── RENDER SUMMARY ── */
+    function renderSummary() {
+      const cart = (typeof getCart === "function") ? getCart() : [];
+      const container = document.getElementById("checkoutItems");
+      const totalEl   = document.getElementById("checkoutTotal");
+      const submitBtn = document.getElementById("submitBtn");
+
+      if (!container) return;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="summary-empty-state">
+            <p>Coșul tău este gol.</p>
+            <a href="index.html" class="summary-back-link">← Înapoi la produse</a>
+          </div>`;
+        if (submitBtn) submitBtn.disabled = true;
+        return;
+      }
+
+      container.innerHTML = "";
+      let total = 0;
+
+      cart.forEach(item => {
+        const itemTotal = _parsePrice(item.price) * item.quantity;
+        total += itemTotal;
+
+        const row = document.createElement("div");
+        row.className = "summary-item";
+
+        const imgEl = document.createElement("img");
+        imgEl.className = "summary-item-img";
+        imgEl.alt = item.name;
+        if (typeof getImagePath === "function") getImagePath(item.id, imgEl);
+
+        const info = document.createElement("div");
+        info.className = "summary-item-info";
+        info.innerHTML = `
+          <span class="summary-item-name">${item.name}</span>
+          <span class="summary-item-qty">× ${item.quantity}</span>
+        `;
+
+        const price = document.createElement("span");
+        price.className = "summary-item-price";
+        price.textContent = _formatPrice(itemTotal);
+
+        row.appendChild(imgEl);
+        row.appendChild(info);
+        row.appendChild(price);
+        container.appendChild(row);
+      });
+
+      if (totalEl) totalEl.textContent = _formatPrice(total);
+    }
+
+    /* ── FORM SUBMIT → WhatsApp order ── */
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const cart = (typeof getCart === "function") ? getCart() : [];
+      if (cart.length === 0) {
+        alert("Coșul tău este gol! Adaugă produse înainte de a plasa comanda.");
+        return;
+      }
+
+      const fd = new FormData(e.target);
+
+      let msg  = "🛍️ *COMANDĂ NOUĂ — Josephine Jewelry*\n\n";
+      msg += `👤 *Date client:*\n`;
+      msg += `Nume: ${fd.get("nume")} ${fd.get("prenume")}\n`;
+      msg += `Telefon: ${fd.get("telefon")}\n`;
+      if (fd.get("email")) msg += `Email: ${fd.get("email")}\n`;
+
+      msg += `\n📍 *Adresă livrare:*\n`;
+      msg += `${fd.get("adresa")}\n`;
+      msg += `${fd.get("oras")}, ${fd.get("judet")}`;
+      if (fd.get("cod")) msg += ` ${fd.get("cod")}`;
+      msg += "\n";
+
+      msg += `\n🛒 *Produse comandate:*\n`;
+      let total = 0;
+      cart.forEach((item, i) => {
+        const t = _parsePrice(item.price) * item.quantity;
+        total += t;
+        msg += `${i + 1}. ${item.name} — ${item.price} × ${item.quantity} = ${_formatPrice(t)}\n`;
+      });
+
+      if (fd.get("gift")) {
+        total += 25;
+        msg += `\n🎁 Ambalaj cadou premium: +25 lei`;
+      }
+
+      if (promoDiscount > 0) {
+        const disc = total * promoDiscount / 100;
+        total -= disc;
+        msg += `\n🏷️ Cod promoțional (−${promoDiscount}%): −${_formatPrice(disc)}`;
+      }
+
+      msg += `\n\n💰 *Total: ${_formatPrice(total)}*`;
+      if (fd.get("observatii")) msg += `\n\n📝 *Observații:*\n${fd.get("observatii")}`;
+
+      /* Save order data for multumim.html */
+      const orderData = {
+        orderNum: "JJ" + Date.now().toString().slice(-6),
+        name: (fd.get("nume") || "") + " " + (fd.get("prenume") || ""),
+        city: fd.get("oras") || "",
+        items: cart,
+        total: _formatPrice(total),
+        date: new Date().toLocaleDateString("ro-RO", { day: "2-digit", month: "long", year: "numeric" })
+      };
+      sessionStorage.setItem("jj_last_order", JSON.stringify(orderData));
+
+      /* Clear cart */
+      localStorage.setItem("jj_cart", "[]");
+
+      /* Show overlay then open WA + redirect */
+      document.getElementById("confirmOverlay").classList.add("show");
+      setTimeout(() => {
+        window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, "_blank");
+      }, 500);
+      setTimeout(() => {
+        window.location.href = "multumim.html";
+      }, 1600);
+    });
+
+    /* ── Promo code ── */
+    let promoDiscount = 0;
+
+    function applyPromo() {
+      const code = (document.getElementById("promoCode").value || "").trim().toUpperCase();
+      const msg  = document.getElementById("promoMsg");
+      const CODES = { "JOSEPHINE10": 10, "JJ15": 15, "TARG20": 20 };
+      if (CODES[code]) {
+        promoDiscount = CODES[code];
+        msg.textContent = "✓ Cod aplicat! Reducere " + promoDiscount + "% la total.";
+        msg.className = "promo-msg promo-success";
+      } else {
+        promoDiscount = 0;
+        msg.textContent = "✗ Cod invalid sau expirat.";
+        msg.className = "promo-msg promo-error";
+      }
+    }
+
+    /* ── Ask on WhatsApp (no order, just questions) ── */
+    function askOnWhatsApp() {
+      const cart = (typeof getCart === "function") ? getCart() : [];
+      let msg = "Bună! Aș dori să întreb despre disponibilitatea unor produse:\n\n";
+      if (cart.length > 0) {
+        cart.forEach(item => { msg += `• ${item.name} (${item.price})\n`; });
+      } else {
+        msg += "(Coș gol — doresc informații generale despre bijuterii)";
+      }
+      window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, "_blank");
+    }
+
+    /* ── CHECKOUT STEPS ── */
+    var _currentStep = 1;
+
+    function goStep(n) {
+      // Validate current step before advancing
+      if (n > _currentStep) {
+        if (_currentStep === 1) {
+          var nume = document.getElementById("f-nume").value.trim();
+          var prenume = document.getElementById("f-prenume").value.trim();
+          var telefon = document.getElementById("f-telefon").value.trim();
+          if (!nume || !prenume || !telefon) {
+            highlightEmpty(["f-nume","f-prenume","f-telefon"]);
+            return;
+          }
+        }
+        if (_currentStep === 2) {
+          var adresa = document.getElementById("f-adresa").value.trim();
+          var oras = document.getElementById("f-oras").value.trim();
+          var judet = document.getElementById("f-judet").value.trim();
+          if (!adresa || !oras || !judet) {
+            highlightEmpty(["f-adresa","f-oras","f-judet"]);
+            return;
+          }
+        }
+      }
+
+      // Hide all steps
+      [1,2,3].forEach(function(i) {
+        var el = document.getElementById("formStep" + i);
+        if (el) el.classList.add("hidden");
+        var dot = document.getElementById("cpStep" + i);
+        if (dot) { dot.classList.remove("active"); dot.classList.remove("done"); }
+      });
+
+      // Mark done steps
+      for (var i = 1; i < n; i++) {
+        var dot = document.getElementById("cpStep" + i);
+        if (dot) dot.classList.add("done");
+      }
+
+      // Show current
+      var cur = document.getElementById("formStep" + n);
+      if (cur) { cur.classList.remove("hidden"); cur.classList.add("step-enter"); setTimeout(function(){ cur.classList.remove("step-enter"); }, 400); }
+      var curDot = document.getElementById("cpStep" + n);
+      if (curDot) curDot.classList.add("active");
+
+      // Fill bar
+      var fill = document.getElementById("cpFill");
+      if (fill) fill.style.width = ((n - 1) / 2 * 100) + "%";
+
+      _currentStep = n;
+
+      // Build review on step 3
+      if (n === 3) buildReview();
+
+      window.scrollTo({ top: document.querySelector(".checkout-progress").offsetTop - 90, behavior: "smooth" });
+    }
+
+    function highlightEmpty(ids) {
+      ids.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        if (!el.value.trim()) {
+          el.classList.add("input-error");
+          el.addEventListener("input", function(){ el.classList.remove("input-error"); }, { once: true });
+        }
+      });
+    }
+
+    function buildReview() {
+      var html = '<div class="review-grid">';
+      html += '<div class="review-block"><span class="review-label">Nume</span><span class="review-val">' + esc(document.getElementById("f-nume").value) + ' ' + esc(document.getElementById("f-prenume").value) + '</span></div>';
+      html += '<div class="review-block"><span class="review-label">Telefon</span><span class="review-val">' + esc(document.getElementById("f-telefon").value) + '</span></div>';
+      var email = document.getElementById("f-email").value;
+      if (email) html += '<div class="review-block"><span class="review-label">Email</span><span class="review-val">' + esc(email) + '</span></div>';
+      html += '<div class="review-block review-block-full"><span class="review-label">Adresă</span><span class="review-val">' + esc(document.getElementById("f-adresa").value) + ', ' + esc(document.getElementById("f-oras").value) + ', ' + esc(document.getElementById("f-judet").value) + '</span></div>';
+      html += '</div>';
+      var el = document.getElementById("step3Review");
+      if (el) el.innerHTML = html;
+    }
+
+    function esc(s) {
+      return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+
+    /* ── INIT ── */
+    window.addEventListener("DOMContentLoaded", function() {
+      renderSummary();
+      if (typeof updateCartCount === "function") updateCartCount();
+      // Init progress bar at step 1
+      var fill = document.getElementById("cpFill");
+      if (fill) fill.style.width = "0%";
+    });
+  </script>
+
+</body>
+</html>
