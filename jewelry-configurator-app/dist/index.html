@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Josephine Jewelry — Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A86C;
+    --gold-light: #E2C98A;
+    --gold-pale: #F5EDD7;
+    --gold-deep: #9A7A40;
+    --onyx: #0E0B09;
+    --charcoal: #1C1814;
+    --smoke: #2E2921;
+    --ivory: #F7F2E8;
+    --cream: #EDE5D4;
+    --blush: #D4A6A6;
+    --rose-gold: #C4957A;
+    --burgundy: #5C1F2A;
+    --sapphire: #1A2A5E;
+    --emerald: #1A3E2E;
+    --amethyst: #3D1F5E;
+    --pearl: #F0EAE0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--onyx);
+    color: var(--ivory);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  /* ── SPARKLES ── */
+  #sparkle-canvas {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── LAYOUT ── */
+  .wrapper {
+    position: relative; z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  /* ── HEADER ── */
+  header {
+    text-align: center;
+    padding: 4rem 0 3rem;
+    position: relative;
+  }
+
+  .header-ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; margin-bottom: 1.5rem;
+  }
+  .header-ornament .line {
+    width: 80px; height: 0.5px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .header-ornament .diamond {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+  .header-ornament .circle {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--gold-light);
+  }
+
+  .brand-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.45em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    opacity: 0.8;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--ivory);
+    margin-bottom: 0.5rem;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .header-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: 1rem;
+  }
+
+  /* ── MAIN GRID ── */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  /* ── PANEL BASE ── */
+  .panel {
+    background: var(--charcoal);
+    border: 0.5px solid rgba(201,168,108,0.25);
+    border-radius: 2px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 0.5px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .panel::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 10%; right: 10%;
+    height: 0.5px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,108,0.3), transparent);
+  }
+
+  .panel-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .panel-title::after {
+    content: '';
+    flex: 1; height: 0.5px;
+    background: linear-gradient(90deg, rgba(201,168,108,0.4), transparent);
+  }
+
+  /* ── CATEGORY SELECTOR ── */
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .cat-btn {
+    background: var(--smoke);
+    border: 0.5px solid rgba(201,168,108,0.2);
+    border-radius: 2px;
+    padding: 1.25rem 0.5rem;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,108,0.08), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .cat-btn:hover::before, .cat-btn.active::before { opacity: 1; }
+  .cat-btn.active {
+    border-color: var(--gold);
+    background: rgba(201,168,108,0.08);
+  }
+  .cat-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+  .cat-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ── MATERIAL ROW ── */
+  .material-row {
+    display: flex; gap: 0.75rem; flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .mat-chip {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 0.5px solid rgba(201,168,108,0.2);
+    border-radius: 999px;
+    background: var(--smoke);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: rgba(247,242,232,0.6);
+  }
+  .mat-chip .swatch {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .mat-chip:hover, .mat-chip.active {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    background: rgba(201,168,108,0.1);
+  }
+
+  /* ── GEMSTONE PICKER ── */
+  .gem-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+  }
+  .gem-btn {
+    aspect-ratio: 1;
+    border-radius: 2px;
+    border: 0.5px solid rgba(255,255,255,0.08);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 4px;
+    padding: 0.5rem;
+    background: var(--smoke);
+  }
+  .gem-btn:hover, .gem-btn.active {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .gem-gem { width: 28px; height: 28px; }
+  .gem-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.45rem;
+    letter-spacing: 0.15em;
+    color: rgba(247,242,232,0.5);
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .gem-btn.active .gem-name { color: var(--gold); }
+
+  /* ── SLIDERS ── */
+  .slider-group { margin-bottom: 1.75rem; }
+  .slider-label {
+    display: flex; justify-content: space-between;
+    margin-bottom: 0.6rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: rgba(247,242,232,0.5);
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+  }
+  .slider-label span:last-child { color: var(--gold); }
+
+  input[type=range] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  background: var(--smoke);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--charcoal);
+    box-shadow: 0 0 8px rgba(201,168,108,0.5);
+    cursor: pointer;
+  }
+
+  /* ── STYLE TAGS ── */
+  .style-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+  .style-tag {
+    padding: 0.4rem 0.9rem;
+    border: 0.5px solid rgba(201,168,108,0.2);
+    border-radius: 2px;
+    background: transparent;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: rgba(247,242,232,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.05em;
+  }
+  .style-tag:hover, .style-tag.active {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    background: rgba(201,168,108,0.06);
+  }
+
+  /* ── PROMPT AREA ── */
+  .prompt-area {
+    position: relative; margin-bottom: 1.5rem;
+  }
+  .prompt-area textarea {
+    width: 100%; min-height: 100px;
+    background: var(--smoke);
+    border: 0.5px solid rgba(201,168,108,0.2);
+    border-radius: 2px;
+    padding: 1rem 1.25rem;
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .prompt-area textarea::placeholder { color: rgba(247,242,232,0.25); font-style: italic; }
+  .prompt-area textarea:focus { border-color: rgba(201,168,108,0.5); }
+
+  .char-count {
+    position: absolute; bottom: 8px; right: 12px;
+    font-size: 0.65rem; color: rgba(201,168,108,0.4);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── GENERATE BTN ── */
+  .generate-btn {
+    width: 100%; padding: 1.1rem 2rem;
+    background: linear-gradient(135deg, var(--gold-deep), var(--gold), var(--gold-light));
+    border: none; border-radius: 2px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--onyx);
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative; overflow: hidden;
+    transition: all 0.3s;
+  }
+  .generate-btn::before {
+    content: '';
+    position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  .generate-btn:hover::before { left: 100%; }
+  .generate-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,168,108,0.3); }
+  .generate-btn:active { transform: translateY(0); }
+
+  /* ── RIGHT PANEL: PREVIEW ── */
+  .preview-panel { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  /* ── JEWELRY CANVAS ── */
+  .jewelry-canvas {
+    background: var(--charcoal);
+    border: 0.5px solid rgba(201,168,108,0.25);
+    border-radius: 2px;
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .jewelry-canvas::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(201,168,108,0.06), transparent 70%);
+  }
+
+  #preview-svg { width: 75%; height: 75%; position: relative; z-index: 1; }
+
+  .canvas-label {
+    position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem; letter-spacing: 0.3em;
+    color: rgba(201,168,108,0.4);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .canvas-corner {
+    position: absolute;
+    width: 14px; height: 14px;
+  }
+  .canvas-corner.tl { top: 12px; left: 12px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+  .canvas-corner.tr { top: 12px; right: 12px; border-top: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+  .canvas-corner.bl { bottom: 12px; left: 12px; border-bottom: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+  .canvas-corner.br { bottom: 12px; right: 12px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+
+  /* ── SPECS PANEL ── */
+  .specs-panel { padding: 1.5rem; }
+  .spec-row {
+    display: flex; justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 0.5px solid rgba(201,168,108,0.08);
+    font-size: 0.75rem;
+  }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-key {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem; letter-spacing: 0.2em;
+    color: rgba(247,242,232,0.35);
+    text-transform: uppercase;
+  }
+  .spec-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  /* ── PRICE TAG ── */
+  .price-tag {
+    background: var(--charcoal);
+    border: 0.5px solid rgba(201,168,108,0.25);
+    border-radius: 2px;
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    position: relative;
+  }
+  .price-tag::before {
+    content: '';
+    position: absolute; top: 0; left: 10%; right: 10%; height: 0.5px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .price-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem; letter-spacing: 0.3em;
+    color: rgba(247,242,232,0.4);
+    text-transform: uppercase;
+  }
+  .price-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .price-currency {
+    font-size: 1rem; color: var(--gold-deep); margin-right: 0.25rem;
+  }
+
+  /* ── HISTORY ── */
+  .history-row {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .history-pill {
+    padding: 0.35rem 0.75rem;
+    border: 0.5px solid rgba(201,168,108,0.15);
+    border-radius: 999px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: rgba(201,168,108,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .history-pill:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── FOOTER ORNAMENT ── */
+  .footer-orn {
+    text-align: center; margin-top: 5rem;
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+    opacity: 0.3;
+  }
+  .footer-orn .fl { width: 120px; height: 0.5px; background: var(--gold); }
+  .footer-orn .fd { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  @keyframes spin-gem { to { transform: rotate(360deg); } }
+  @keyframes pulse-ring {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    70% { transform: scale(1.05); opacity: 0; }
+    100% { transform: scale(0.95); opacity: 0; }
+  }
+
+  header { animation: fadeUp 0.8s ease both; }
+  .main-grid { animation: fadeUp 0.8s 0.2s ease both; }
+
+  .generating { animation: shimmer 1s ease infinite; }
+
+  /* ── LOADING STATE ── */
+  .loading-ring {
+    position: absolute; inset: 0;
+    display: none; align-items: center; justify-content: center;
+    z-index: 10;
+    background: rgba(14,11,9,0.85);
+    flex-direction: column; gap: 1rem;
+  }
+  .loading-ring.active { display: flex; }
+  .ring {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,108,0.2);
+    border-top-color: var(--gold);
+    animation: spin-gem 1.2s linear infinite;
+  }
+  .loading-text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem; letter-spacing: 0.4em;
+    color: var(--gold); text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="sparkle-canvas"></canvas>
+
+<div class="wrapper">
+
+  <header>
+    <div class="header-ornament">
+      <div class="line"></div>
+      <div class="circle"></div>
+      <div class="diamond"></div>
+      <div class="circle"></div>
+      <div class="line"></div>
+    </div>
+    <p class="brand-tag">Josephine Jewelry — Atelier Creativ</p>
+    <h1><em>Generator</em> de Bijuterii</h1>
+    <p class="header-sub">Creează bijuteria perfectă pentru tine</p>
+  </header>
+
+  <div class="main-grid">
+
+    <!-- LEFT: CONFIGURATOR -->
+    <div>
+
+      <!-- CATEGORY -->
+      <div class="panel" style="margin-bottom:1.5rem">
+        <p class="panel-title">Tipul Bijuteriei</p>
+        <div class="category-grid">
+          <button class="cat-btn active" onclick="selectCat(this,'Inel')">
+            <span class="cat-icon">💍</span>
+            <span class="cat-label">Inel</span>
+          </button>
+          <button class="cat-btn" onclick="selectCat(this,'Colier')">
+            <span class="cat-icon">📿</span>
+            <span class="cat-label">Colier</span>
+          </button>
+          <button class="cat-btn" onclick="selectCat(this,'Cercei')">
+            <span class="cat-icon">✨</span>
+            <span class="cat-label">Cercei</span>
+          </button>
+          <button class="cat-btn" onclick="selectCat(this,'Brățară')">
+            <span class="cat-icon">🪬</span>
+            <span class="cat-label">Brățară</span>
+          </button>
+          <button class="cat-btn" onclick="selectCat(this,'Brosă')">
+            <span class="cat-icon">🌸</span>
+            <span class="cat-label">Brosă</span>
+          </button>
+          <button class="cat-btn" onclick="selectCat(this,'Tiară')">
+            <span class="cat-icon">👑</span>
+            <span class="cat-label">Tiară</span>
+          </button>
+          <button class="cat-btn" onclick="selectCat(this,'Pandantiv')">
+            <span class="cat-icon">🔮</span>
+            <span class="cat-label">Pandantiv</span>
+          </button>
+          <button class="cat-btn" onclick="selectCat(this,'Cataramă')">
+            <span class="cat-icon">🌿</span>
+            <span class="cat-label">Cataramă</span>
+          </button>
+        </div>
+
+        <!-- METAL -->
+        <p class="panel-title">Metal</p>
+        <div class="material-row" id="metal-row">
+          <button class="mat-chip active" onclick="selectMat(this,'Aur Galben 18K')">
+            <span class="swatch" style="background:linear-gradient(135deg,#C9A86C,#F5D58A)"></span>Aur Galben 18K
+          </button>
+          <button class="mat-chip" onclick="selectMat(this,'Aur Roz 14K')">
+            <span class="swatch" style="background:linear-gradient(135deg,#C4957A,#E8B89E)"></span>Aur Roz 14K
+          </button>
+          <button class="mat-chip" onclick="selectMat(this,'Aur Alb 18K')">
+            <span class="swatch" style="background:linear-gradient(135deg,#C0BFBF,#F0EFEF)"></span>Aur Alb 18K
+          </button>
+          <button class="mat-chip" onclick="selectMat(this,'Platină 950')">
+            <span class="swatch" style="background:linear-gradient(135deg,#8FA0AA,#C8D5DC)"></span>Platină 950
+          </button>
+          <button class="mat-chip" onclick="selectMat(this,'Argint 925')">
+            <span class="swatch" style="background:linear-gradient(135deg,#9CA3AF,#D1D5DB)"></span>Argint 925
+          </button>
+        </div>
+      </div>
+
+      <!-- GEMSTONES -->
+      <div class="panel" style="margin-bottom:1.5rem">
+        <p class="panel-title">Pietre Prețioase</p>
+        <div class="gem-grid" id="gem-grid">
+          <button class="gem-btn" onclick="selectGem(this,'Diamant','#E8F0F7')">
+            <svg class="gem-gem" viewBox="0 0 40 40"><polygon points="20,4 36,16 30,36 10,36 4,16" fill="#C8D8E8" stroke="#9EB8D0" stroke-width="1"/><polygon points="20,4 36,16 20,12" fill="#E8F4FF" opacity="0.8"/><polygon points="20,12 36,16 24,36" fill="#BDD0E0"/><polygon points="20,12 10,36 4,16" fill="#D4E4F2" opacity="0.9"/></svg>
+            <span class="gem-name">Diamant</span>
+          </button>
+          <button class="gem-btn active" onclick="selectGem(this,'Safir','#1A2A5E')">
+            <svg class="gem-gem" viewBox="0 0 40 40"><polygon points="20,4 36,16 30,36 10,36 4,16" fill="#2A4A9E" stroke="#1A3A8E" stroke-width="1"/><polygon points="20,4 36,16 20,12" fill="#4A6ADE" opacity="0.8"/><polygon points="20,12 36,16 24,36" fill="#1A3A8E"/><polygon points="20,12 10,36 4,16" fill="#3A5ABE" opacity="0.9"/></svg>
+            <span class="gem-name">Safir</span>
+          </button>
+          <button class="gem-btn" onclick="selectGem(this,'Rubin','#8B1A1A')">
+            <svg class="gem-gem" viewBox="0 0 40 40"><polygon points="20,4 36,16 30,36 10,36 4,16" fill="#CC2A2A" stroke="#AA1A1A" stroke-width="1"/><polygon points="20,4 36,16 20,12" fill="#FF5A5A" opacity="0.8"/><polygon points="20,12 36,16 24,36" fill="#AA1A1A"/><polygon points="20,12 10,36 4,16" fill="#DD3A3A" opacity="0.9"/></svg>
+            <span class="gem-name">Rubin</span>
+          </button>
+          <button class="gem-btn" onclick="selectGem(this,'Smarald','#1A3E2E')">
+            <svg class="gem-gem" viewBox="0 0 40 40"><polygon points="20,4 36,16 30,36 10,36 4,16" fill="#1A7A4E" stroke="#0A5A3E" stroke-width="1"/><polygon points="20,4 36,16 20,12" fill="#3AAA7E" opacity="0.8"/><polygon points="20,12 36,16 24,36" fill="#0A5A3E"/><polygon points="20,12 10,36 4,16" fill="#2A8A5E" opacity="0.9"/></svg>
+            <span class="gem-name">Smarald</span>
+          </button>
+          <button class="gem-btn" onclick="selectGem(this,'Ametist','#4B0082')">
+            <svg class="gem-gem" viewBox="0 0 40 40"><polygon points="20,4 36,16 30,36 10,36 4,16" fill="#7B3ABE" stroke="#5B1A9E" stroke-width="1"/><polygon points="20,4 36,16 20,12" fill="#AB6AEE" opacity="0.8"/><polygon points="20,12 36,16 24,36" fill="#5B1A9E"/><polygon points="20,12 10,36 4,16" fill="#8B4ACE" opacity="0.9"/></svg>
+            <span class="gem-name">Ametist</span>
+          </button>
+          <button class="gem-btn" onclick="selectGem(this,'Perla','#F0EAE0')">
+            <svg class="gem-gem" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="#EEE8E0" stroke="#D4CEC8" stroke-width="1"/><ellipse cx="16" cy="15" rx="5" ry="4" fill="white" opacity="0.5"/><circle cx="26" cy="24" r="3" fill="white" opacity="0.3"/></svg>
+            <span class="gem-name">Perlă</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STYLE + SLIDERS -->
+      <div class="panel" style="margin-bottom:1.5rem">
+        <p class="panel-title">Stil & Intensitate</p>
+
+        <div class="style-tags" id="style-tags">
+          <button class="style-tag active" onclick="toggleStyle(this)">Art Nouveau</button>
+          <button class="style-tag" onclick="toggleStyle(this)">Victoriana</button>
+          <button class="style-tag" onclick="toggleStyle(this)">Art Deco</button>
+          <button class="style-tag" onclick="toggleStyle(this)">Minimalist</button>
+          <button class="style-tag" onclick="toggleStyle(this)">Bohemian</button>
+          <button class="style-tag" onclick="toggleStyle(this)">Vintage</button>
+          <button class="style-tag" onclick="toggleStyle(this)">Romantic</button>
+          <button class="style-tag" onclick="toggleStyle(this)">Avant-Garde</button>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Complexitate Design</span>
+            <span id="complex-val">70%</span>
+          </div>
+          <input type="range" min="0" max="100" value="70" id="complex-slider"
+            oninput="document.getElementById('complex-val').textContent=this.value+'%'">
+        </div>
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Rafinament Gravuri</span>
+            <span id="engrave-val">50%</span>
+          </div>
+          <input type="range" min="0" max="100" value="50" id="engrave-slider"
+            oninput="document.getElementById('engrave-val').textContent=this.value+'%'">
+        </div>
+        <div class="slider-group" style="margin-bottom:0">
+          <div class="slider-label">
+            <span>Carataj Pietre</span>
+            <span id="carat-val">2.5 ct</span>
+          </div>
+          <input type="range" min="5" max="100" value="50" id="carat-slider"
+            oninput="document.getElementById('carat-val').textContent=(this.value/20).toFixed(1)+' ct'">
+        </div>
+      </div>
+
+      <!-- PROMPT -->
+      <div class="panel">
+        <p class="panel-title">Inspirație Personalizată</p>
+        <div class="prompt-area">
+          <textarea id="prompt-txt" maxlength="300"
+            placeholder="Descrie viziunea ta... o bijuterie delicată pentru o nuntă de vară, cu frunze de aur și safir albastru..."
+            oninput="document.getElementById('cc').textContent=this.value.length+'/300'"></textarea>
+          <span class="char-count" id="cc">0/300</span>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <p class="panel-title" style="font-size:0.55rem; margin-bottom:0.75rem">Sugestii Rapide</p>
+          <div class="history-row" id="suggestions">
+            <span class="history-pill" onclick="fillPrompt(this)">Logodnă romantică</span>
+            <span class="history-pill" onclick="fillPrompt(this)">Cadou de aniversare</span>
+            <span class="history-pill" onclick="fillPrompt(this)">Coroana miresei</span>
+            <span class="history-pill" onclick="fillPrompt(this)">Moștenire de familie</span>
+            <span class="history-pill" onclick="fillPrompt(this)">Gala de lux</span>
+          </div>
+        </div>
+
+        <button class="generate-btn" onclick="generateJewelry()">
+          ✦ &nbsp; Generează Bijuteria &nbsp; ✦
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT: PREVIEW -->
+    <div class="preview-panel">
+
+      <!-- CANVAS -->
+      <div class="jewelry-canvas" id="jewelry-canvas">
+        <div class="canvas-corner tl"></div>
+        <div class="canvas-corner tr"></div>
+        <div class="canvas-corner bl"></div>
+        <div class="canvas-corner br"></div>
+
+        <svg id="preview-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="gold-grad" cx="40%" cy="35%">
+              <stop offset="0%" stop-color="#F5D58A"/>
+              <stop offset="60%" stop-color="#C9A86C"/>
+              <stop offset="100%" stop-color="#8A6830"/>
+            </radialGradient>
+            <radialGradient id="gem-grad" cx="35%" cy="30%">
+              <stop offset="0%" stop-color="#6A9AEE"/>
+              <stop offset="100%" stop-color="#1A2A6E"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Ring band -->
+          <ellipse cx="100" cy="130" rx="52" ry="20" fill="none" stroke="url(#gold-grad)" stroke-width="14"/>
+          <ellipse cx="100" cy="130" rx="52" ry="20" fill="none" stroke="#C9A86C" stroke-width="2" opacity="0.4"/>
+
+          <!-- Setting -->
+          <ellipse cx="100" cy="72" rx="26" ry="10" fill="url(#gold-grad)"/>
+          <rect x="74" y="62" width="52" height="16" rx="2" fill="url(#gold-grad)"/>
+
+          <!-- Prongs -->
+          <g stroke="#F5D58A" stroke-width="2.5" stroke-linecap="round">
+            <line x1="80" y1="68" x2="78" y2="48"/>
+            <line x1="120" y1="68" x2="122" y2="48"/>
+            <line x1="90" y1="63" x2="87" y2="44"/>
+            <line x1="110" y1="63" x2="113" y2="44"/>
+          </g>
+
+          <!-- Main gem -->
+          <polygon points="100,38 116,50 110,66 90,66 84,50" fill="url(#gem-grad)"/>
+          <polygon points="100,38 116,50 100,48" fill="#6AAEFF" opacity="0.6"/>
+          <polygon points="100,48 116,50 108,66" fill="#1A3A8E"/>
+          <polygon points="100,48 90,66 84,50" fill="#3A5ABE" opacity="0.8"/>
+
+          <!-- Sparkle accents -->
+          <g fill="#F5D58A" opacity="0.8">
+            <text x="148" y="45" font-size="10" text-anchor="middle" font-family="serif">✦</text>
+            <text x="52" y="60" font-size="7" text-anchor="middle" font-family="serif">✦</text>
+            <text x="155" y="85" font-size="6" text-anchor="middle" font-family="serif">✦</text>
+          </g>
+
+          <!-- Small accent gems -->
+          <circle cx="79" cy="68" r="4" fill="#4A7ACC" stroke="#2A5AAA" stroke-width="0.5"/>
+          <circle cx="121" cy="68" r="4" fill="#4A7ACC" stroke="#2A5AAA" stroke-width="0.5"/>
+        </svg>
+
+        <div class="loading-ring" id="loading-ring">
+          <div class="ring"></div>
+          <p class="loading-text">Creând magia...</p>
+        </div>
+
+        <span class="canvas-label">Previzualizare 3D · Josephine Atelier</span>
+      </div>
+
+      <!-- SPECS -->
+      <div class="panel specs-panel">
+        <p class="panel-title">Specificații</p>
+        <div id="specs-content">
+          <div class="spec-row">
+            <span class="spec-key">Tip</span>
+            <span class="spec-val" id="spec-type">Inel de Logodnă</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Metal</span>
+            <span class="spec-val" id="spec-metal">Aur Galben 18K</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Piatră</span>
+            <span class="spec-val" id="spec-gem">Safir Natural</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Stil</span>
+            <span class="spec-val" id="spec-style">Art Nouveau</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Carataj</span>
+            <span class="spec-val" id="spec-carat">2.5 ct</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Finisaj</span>
+            <span class="spec-val" id="spec-finish">Lustruit & Gravat</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRICE -->
+      <div class="price-tag">
+        <div>
+          <p class="price-label">Preț Estimat</p>
+          <div class="price-value" id="price-val">
+            <span class="price-currency">€</span><span id="price-num">3,850</span>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <p class="price-label" style="margin-bottom:0.5rem">Timp Execuție</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-light);font-size:0.9rem" id="time-val">14 – 21 zile</p>
+        </div>
+      </div>
+
+      <!-- ACTIONS -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
+        <button onclick="saveDesign(event)">" style="padding:0.75rem;background:transparent;border:0.5px solid rgba(201,168,108,0.35);border-radius:2px;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.25em;color:var(--gold);cursor:pointer;transition:all 0.3s" onmouseover="this.style.background='rgba(201,168,108,0.08)'" onmouseout="this.style.background='transparent'">
+          ♡ &nbsp; Salvează
+        </button>
+        <button onclick="orderDesign()" style="padding:0.75rem;background:var(--burgundy);border:0.5px solid #8B2A3A;border-radius:2px;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.25em;color:var(--ivory);cursor:pointer;transition:all 0.3s" onmouseover="this.style.background='#7B1A2A'" onmouseout="this.style.background='var(--burgundy)'">
+          ◈ &nbsp; Comandă
+        </button>
+      </div>
+    </div>
+
+  </div><!-- /main-grid -->
+
+  <div class="footer-orn">
+    <div class="fl"></div>
+    <span class="fd">✦ &nbsp; Josephine Jewelry &nbsp; ✦ &nbsp; Handcrafted Since 2018</span>
+    <div class="fl"></div>
+  </div>
+
+</div><!-- /wrapper -->
+
+<script>
+// ── STATE ──
+let state = {
+  category: 'Inel',
+  metal: 'Aur Galben 18K',
+  gem: 'Safir',
+  styles: ['Art Nouveau'],
+  complexity: 70,
+  engraving: 50,
+  carats: 2.5
+};
+
+// ── SPARKLES ──
+const canvas = document.getElementById('sparkle-canvas');
+const ctx = canvas.getContext('2d');
+let sparks = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Spark {
+  constructor(x, y) {
+    this.x = x; this.y = y;
+    this.vx = (Math.random()-0.5)*1.5;
+    this.vy = (Math.random()-0.5)*1.5 - 0.5;
+    this.life = 1; this.size = Math.random()*2+1;
+    this.color = Math.random() > 0.5 ? '#C9A86C' : '#F5D58A';
+  }
+  update() {
+    this.x += this.vx; this.y += this.vy;
+    this.life -= 0.02; this.vy += 0.02;
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.life * 0.8;
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+// Ambient floating particles
+let particles = Array.from({length:30},()=>({
+  x: Math.random()*window.innerWidth,
+  y: Math.random()*window.innerHeight,
+  vy: -0.15-Math.random()*0.15,
+  size: Math.random()*1.5+0.5,
+  opacity: Math.random()*0.3+0.05,
+  color: Math.random()>0.5?'#C9A86C':'#E2C98A'
+}));
+
+function animLoop() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  // ambient
+  particles.forEach(p=>{
+    p.y += p.vy;
+    if(p.y < -10) { p.y = canvas.height+10; p.x = Math.random()*canvas.width; }
+    ctx.save();
+    ctx.globalAlpha = p.opacity;
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  });
+  // cursor sparks
+  sparks = sparks.filter(s=>s.life>0);
+  sparks.forEach(s=>{ s.update(); s.draw(); });
+  requestAnimationFrame(animLoop);
+}
+animLoop();
+
+document.addEventListener('mousemove', e=>{
+  if(Math.random()<0.15) sparks.push(new Spark(e.clientX, e.clientY));
+});
+
+// ── SELECTORS ──
+function selectCat(btn, cat) {
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  state.category = cat;
+  updateSpecs();
+}
+
+function selectMat(btn, mat) {
+  document.querySelectorAll('#metal-row .mat-chip').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  state.metal = mat;
+  updateSpecs();
+}
+
+function selectGem(btn, gem, color) {
+  document.querySelectorAll('#gem-grid .gem-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  state.gem = gem;
+  updateSpecs();
+  updateGemColor(color);
+}
+
+function updateGemColor(color) {
+  const el = document.querySelector('#gem-grid .gem-btn.active');
+  // pulse the preview
+  const svg = document.getElementById('preview-svg');
+  svg.style.transform = 'scale(0.95)';
+  svg.style.transition = 'transform 0.3s';
+  setTimeout(()=>{ svg.style.transform = 'scale(1)'; }, 300);
+}
+
+function toggleStyle(btn) {
+  btn.classList.toggle('active');
+  state.styles = Array.from(document.querySelectorAll('.style-tag.active')).map(b=>b.textContent);
+  updateSpecs();
+}
+
+function fillPrompt(pill) {
+  const prompts = {
+    'Logodnă romantică': 'Un inel delicat cu petale de trandafir gravate, pietre safir albastre și aur roz, perfect pentru o cerere în căsătorie romantică la Paris.',
+    'Cadou de aniversare': 'O brățară elegantă cu alternare de diamante și ametiste, gravată cu data aniversării și inițialele cuplului.',
+    'Coroana miresei': 'O tiară delicată din aur alb, ornamentată cu flori de cireș, perle și diamante minuscule care captează lumina candorii.',
+    'Moștenire de familie': 'Un colier victorian cu smarald central înconjurat de diamante pavé, montura cu gravuri florale fine și detalii de filigran.',
+    'Gala de lux': 'Cercei lungi dramatici cu rubine birmaneze, montați în platină, cu un design art deco geometric inspirat din palatele lui Versailles.'
+  };
+  document.getElementById('prompt-txt').value = prompts[pill.textContent] || pill.textContent;
+  document.getElementById('cc').textContent = document.getElementById('prompt-txt').value.length + '/300';
+}
+
+function updateSpecs() {
+  document.getElementById('spec-type').textContent = state.category;
+  document.getElementById('spec-metal').textContent = state.metal;
+  document.getElementById('spec-gem').textContent = state.gem + ' Natural';
+  document.getElementById('spec-style').textContent = state.styles.slice(0,2).join(' · ') || '—';
+  const carat = parseFloat(document.getElementById('carat-slider').value/20).toFixed(1);
+  document.getElementById('spec-carat').textContent = carat + ' ct';
+
+  const engrave = parseInt(document.getElementById('engrave-slider').value);
+  document.getElementById('spec-finish').textContent = engrave > 60 ? 'Lustruit & Gravat Fin' : engrave > 30 ? 'Lustruit' : 'Mat';
+
+  updatePrice();
+}
+
+function updatePrice() {
+  const base = { 'Inel':1200,'Colier':2800,'Cercei':950,'Brățară':1800,'Brosă':650,'Tiară':4500,'Pandantiv':750,'Cataramă':420 };
+  const metalMult = { 'Aur Galben 18K':1,'Aur Roz 14K':0.85,'Aur Alb 18K':1.1,'Platină 950':1.8,'Argint 925':0.3 };
+  const gemAdd = { 'Diamant':3000,'Safir':1200,'Rubin':1800,'Smarald':1400,'Ametist':400,'Perlă':600 };
+
+  const b = base[state.category] || 1000;
+  const m = metalMult[state.metal] || 1;
+  const g = gemAdd[state.gem] || 500;
+  const carat = parseFloat(document.getElementById('carat-slider')?.value||50)/20;
+  const comp = parseInt(document.getElementById('complex-slider')?.value||70)/100;
+  const price = Math.round((b * m + g * carat * 0.8) * (0.8 + comp*0.4));
+  document.getElementById('price-num').textContent = price.toLocaleString('ro-RO');
+
+  const days = Math.round(14 + comp * 14);
+  document.getElementById('time-val').textContent = days + ' – ' + (days+7) + ' zile';
+}
+
+// sliders also update price
+document.querySelectorAll('input[type=range]').forEach(s=>s.addEventListener('input',updateSpecs));
+
+function generateJewelry() {
+  const ring = document.getElementById('loading-ring');
+  ring.classList.add('active');
+  setTimeout(()=>{
+    ring.classList.remove('active');
+    // pulse the preview
+    const svg = document.getElementById('preview-svg');
+    svg.style.opacity = '0';
+    svg.style.transition = 'opacity 0.4s';
+    setTimeout(()=>{ svg.style.opacity='1'; updateSpecs(); }, 400);
+    // sparkle burst
+    const rect = document.getElementById('jewelry-canvas').getBoundingClientRect();
+    for(let i=0;i<40;i++) {
+      setTimeout(()=>{
+        sparks.push(new Spark(
+          rect.left + rect.width/2 + (Math.random()-0.5)*80,
+          rect.top + rect.height/2 + (Math.random()-0.5)*80
+        ));
+      }, i*15);
+    }
+  }, 2200);
+}
+
+function saveDesign(event) {
+  const btn = event.target;
+  btn.textContent = '✓  Salvat!';
+  setTimeout(()=>{ btn.innerHTML = '♡ &nbsp; Salvează'; }, 2000);
+}
+function orderDesign() {
+  alert('✦ Josephine Jewelry\n\nComanda ta a fost înregistrată!\nUn consultant vă va contacta în 24h.\n\n' + state.category + ' · ' + state.metal + ' · ' + state.gem);
+}
+</script>
+</body>
+</html>
