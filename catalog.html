@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Catalog Josephine Jewelry 2025–2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* ── TOKENS ── */
+:root{
+  --deep:#16003A; --deep2:#0E0022;
+  --gold:#C9A84C; --gold2:#E8D08A; --gold3:#F5E9C0;
+  --purple:#7B3FBE; --purple2:#9B6FD0; --purple3:#D4BCEF;
+  --cream:#FDFBF8; --cream2:#F5F0FA;
+  --white:#fff; --text:#1A0535; --mid:#4A3060; --soft:#8A7AA0;
+  --steel:#2D4A6B; --steel2:#6B8FBF;
+  --amber:#B8860B; --amber2:#D4AF37;
+  --border:rgba(155,111,208,.15);
+  --ff-head:'Playfair Display',Georgia,serif;
+  --ff-body:'Lato',-apple-system,sans-serif;
+}
+body{font-family:var(--ff-body);background:var(--cream);color:var(--text);font-size:14px;line-height:1.6}
+
+/* ── PRINT BUTTON (screen only) ── */
+.print-btn{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  background:var(--gold);color:var(--deep);border:none;
+  padding:13px 26px;font-family:var(--ff-body);font-size:11px;font-weight:900;
+  letter-spacing:2px;text-transform:uppercase;cursor:pointer;
+  box-shadow:0 6px 24px rgba(201,168,76,.45);transition:.2s;
+}
+.print-btn:hover{background:var(--gold2);transform:translateY(-2px)}
+@media print{.print-btn{display:none}}
+
+/* ══════════════════════════════════════════════ COVER PAGE */
+.cover{
+  width:100%;min-height:100vh;
+  background:var(--deep);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%,rgba(123,63,190,.25) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 30% at 85% 85%,rgba(201,168,76,.08) 0%,transparent 60%);
+  display:grid;grid-template-columns:1fr 1fr;min-height:100vh;
+  page-break-after:always;
+}
+.cover-left{
+  padding:60px 48px 60px 60px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  border-right:1px solid rgba(201,168,76,.12);
+}
+.cover-right{
+  padding:60px 60px 60px 48px;
+  display:flex;flex-direction:column;align-items:flex-end;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.cover-right::before{
+  content:'';position:absolute;
+  width:340px;height:340px;border-radius:50%;
+  border:1px solid rgba(201,168,76,.08);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.cover-right::after{
+  content:'';position:absolute;
+  width:500px;height:500px;border-radius:50%;
+  border:1px solid rgba(201,168,76,.04);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.cover-logo{width:72px;height:72px;object-fit:contain;filter:brightness(1.15);margin-bottom:40px}
+.cover-eyebrow{font-size:8px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);opacity:.75;margin-bottom:10px}
+.cover-title{font-family:var(--ff-head);font-size:52px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:14px}
+.cover-title em{font-style:italic;color:var(--gold2);font-weight:400}
+.cover-tagline{font-family:var(--ff-head);font-style:italic;font-size:14px;color:rgba(255,255,255,.35);margin-bottom:48px}
+.cover-rule{width:36px;height:1px;background:var(--gold);opacity:.5;margin-bottom:32px}
+.cover-toc{display:flex;flex-direction:column;gap:12px}
+.cover-toc-item{display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06)}
+.cover-toc-item:last-child{border-bottom:none}
+.cover-toc-cat{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.cover-toc-num{font-family:var(--ff-head);font-size:22px;font-weight:700;color:var(--gold);line-height:1}
+.cover-toc-sub{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.cover-big-num{font-family:var(--ff-head);font-size:120px;font-weight:900;line-height:1;color:rgba(201,168,76,.12);letter-spacing:-4px;position:relative;z-index:1}
+.cover-big-label{font-size:9px;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:rgba(201,168,76,.3);text-align:right;margin-top:-12px;position:relative;z-index:1}
+.cover-year{position:absolute;bottom:32px;right:40px;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.18)}
+.cover-school{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.22);margin-top:auto;padding-top:40px}
+
+/* ══════════════════════════════════════════════ CATEGORY SPREAD */
+.cat-spread{
+  width:100%;min-height:80vh;
+  display:grid;grid-template-columns:3fr 2fr;
+  page-break-before:always;page-break-after:always;
+}
+.cat-spread-left{
+  padding:80px 60px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.cat-spread-right{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:60px 48px;border-left:1px solid rgba(255,255,255,.08);
+}
+.cat-spread.femei{background:linear-gradient(145deg,#1C0448 0%,#16003A 50%,#200050 100%)}
+.cat-spread.barbati{background:linear-gradient(145deg,#081522 0%,#0D1E30 50%,#162234 100%)}
+.cat-spread.copii{background:linear-gradient(145deg,#1A0535 0%,#251045 50%,#16003A 100%)}
+.cat-spread-line{width:48px;height:2px;margin-bottom:24px}
+.cat-spread.femei .cat-spread-line{background:var(--gold)}
+.cat-spread.barbati .cat-spread-line{background:var(--steel2)}
+.cat-spread.copii .cat-spread-line{background:var(--amber2)}
+.cat-spread-name{font-family:var(--ff-head);font-size:clamp(60px,9vw,96px);font-weight:700;color:var(--white);line-height:.95;letter-spacing:-2px;margin-bottom:20px}
+.cat-spread-desc{font-family:var(--ff-head);font-style:italic;font-size:15px;color:rgba(255,255,255,.35);max-width:340px;line-height:1.7}
+.cat-spread-stat{margin-bottom:20px}
+.cat-spread-stat-num{font-family:var(--ff-head);font-size:42px;font-weight:700;line-height:1}
+.cat-spread.femei .cat-spread-stat-num{color:var(--gold)}
+.cat-spread.barbati .cat-spread-stat-num{color:var(--steel2)}
+.cat-spread.copii .cat-spread-stat-num{color:var(--amber2)}
+.cat-spread-stat-lbl{font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.cat-spread-types{margin-top:24px;display:flex;flex-direction:column;gap:8px}
+.cat-spread-type-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.cat-spread-type-row:last-child{border-bottom:none}
+.cat-spread-type-dot{width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.6;flex-shrink:0}
+.cat-spread.barbati .cat-spread-type-dot{background:var(--steel2)}
+.cat-spread.copii .cat-spread-type-dot{background:var(--amber2)}
+.cat-spread-type-name{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* ══════════════════════════════════════════════ TYPE HEADER */
+.type-header{
+  padding:36px 0 20px;
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;
+  margin:0 0 28px;border-bottom:1px solid var(--border);
+}
+.type-header-left{display:flex;align-items:center;gap:16px}
+.type-header-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:16px;
+  border:1px solid var(--border);flex-shrink:0}
+.type-header-name{font-family:var(--ff-head);font-size:20px;font-weight:600;color:var(--text)}
+.type-header-count{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--soft)}
+
+/* ══════════════════════════════════════════════ FEATURED CARD */
+.feat{
+  display:grid;grid-template-columns:1fr 1fr;
+  margin-bottom:24px;background:var(--white);
+  border:1px solid var(--border);
+  min-height:280px;
+  break-inside:avoid;page-break-inside:avoid;
+}
+.feat-img{overflow:hidden;background:var(--cream2);position:relative}
+.feat-img img{width:100%;height:100%;object-fit:cover;display:block}
+.feat-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:52px;opacity:.12}
+.feat-code{position:absolute;top:12px;left:12px;
+  background:rgba(22,0,58,.85);color:var(--gold2);
+  font-size:9px;font-weight:700;letter-spacing:1.5px;padding:4px 9px;
+  backdrop-filter:blur(4px)}
+.feat-body{padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between}
+.feat-eyebrow{font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--purple2);margin-bottom:12px}
+.feat-name{font-family:var(--ff-head);font-size:26px;font-weight:700;line-height:1.2;margin-bottom:16px;color:var(--text)}
+.feat-desc{font-size:13px;color:var(--soft);line-height:1.75;flex:1;margin-bottom:24px}
+.feat-footer{display:flex;align-items:flex-end;justify-content:space-between}
+.feat-price{font-family:var(--ff-head);font-size:24px;font-weight:700;color:var(--text)}
+.feat-price-lbl{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--soft)}
+.feat-badge{
+  font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--gold);padding:5px 10px;opacity:.8}
+
+/* ══════════════════════════════════════════════ REGULAR GRID */
+.reg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.card{background:var(--white);border:1px solid var(--border);display:flex;flex-direction:column;break-inside:avoid;page-break-inside:avoid}
+.card-img{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--cream2);position:relative;flex-shrink:0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:30px;opacity:.12}
+.card-code{position:absolute;top:8px;left:8px;
+  background:rgba(22,0,58,.82);color:var(--gold2);
+  font-size:8px;font-weight:700;letter-spacing:1px;padding:3px 7px}
+.card-body{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column}
+.card-type{font-size:7px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--purple2);margin-bottom:6px}
+.card-name{font-family:var(--ff-head);font-size:13px;font-weight:600;line-height:1.3;margin-bottom:7px;color:var(--text)}
+.card-desc{font-size:10px;color:var(--soft);line-height:1.6;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:12px}
+.card-hr{border:none;border-top:1px solid var(--border);margin-bottom:10px}
+.card-price{font-family:var(--ff-head);font-size:15px;font-weight:700;color:var(--text)}
+.card-price-lbl{font-size:7px;letter-spacing:1px;text-transform:uppercase;color:var(--soft)}
+
+/* Barbati card accent */
+.barbati .card-type{color:var(--steel2)}
+.barbati .feat-eyebrow{color:var(--steel2)}
+/* Copii card accent */
+.copii .card-type{color:var(--amber)}
+.copii .feat-eyebrow{color:var(--amber)}
+
+/* ══════════════════════════════════════════════ WATCH GRID (2-col) */
+.watch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:48px}
+.watch-card{background:var(--white);border:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;min-height:200px;break-inside:avoid;page-break-inside:avoid}
+.watch-img{background:var(--cream2);overflow:hidden;position:relative}
+.watch-img img{width:100%;height:100%;object-fit:cover;display:block}
+.watch-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:28px;opacity:.12}
+.watch-code{position:absolute;top:8px;left:8px;background:rgba(22,0,58,.82);color:var(--gold2);font-size:8px;font-weight:700;letter-spacing:1px;padding:3px 7px}
+.watch-body{padding:20px 18px;display:flex;flex-direction:column;justify-content:space-between}
+.watch-name{font-family:var(--ff-head);font-size:14px;font-weight:700;line-height:1.3;margin-bottom:8px;color:var(--text)}
+.watch-desc{font-size:10px;color:var(--soft);line-height:1.6;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+.watch-price{font-family:var(--ff-head);font-size:16px;font-weight:700;color:var(--text)}
+.watch-price-lbl{font-size:7px;letter-spacing:1px;text-transform:uppercase;color:var(--soft)}
+
+/* ══════════════════════════════════════════════ PRODUCTS SECTION WRAP */
+.products-section{max-width:980px;margin:0 auto;padding:0 32px 60px}
+
+/* ══════════════════════════════════════════════ BACK COVER */
+.back-cover{
+  background:var(--deep);min-height:50vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:80px 40px;
+  page-break-before:always;
+  background-image:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(123,63,190,.12),transparent 70%);
+}
+.back-cover h2{font-family:var(--ff-head);font-size:36px;font-weight:700;color:var(--white);margin-bottom:10px}
+.back-cover-tag{font-family:var(--ff-head);font-style:italic;font-size:15px;color:rgba(255,255,255,.35);margin-bottom:36px}
+.back-cover-hr{width:36px;height:1px;background:rgba(201,168,76,.4);margin:0 auto 28px}
+.back-cover-info p{font-size:12px;color:rgba(255,255,255,.35);line-height:2.2}
+.back-cover-info a{color:var(--gold2);text-decoration:none;opacity:.75}
+
+/* ══════════════════════════════════════════════ A4 PRINT */
+@media print{
+  @page{size:A4 portrait;margin:12mm 14mm}
+
+  .cover{min-height:267mm;page-break-after:always}
+  .cat-spread{min-height:120mm;page-break-before:always;page-break-after:always}
+  .products-section{padding:0 0 40px;max-width:100%}
+  .type-header{page-break-after:avoid}
+  .feat{page-break-inside:avoid;min-height:200px}
+  .feat-name{font-size:20px}
+  .feat-desc{font-size:11px}
+  .feat-price{font-size:18px}
+  .reg-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+  .card-img{aspect-ratio:unset;height:130px}
+  .watch-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .watch-card{min-height:130px}
+  .back-cover{min-height:120mm;page-break-before:always}
+  .print-btn{display:none}
+
+  /* force bg colors to print */
+  .cover,.cat-spread,.back-cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .feat-code,.card-code,.watch-code{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+@media(max-width:700px){
+  .cover{grid-template-columns:1fr;min-height:unset}
+  .cover-right{display:none}
+  .cat-spread{grid-template-columns:1fr;min-height:unset}
+  .cat-spread-right{display:none}
+  .reg-grid{grid-template-columns:repeat(2,1fr)}
+  .watch-grid{grid-template-columns:1fr}
+  .feat{grid-template-columns:1fr}
+  .feat-img{height:220px}
+}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">⎙ &nbsp;Printează A4</button>
+
+<!-- ═══════════════════════════════════════════════ COVER -->
+<div class="cover">
+  <div class="cover-left">
+    <div>
+      <img src="logo.png" alt="Josephine Jewelry" class="cover-logo">
+      <p class="cover-eyebrow">F.E. Josephine Jewelry S.A.</p>
+      <h1 class="cover-title">Catalog<br>de <em>Produse</em></h1>
+      <p class="cover-tagline">„Eleganță în fiecare detaliu"</p>
+      <div class="cover-rule"></div>
+    </div>
+    <div class="cover-toc">
+      <div class="cover-toc-item">
+        <div>
+          <div class="cover-toc-cat">Femei</div>
+          <div class="cover-toc-sub">Inele · Brățări · Lănțișoare · Cercei · Ceasuri · Broșe</div>
+        </div>
+        <div>
+          <div class="cover-toc-num">91</div>
+          <div class="cover-toc-sub" style="text-align:right">produse</div>
+        </div>
+      </div>
+      <div class="cover-toc-item">
+        <div>
+          <div class="cover-toc-cat">Bărbați</div>
+          <div class="cover-toc-sub">Inele · Lănțișoare · Ceasuri</div>
+        </div>
+        <div>
+          <div class="cover-toc-num">24</div>
+          <div class="cover-toc-sub" style="text-align:right">produse</div>
+        </div>
+      </div>
+      <div class="cover-toc-item">
+        <div>
+          <div class="cover-toc-cat">Copii</div>
+          <div class="cover-toc-sub">Brățări · Lănțișoare</div>
+        </div>
+        <div>
+          <div class="cover-toc-num">21</div>
+          <div class="cover-toc-sub" style="text-align:right">produse</div>
+        </div>
+      </div>
+      <p class="cover-school">Colegiul Economic „Virgil Madgearu" · Galați</p>
+    </div>
+  </div>
+  <div class="cover-right">
+    <div class="cover-big-num">136</div>
+    <div class="cover-big-label">Produse</div>
+    <p class="cover-year">An Școlar 2025 – 2026</p>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════ FEMEI SECTION SPREAD -->
+<div class="cat-spread femei">
+  <div class="cat-spread-left">
+    <div class="cat-spread-line"></div>
+    <h2 class="cat-spread-name">Femei</h2>
+    <p class="cat-spread-desc">O colectie curata, construita in jurul eleganei feminine — de la piese de zi cu zi pana la bijuterii de ocazie care raman in memorie.</p>
+  </div>
+  <div class="cat-spread-right">
+    <div class="cat-spread-stat">
+      <div class="cat-spread-stat-num">91</div>
+      <div class="cat-spread-stat-lbl">Produse selectate</div>
+    </div>
+    <div class="cat-spread-types">
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Inele</div></div>
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Brățări</div></div>
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Lănțișoare</div></div>
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Cercei</div></div>
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Ceasuri</div></div>
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Broșe</div></div>
+    </div>
+  </div>
+</div>
+<div class="products-section femei" id="sec-femei"></div>
+
+<!-- ═════════════════════════════════════ BARBATI SECTION SPREAD -->
+<div class="cat-spread barbati">
+  <div class="cat-spread-left">
+    <div class="cat-spread-line"></div>
+    <h2 class="cat-spread-name">Bărbați</h2>
+    <p class="cat-spread-desc">Piese cu caracter — de la inele statement la lanturi cu mesaj. Bijuteria masculina care nu are nevoie de explicatii.</p>
+  </div>
+  <div class="cat-spread-right">
+    <div class="cat-spread-stat">
+      <div class="cat-spread-stat-num">24</div>
+      <div class="cat-spread-stat-lbl">Produse selectate</div>
+    </div>
+    <div class="cat-spread-types">
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Inele</div></div>
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Lănțișoare</div></div>
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Ceasuri</div></div>
+    </div>
+  </div>
+</div>
+<div class="products-section barbati" id="sec-barbati"></div>
+
+<!-- ═════════════════════════════════════ COPII SECTION SPREAD -->
+<div class="cat-spread copii">
+  <div class="cat-spread-left">
+    <div class="cat-spread-line"></div>
+    <h2 class="cat-spread-name">Copii</h2>
+    <p class="cat-spread-desc">Bijuterii create pentru momente pure — micute, vesele, pline de magie. Fiecare piesa, o amintire de pastra.</p>
+  </div>
+  <div class="cat-spread-right">
+    <div class="cat-spread-stat">
+      <div class="cat-spread-stat-num">21</div>
+      <div class="cat-spread-stat-lbl">Produse selectate</div>
+    </div>
+    <div class="cat-spread-types">
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Brățări</div></div>
+      <div class="cat-spread-type-row"><div class="cat-spread-type-dot"></div><div class="cat-spread-type-name">Lănțișoare</div></div>
+    </div>
+  </div>
+</div>
+<div class="products-section copii" id="sec-copii"></div>
+
+<!-- ═══════════════════════════════════════ BACK COVER -->
+<div class="back-cover">
+  <div style="display:flex;gap:10px;justify-content:center;margin-bottom:28px">
+    <span style="width:5px;height:5px;background:#C9A84C;transform:rotate(45deg);display:block;opacity:.7"></span>
+    <span style="width:5px;height:5px;background:#C9A84C;transform:rotate(45deg);display:block;opacity:.4"></span>
+    <span style="width:5px;height:5px;background:#C9A84C;transform:rotate(45deg);display:block;opacity:.7"></span>
+  </div>
+  <h2>Vă mulțumim!</h2>
+  <p class="back-cover-tag">„Eleganță în fiecare detaliu"</p>
+  <div class="back-cover-hr"></div>
+  <div class="back-cover-info">
+    <p>F.E. JOSEPHINE JEWELRY S.A.</p>
+    <p>Str. Ștrungarilor, nr. 31, Galați</p>
+    <p><a href="mailto:jewelryjosephine715@gmail.com">jewelryjosephine715@gmail.com</a></p>
+    <p>josephine-jewelry7.webnode.ro</p>
+    <p style="margin-top:8px;font-size:10px;opacity:.5">Colegiul Economic „Virgil Madgearu" · An Școlar 2025–2026</p>
+  </div>
+</div>
+
+<script>
+var TL={inele:'Inel',lanturi:'Lantisor',bratari:'Bratara',cercei:'Cercei',ceasuri:'Ceas',brose:'Brosa',alte:'Bijuterie'};
+var TI={inele:'💍',lanturi:'📿',bratari:'✨',cercei:'💎',ceasuri:'🕐',brose:'🌸',alte:'💎'};
+var TYPE_ORDER=['inele','bratari','lanturi','cercei','ceasuri','brose','alte'];
+
+var P=[
+  {id:3,  n:'Ruby Link',              p:'1.000,99 lei',d:'Elementul central, o inima rosie lucioasa, aduce un plus de caldura si expresivitate designului minimalist.',g:'femei',t:'bratari'},
+  {id:6,  n:'Rosey Ring',             p:'1.230 lei',   d:'Un inel fin si delicat, ce poarta in centrul sau un trandafir roz sculptat cu grija.',g:'femei',t:'inele'},
+  {id:7,  n:'Hannah Lavender Petals', p:'2.000 lei',   d:'Doua flori sunt mai pretioase decat una.',g:'femei',t:'inele'},
+  {id:8,  n:'Golden Bow Ring',        p:'2.200 lei',   d:'Inel auriu cu fundita delicata si pietre roz — gratie feminina, purtata pe deget.',g:'femei',t:'inele'},
+  {id:9,  n:'Ribbon Ring',            p:'1.040 lei',   d:'Un inel rafinat, decorat cu pietre mov si o fundita delicata.',g:'femei',t:'inele'},
+  {id:11, n:'Lalea de Fildes',        p:'380 lei',     d:'Brosa aurie cu lalea sculptata, combinand sidefata abalone cu perla naturala.',g:'femei',t:'brose'},
+  {id:13, n:"Fleur d'Or",            p:'1.890 lei',   d:'Bratara aurie cu charm floral delicat — eleganta botanica la purtator.',g:'femei',t:'bratari'},
+  {id:16, n:'Violette Ring Set',      p:'3.500 lei',   d:'Set de inele cu pietre violet — purtate impreuna, spun o poveste completa.',g:'femei',t:'inele'},
+  {id:20, n:'Eternal Light Ring',     p:'1.025 lei',   d:'Simbolizeaza stralucirea eterna, dragostea nepieritoare si frumusetea ce transcende timpul.',g:'femei',t:'inele'},
+  {id:21, n:'Mariposa Ring',          p:'2.390 lei',   d:'Un inel delicat, cu piatra mov stralucitoare si fluture gratios.',g:'femei',t:'inele'},
+  {id:22, n:'Rose Ring',             p:'1.200,60 lei',d:'Un inel care imbina delicatetea cu stralucirea intr-un design romantic.',g:'femei',t:'inele'},
+  {id:26, n:'Fulg de Nea',            p:'1.650 lei',   d:'Bratara din argint cu charm fulg de nea — delicata ca prima ninsoare.',g:'femei',t:'bratari'},
+  {id:27, n:'Dragoste fara Rasuflare',p:'3.000 lei',  d:'Un simbol al misterului si pasiunii ascunse.',g:'femei',t:'alte'},
+  {id:28, n:'Rose Embrace Studs',    p:'2.500,50 lei',d:'Pereche de cercei stud care imbina romantismul cu rafinamentul.',g:'femei',t:'cercei'},
+  {id:29, n:'Orhidee Albastra',      p:'290 lei',     d:'Brosa in forma unei orhidee albastre — rafinament floral in miniatura.',g:'femei',t:'brose'},
+  {id:30, n:'Noaptea Crucilor',       p:'4.000 lei',   d:'Bratara cu charm-uri din argint, cu spirit misterios.',g:'femei',t:'bratari'},
+  {id:31, n:'Hortensia Mov',          p:'320 lei',     d:'Brosa cu buchet de hortensie violet — feminitate si gratie.',g:'femei',t:'brose'},
+  {id:32, n:'Studded Ring',           p:'2.067 lei',   d:'Un dans de lumina pe degete — inel placat cu aur, cu gratie si mister.',g:'femei',t:'inele'},
+  {id:34, n:'Lumen Heart',            p:'1.790 lei',   d:'Bratara unisex care combina simplitatea moderna cu eleganta.',g:'femei',t:'bratari'},
+  {id:35, n:'Branduse de Primavara', p:'1.100 lei',   d:'Cercei cu branduse violet — parfumul primaverii prins in metal.',g:'femei',t:'cercei'},
+  {id:36, n:'Crocus Argintiu',        p:'1.450 lei',   d:'Colier din argint cu pandantiv brandusa — simbol al renasterii.',g:'femei',t:'lanturi'},
+  {id:40, n:'Stea Cazatoare',        p:'1.300 lei',   d:'Bratara din argint cu charm steluta — pentru cei care viseaza cu ochii deschisi.',g:'femei',t:'bratari'},
+  {id:41, n:'Liliac in Floare',      p:'980 lei',     d:'Cercei cu buchetel de liliac violet — parfum de mai prins in argint.',g:'femei',t:'cercei'},
+  {id:42, n:'Panseluta Violet',      p:'1.580 lei',   d:'Inel cu panseluta violet pictata — floarea care zambeste.',g:'femei',t:'inele'},
+  {id:43, n:'Floare cu Perla',       p:'260 lei',     d:'Brosa romantica cu floare roz si perla centrala.',g:'femei',t:'brose'},
+  {id:45, n:'Bow Ring',               p:'2.980 lei',   d:'Delicat ca o promisiune, poarta gratia unei atingeri de lumina.',g:'femei',t:'inele'},
+  {id:47, n:'Piper Pearl Studs',      p:'2.399 lei',   d:'Cercei din perle ce aduc o nota de rafinament si eleganta pura.',g:'femei',t:'cercei'},
+  {id:49, n:'Stelar Triple Chain',    p:'2.100 lei',   d:'Colier din trei lanturi de argint unite de un pandantiv stea.',g:'femei',t:'lanturi'},
+  {id:50, n:'Narcisa Bicolor',       p:'1.250 lei',   d:'Cercei stud cu narcisa argintie si centru auriu.',g:'femei',t:'cercei'},
+  {id:52, n:'Violet Bloom Necklace',  p:'1.600 lei',   d:'Lant de argint cu pandantiv floare violet — discret, delicat, irezistibil.',g:'femei',t:'lanturi'},
+  {id:53, n:'Palmer Pearl Bracelet',  p:'1.600 lei',   d:'Bratara delicata cu margele translucide si accente aurii fine.',g:'femei',t:'bratari'},
+  {id:55, n:'Silver Diamond Cross',   p:'2.199,99 lei',d:'Colier finut din argint cu pandantiv cruce, cu pietre stralucitoare.',g:'femei',t:'lanturi'},
+  {id:56, n:'Heart Loop Chain Ring',  p:'1.760 lei',   d:'Inel delicat din argint, cu charm inima suspendat.',g:'femei',t:'inele'},
+  {id:57, n:'Whisper Web',            p:'1.699,99 lei',d:'Cercei cu diamant, inspirati din forma paianjenului.',g:'femei',t:'cercei'},
+  {id:58, n:'Wave Diamond Ring',      p:'4.900 lei',   d:'Inel din aur cu forma ondulata si diamante — ca valul marii prins in aur.',g:'femei',t:'inele'},
+  {id:59, n:'Aurora',                 p:'1.580 lei',   d:'Bijuterie rafinata, ce reflecta lumina blanda a zorilor.',g:'femei',t:'inele'},
+  {id:61, n:'Farmec Etern',           p:'1.300 lei',   d:'Stralucire atemporala si farmec modern.',g:'femei',t:'cercei'},
+  {id:62, n:'Trandafir de Aur',       p:'900 lei',     d:'Romantici, dar cu atitudine.',g:'femei',t:'cercei'},
+  {id:63, n:'Floare de Cer',          p:'1.000 lei',   d:'Delicati si plini de lumina.',g:'femei',t:'cercei'},
+  {id:64, n:'Roua de Perle',          p:'800 lei',     d:'Farmecul natural al perlelor clasice intr-o forma moderna.',g:'femei',t:'cercei'},
+  {id:65, n:'Fluturi de Trandafir',   p:'1.150 lei',   d:'Cercei in forma de fluture, jucausi si feminini.',g:'femei',t:'cercei'},
+  {id:66, n:'Lumina Soarelui',        p:'1.230 lei',   d:'Cercei tip cerc cu o nota de rafinament.',g:'femei',t:'cercei'},
+  {id:67, n:'Stralucirea Inimii',    p:'1.420 lei',   d:'Cercei tip cerc decorati cu mici inimi delicate.',g:'femei',t:'cercei'},
+  {id:68, n:'Funda de Sefir',        p:'1.200 lei',   d:'Cercei feminini, cu pietre roz pal si fundita.',g:'femei',t:'cercei'},
+  {id:69, n:'Asul Iubirii',           p:'1.000 lei',   d:'Cercei in miniatura ce infatiseaza simbolul inimii.',g:'femei',t:'cercei'},
+  {id:70, n:'Inima de Catifea',       p:'1.400 lei',   d:'Cercei delicati in forma unei inimi stralucitoare.',g:'femei',t:'cercei'},
+  {id:71, n:'Inflorire',             p:'1.490 lei',   d:'Cercei ce aduc frumusetea unei flori in plina inflorire.',g:'femei',t:'cercei'},
+  {id:72, n:'Petale de Gradina',     p:'1.000 lei',   d:'Colier rafinat ce surprinde gratia naturii.',g:'femei',t:'lanturi'},
+  {id:73, n:'Atingerea Mentei',       p:'1.200 lei',   d:'Colier diafan, cu reflexe translucide si tonuri de verde menta.',g:'femei',t:'lanturi'},
+  {id:74, n:'Petale de Lumina',      p:'890 lei',     d:'Un dans subtil al petalelor fine, surprins in detalii pretioase.',g:'femei',t:'lanturi'},
+  {id:75, n:'Vis de Catifea',         p:'1.300 lei',   d:'Bijuterie fina ca un vis, cu accente roz si reflexe liliachii.',g:'femei',t:'lanturi'},
+  {id:76, n:'Rafinament Perlat',      p:'1.350 lei',   d:'Inspirat de frumusetea naturala a perlelor si finetea florilor.',g:'femei',t:'lanturi'},
+  {id:77, n:'Linia Elegantei',       p:'1.400 lei',   d:'Colier lariat cu design fluid si sofisticat.',g:'femei',t:'lanturi'},
+  {id:78, n:'Simbolul Puritatii',   p:'1.300 lei',   d:'Bijuterie ce poarta echilibrul perfect dintre spiritualitate si stil.',g:'femei',t:'lanturi'},
+  {id:79, n:'Nod de Catifea',         p:'1.350 lei',   d:'Colier ce imbina rafinamentul cu un strop de romantism modern.',g:'femei',t:'lanturi'},
+  {id:80, n:'Inima Perlei',           p:'1.200 lei',   d:'Simbol al iubirii pure si al elegantei atemporale.',g:'femei',t:'lanturi'},
+  {id:81, n:'Scanteia Celesta',      p:'1.350 lei',   d:'Bratara cu accente mov eterice, misterioasa si eleganta.',g:'femei',t:'bratari'},
+  {id:82, n:'Averie Elegance',       p:'1.000 lei',   d:'Talisman al rafinamentului modern.',g:'femei',t:'bratari'},
+  {id:83, n:'Zborul Delicat',         p:'1.400 lei',   d:'Bratara inspirata de dansul usor al unui fluture.',g:'femei',t:'bratari'},
+  {id:84, n:'Aura Celesta',          p:'1.000 lei',   d:'Talisman al frumusetii eterne.',g:'femei',t:'bratari'},
+  {id:85, n:'Cristal Rose',           p:'2.000 lei',   d:'Dans subtil intre lumina si finete.',g:'femei',t:'bratari'},
+  {id:86, n:'Raze Divine',            p:'1.299 lei',   d:'Joc delicat intre lumina si spirit.',g:'femei',t:'bratari'},
+  {id:87, n:'Esenta Norocului',       p:'2.300 lei',   d:'Eleganta discreta, in care fiecare trifoi devine o promisiune.',g:'femei',t:'bratari'},
+  {id:88, n:'Petale de Margareta',   p:'1.300 lei',   d:'Flori aurii si accente de perle radiaza eleganta si gratie.',g:'femei',t:'bratari'},
+  {id:89, n:'Floare de Cristal',      p:'1.200 lei',   d:'Bijuterie delicata ce radiaza gratie si eleganta subtila.',g:'femei',t:'bratari'},
+  {id:90, n:'Ceas Dextera Lux',       p:'3.000 lei',   d:'Ceas elvetian, elegant si stralucitor.',g:'femei',t:'ceasuri'},
+  {id:91, n:'Ceas Dextera Chain',     p:'3.000 lei',   d:'Ceas purtat pe lant gourmette reglabil, plin de rafinament.',g:'femei',t:'ceasuri'},
+  {id:92, n:'Ceas Illumina',          p:'5.200 lei',   d:'Ceas elvetian cu bratara reglabila si cristale roz.',g:'femei',t:'ceasuri'},
+  {id:93, n:'Ceas Matrix Bangle',     p:'3.100 lei',   d:'Ceas inspirat de bijuterii, cu design in nuanta roz aurie.',g:'femei',t:'ceasuri'},
+  {id:94, n:'Ceas Nova Chrono',       p:'4.200 lei',   d:'Ceas sport de lux, lucrat pentru a evidentia maiestria designului.',g:'femei',t:'ceasuri'},
+  {id:95, n:'Ceas Octea Chrono',      p:'4.000 lei',   d:'Ceas elegant amplificat cu cristale.',g:'femei',t:'ceasuri'},
+  {id:96, n:'Ceas Nova Octea',        p:'4.200 lei',   d:'Ceas sport de lux cu luneta din cristal fatetat.',g:'femei',t:'ceasuri'},
+  {id:97, n:'Ceas Octea Moon',        p:'5.000 lei',   d:'Ceas ce uneste rafinat trecerea timpului cu ciclul lunar.',g:'femei',t:'ceasuri'},
+  {id:98, n:'Ceas Crystalline Lustre',p:'3.900 lei',   d:'Ceas cu cristale intr-o nuanta vibranta de albastru.',g:'femei',t:'ceasuri'},
+  {id:115,n:'Dragoste Dincolo de Moarte',p:'1.000 lei',d:'Detalii fine si contrast puternic, cu o inima rosie simbolica.',g:'femei',t:'alte'},
+  {id:116,n:'Lacramioare de Aur',    p:'3.800 lei',   d:'Colier din aur cu lacramioare fine — puritate si delicatete in fiecare detaliu.',g:'femei',t:'lanturi'},
+  {id:117,n:'Ceas Inima de Argint',  p:'4.500 lei',   d:'Ceas feminin cu carcasa in forma de inima — pentru cele care duc iubirea la purtator.',g:'femei',t:'ceasuri'},
+  {id:123,n:'Violet Fleur Bracelet', p:'2.700 lei',   d:'Bratara din aur ornata cu pietre florale violet — opulenta botanica.',g:'femei',t:'bratari'},
+  {id:124,n:'White Blossom Ring',    p:'3.200 lei',   d:'Inel din aur cu detalii florale albe — eleganta pura si feminitate rafinata.',g:'femei',t:'inele'},
+  {id:126,n:'Brosa Doamnei',        p:'450 lei',     d:'Brosa rafinata cu cloporei roz si perle mici.',g:'femei',t:'brose'},
+  {id:128,n:'Iris Auriu',             p:'3.100 lei',   d:'Colier din aur cu pandantiv iris albastru — pictura naturii suspendata la gat.',g:'femei',t:'lanturi'},
+  {id:129,n:'Narcisa de Argint',    p:'1.950 lei',   d:'Colier din argint cu pandantiv narcisa — discret si plin de gratie.',g:'femei',t:'lanturi'},
+  {id:131,n:'Bambi Ring',             p:'1.700 lei',   d:'Inel din argint cu pui de caprioara sculptat — delicat si plin de farmec.',g:'femei',t:'inele'},
+  {id:132,n:'Azul',                   p:'5.455 lei',   d:'Inel ca o poveste spusa in soapta — aur impletit cu albastrul cerului.',g:'femei',t:'inele'},
+  {id:133,n:'Fine Line Ring',         p:'4.800 lei',   d:'Inel de aur dublu si deschis, ecou al elegantei simple.',g:'femei',t:'inele'},
+  {id:135,n:'Rose Embrace Necklace', p:'1.450,99 lei',d:'Lantisoru romantic si rafinat.',g:'femei',t:'lanturi'},
+  {id:136,n:'Iris Deschis',           p:'1.900 lei',   d:'Inel deschis din aur cu iris albastru emailat si boboc cu cristal violet.',g:'femei',t:'inele'},
+  {id:137,n:'Panseluta Nocturna',   p:'120 lei',     d:'Brosa in nuante de mov si alb, cu farmec floral.',g:'femei',t:'brose'},
+  {id:139,n:'Bow Earrings',           p:'2.030 lei',   d:'Cercei rosii cu accente aurii si farmec festiv.',g:'femei',t:'cercei'},
+  {id:140,n:'Inima Regala',          p:'2.600 lei',   d:'Inel din aur cu inima din diamant roz si filigran — dragostea purtata cu eleganta.',g:'femei',t:'inele'},
+  {id:142,n:'Ruby Charm Earrings',   p:'3.400 lei',   d:'Cercei eleganti cu detalii rosii si nota sofisticata.',g:'femei',t:'cercei'},
+  // BARBATI
+  {id:1,  n:'Kyanite',               p:'999 lei',     d:'Un colier masculin care imbina energia bruta a kyanitului albastru cu eleganta metalului cald.',g:'barbati',t:'lanturi'},
+  {id:2,  n:'Lingou',                p:'1.000 lei',   d:'Un bloc de metal pur, neted ca o decizie luata fara ezitare.',g:'barbati',t:'lanturi'},
+  {id:4,  n:'Miezul Noptii',        p:'3.500 lei',   d:'Ceas cu design gotic, inspirat de misterul noptii — pentru cei care poarta intunericul cu eleganta.',g:'barbati',t:'ceasuri'},
+  {id:5,  n:'Tangled Cross',          p:'2.300 lei',   d:'O cruce sculptata cu grija, ca o promisiune gravata in metal.',g:'barbati',t:'lanturi'},
+  {id:10, n:'Interlinked',            p:'2.830 lei',   d:'Un inel care imbina forta cu echilibrul — argint si aur intr-un dialog al contrastelor.',g:'barbati',t:'inele'},
+  {id:14, n:'Excalibur',              p:'2.100 lei',   d:'Colier statement din argint, suspendat de un medalion gravat cu chip mitic.',g:'barbati',t:'lanturi'},
+  {id:15, n:'Katana',                 p:'2.250 lei',   d:'Un lant masculin, simplu si puternic, din care atarna o lama elegant curbata.',g:'barbati',t:'lanturi'},
+  {id:17, n:'Witch Hour',             p:'2.200 lei',   d:'Ceas care imbina eleganta gotica cu misterul noptii.',g:'barbati',t:'ceasuri'},
+  {id:18, n:'Orbis Argentum',         p:'3.200 lei',   d:'Colier masculin din argint cu medalion circular gravat — simbol al perfectiunii.',g:'barbati',t:'lanturi'},
+  {id:19, n:'Circle Of Connection',   p:'1.920 lei',   d:'Un colier masculin din argint — simbol al continuitatii si legaturilor.',g:'barbati',t:'lanturi'},
+  {id:23, n:'Chrome Cross',           p:'4.200 lei',   d:'Un simbol al protectiei si al legaturii sincere.',g:'barbati',t:'lanturi'},
+  {id:25, n:'Embrace Necklace',       p:'2.670 lei',   d:'Un simbol al protectiei si al legaturii sincere.',g:'barbati',t:'lanturi'},
+  {id:33, n:'Ecoul Timpului',         p:'1.880 lei',   d:'Ceas de buzunar cu design vintage si simbolism profund.',g:'barbati',t:'ceasuri'},
+  {id:37, n:'Zar Norocos',            p:'1.800 lei',   d:'Colier masculin cu pandantiv zaruri — pentru cei care castiga mereu.',g:'barbati',t:'lanturi'},
+  {id:44, n:'Crimson Monarch',        p:'2.900,50 lei',d:'Ceas care emana autoritate si rafinament.',g:'barbati',t:'ceasuri'},
+  {id:46, n:'Imperial Ring',          p:'3.299 lei',   d:'Bijuterie masculina, unde eleganta metalului intalneste puterea imperiala.',g:'barbati',t:'inele'},
+  {id:48, n:'Embrace Ring',           p:'1.340 lei',   d:'Doua maini din argint se intalnesc intr-un gest tacut de apropiere.',g:'barbati',t:'inele'},
+  {id:51, n:'Cordis Argentum',        p:'1.560 lei',   d:'Ideal pentru cei care imbina rafinamentul cu expresia personala.',g:'barbati',t:'inele'},
+  {id:54, n:'Evil Eye Necklace',      p:'1.399,99 lei',d:'Pandantiv barbatesc sofisticat, cu simbol protectiv incrustat cu pietre fine.',g:'barbati',t:'lanturi'},
+  {id:60, n:'Dragon Ring',            p:'3.600 lei',   d:'Inel masculin din argint cu dragon sculptat — putere si mister pe deget.',g:'barbati',t:'inele'},
+  {id:125,n:'Trandafiri Eterni',      p:'3.880 lei',   d:'Inel elegant din metal cu design floral rafinat.',g:'barbati',t:'inele'},
+  {id:127,n:'Bold Star Ring',         p:'2.450 lei',   d:'Inel masculin din argint masiv in forma de stea — prezenta puternica, stil distinct.',g:'barbati',t:'inele'},
+  {id:134,n:'Constelatie',           p:'6.640 lei',   d:'Inel din argint inspirat de cerul noptii — stele si luni gravate.',g:'barbati',t:'inele'},
+  {id:141,n:'Pietre de Rau',         p:'2.300 lei',   d:'Colier din argint cu pandantiv pietre rotunjite stivuite — minimalismul naturii.',g:'barbati',t:'lanturi'},
+  // COPII
+  {id:12, n:'Felina Mistica',         p:'3.000 lei',   d:'Un strop de magie de toamna, cu zambet bland si inima stralucitoare.',g:'copii',t:'alte'},
+  {id:24, n:'Heavenly Angel Pendant', p:'1.700 lei',   d:'Colier delicat cu inger, simbol al protectiei, sperantei si pacii.',g:'copii',t:'lanturi'},
+  {id:38, n:'Christmas Sheep Necklace',p:'1.200 lei',  d:'Colier delicat cu oaie, simbol al blandetii si puritatii.',g:'copii',t:'lanturi'},
+  {id:39, n:'Mielul si Steaua',      p:'2.200 lei',   d:'Colier pentru copii cu pandantiv mielusel si steluta — puritate si magie in fiecare zi.',g:'copii',t:'lanturi'},
+  {id:99, n:'Bratara Aur Pandantive', p:'2.300 lei',   d:'Bijuterie creata pentru cele mai frumoase momente din copilarie.',g:'copii',t:'bratari'},
+  {id:100,n:'Bratara Supereroi',      p:'1.200 lei',   d:'Charmuri colorate ce inspira curaj, imaginatie si bucuria aventurii.',g:'copii',t:'bratari'},
+  {id:101,n:'Bratara Copii Aur Alb',  p:'5.300 lei',   d:'Bratara pentru copii din aur alb, inspirata de libertatea copilariei.',g:'copii',t:'bratari'},
+  {id:102,n:'Bratara Floare de Tei',  p:'3.200 lei',   d:'Bratara pentru copii cu pandantiv delicat floare de tei.',g:'copii',t:'bratari'},
+  {id:103,n:'Bratara Aur Charmuri',   p:'4.000 lei',   d:'Design fluid, perfect pentru look-ul de zi cu zi.',g:'copii',t:'bratari'},
+  {id:104,n:'Bratara Ursulet',        p:'4.000 lei',   d:'Simbol al puritatii si al bucuriei autentice.',g:'copii',t:'bratari'},
+  {id:105,n:'Bratara Ursulet Aur Alb',p:'4.200 lei',  d:'Nota vesela si luminoasa in fiecare zi.',g:'copii',t:'bratari'},
+  {id:106,n:'Bratara Charm Curcubeu', p:'4.440 lei',   d:'Surprinde magia copilariei prin insertii multicolore.',g:'copii',t:'bratari'},
+  {id:107,n:'Bratara Buburuza',       p:'3.900 lei',   d:'Design gingaas si vesel, perfect pentru amintirile copilariei.',g:'copii',t:'bratari'},
+  {id:108,n:'Lant Unicorn',           p:'3.000 lei',   d:'Creat special pentru copii, aducand magie si stralucire.',g:'copii',t:'lanturi'},
+  {id:109,n:'Lant Flori de Tei',      p:'2.000 lei',   d:'Univers plin de culoare si visare.',g:'copii',t:'lanturi'},
+  {id:110,n:'Lant Unicorn Auriu',     p:'1.000 lei',   d:'Strop de magie din lumea copilariei.',g:'copii',t:'lanturi'},
+  {id:111,n:'Lant Ursulet',           p:'2.000 lei',   d:'Creat pentru a aduce bucurie si stralucire in fiecare zi.',g:'copii',t:'lanturi'},
+  {id:112,n:'Lant Curcubeu',          p:'3.000 lei',   d:'Inspirat de libertatea si imaginatia copilariei.',g:'copii',t:'lanturi'},
+  {id:113,n:'Lant Fluture',           p:'4.000 lei',   d:'Surprinde libertatea si energia pozitiva.',g:'copii',t:'lanturi'},
+  {id:114,n:'Lant Pisicuta',          p:'3.000 lei',   d:'Bijuterie delicata pentru momente pure ale copilariei.',g:'copii',t:'lanturi'},
+  {id:130,n:'Iepurasul de Argint',   p:'1.800 lei',   d:'Colier cu pandantiv iepuras — blandete si joaca la purtator.',g:'copii',t:'lanturi'}
+];
+
+function fmtCode(id){return '#'+String(id).padStart(3,'0')}
+
+function tryImg(img,id){
+  var exts=['jpg','png','webp','jpeg'];var i=0;
+  function next(){
+    if(i>=exts.length){img.style.display='none';var ph=img.parentElement.querySelector('.card-img-ph,.feat-img-ph,.watch-img-ph');if(ph)ph.style.display='flex';return;}
+    img.onerror=next;img.src='produse/'+id+'.'+exts[i++];
+  }
+  next();
+}
+
+function makeCard(pr){
+  var ic=TI[pr.t]||'💎';
+  var d=document.createElement('div');d.className='card';
+  d.innerHTML='<div class="card-img"><span class="card-code">'+fmtCode(pr.id)+'</span>'+
+    '<img alt="'+pr.n+'"><div class="card-img-ph" style="display:none">'+ic+'</div></div>'+
+    '<div class="card-body">'+
+    '<div class="card-type">'+(TL[pr.t]||pr.t)+'</div>'+
+    '<div class="card-name">'+pr.n+'</div>'+
+    '<div class="card-desc">'+pr.d+'</div>'+
+    '<hr class="card-hr">'+
+    '<div class="card-price-lbl">Pret cu TVA</div>'+
+    '<div class="card-price">'+pr.p+'</div>'+
+    '</div>';
+  tryImg(d.querySelector('img'),pr.id);
+  return d;
+}
+
+function makeFeat(pr){
+  var ic=TI[pr.t]||'💎';
+  var d=document.createElement('div');d.className='feat';
+  d.innerHTML='<div class="feat-img"><span class="feat-code">'+fmtCode(pr.id)+'</span>'+
+    '<img alt="'+pr.n+'"><div class="feat-img-ph" style="display:none">'+ic+'</div></div>'+
+    '<div class="feat-body">'+
+    '<div>'+
+    '<div class="feat-eyebrow">'+(TL[pr.t]||pr.t)+' &nbsp;·&nbsp; Produs Recomandat</div>'+
+    '<div class="feat-name">'+pr.n+'</div>'+
+    '<div class="feat-desc">'+pr.d+'</div>'+
+    '</div>'+
+    '<div class="feat-footer">'+
+    '<div><div class="feat-price-lbl">Pret cu TVA</div><div class="feat-price">'+pr.p+'</div></div>'+
+    '<div class="feat-badge">'+fmtCode(pr.id)+'</div>'+
+    '</div>'+
+    '</div>';
+  tryImg(d.querySelector('img'),pr.id);
+  return d;
+}
+
+function makeWatchCard(pr){
+  var d=document.createElement('div');d.className='watch-card';
+  d.innerHTML='<div class="watch-img"><span class="watch-code">'+fmtCode(pr.id)+'</span>'+
+    '<img alt="'+pr.n+'"><div class="watch-img-ph" style="display:none">🕐</div></div>'+
+    '<div class="watch-body">'+
+    '<div>'+
+    '<div class="card-type">Ceas</div>'+
+    '<div class="watch-name">'+pr.n+'</div>'+
+    '<div class="watch-desc">'+pr.d+'</div>'+
+    '</div>'+
+    '<div><div class="watch-price-lbl">Pret cu TVA</div><div class="watch-price">'+pr.p+'</div></div>'+
+    '</div>';
+  tryImg(d.querySelector('img'),pr.id);
+  return d;
+}
+
+function renderSection(gender,secId){
+  var sec=document.getElementById(secId);
+  if(!sec)return;
+  var prods=P.filter(function(p){return p.g===gender;});
+  var byType={};
+  prods.forEach(function(p){if(!byType[p.t])byType[p.t]=[];byType[p.t].push(p);});
+
+  TYPE_ORDER.forEach(function(type){
+    var list=byType[type];
+    if(!list||list.length===0)return;
+
+    // Type header
+    var hdr=document.createElement('div');hdr.className='type-header';
+    hdr.innerHTML='<div class="type-header-left">'+
+      '<div class="type-header-icon">'+( TI[type]||'💎')+'</div>'+
+      '<div class="type-header-name">'+(TL[type]||type)+'</div>'+
+      '</div>'+
+      '<div class="type-header-count">'+list.length+' produs'+(list.length>1?'e':'')+'</div>';
+    sec.appendChild(hdr);
+
+    if(type==='ceasuri'){
+      // Watches: featured first, then 2-col grid
+      sec.appendChild(makeFeat(list[0]));
+      if(list.length>1){
+        var wg=document.createElement('div');wg.className='watch-grid';
+        list.slice(1).forEach(function(p){wg.appendChild(makeWatchCard(p));});
+        sec.appendChild(wg);
+      }
+    } else {
+      // Regular: featured first, then 3-col grid
+      sec.appendChild(makeFeat(list[0]));
+      if(list.length>1){
+        var rg=document.createElement('div');rg.className='reg-grid';
+        list.slice(1).forEach(function(p){rg.appendChild(makeCard(p));});
+        sec.appendChild(rg);
+      }
+    }
+  });
+}
+
+renderSection('femei','sec-femei');
+renderSection('barbati','sec-barbati');
+renderSection('copii','sec-copii');
+</script>
+</body>
+</html>

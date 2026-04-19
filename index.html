@@ -458,31 +458,145 @@
   </section>
 
   <section class="section" id="catalog">
-    <h2>Catalog Josephine Jewelry</h2>
+    <h2 style="text-align:center;margin-bottom:6px">Catalog Josephine Jewelry</h2>
+    <div class="catalog-luxury-rule" style="margin:0 auto 12px"><span class="catalog-luxury-diamond"></span></div>
+    <p class="catalog-text" style="text-align:center;margin-bottom:28px">136 bijuterii de colecție &nbsp;·&nbsp; 3 categorii exclusive</p>
 
-    <p class="catalog-text">
-      Răsfoiește catalogul nostru premium.
-    </p>
+    <div class="phys-cat-filters">
+      <button class="phys-tab active" onclick="physSetFilter(this,'toate')">Toate</button>
+      <button class="phys-tab" onclick="physSetFilter(this,'femei')">Femei</button>
+      <button class="phys-tab" onclick="physSetFilter(this,'barbati')">Bărbați</button>
+      <button class="phys-tab" onclick="physSetFilter(this,'copii')">Copii</button>
+    </div>
 
-    <div class="catalog-wrapper">
-      <div class="catalog-frame">
-        <div class="catalog-corner top-left"></div>
-        <div class="catalog-corner top-right"></div>
-        <div class="catalog-corner bottom-left"></div>
-        <div class="catalog-corner bottom-right"></div>
+    <div class="phys-cat-wrap">
+      <div class="phys-cat-page" id="physCatPage">
+        <div class="phys-cat-page-hdr">
+          <div class="phys-cat-brand-row">
+            <img src="logo.png" class="phys-cat-logo" alt="Josephine">
+            <div class="phys-cat-brand-txt">
+              <span class="phys-cat-brand-name">JOSEPHINE JEWELRY</span>
+              <span class="phys-cat-brand-sub" id="physCatSub">Colecția 2025 — Toate Categoriile</span>
+            </div>
+          </div>
+          <div class="phys-cat-season">2025</div>
+        </div>
+        <div class="phys-cat-hdr-line"></div>
 
-        <button class="catalog-arrow catalog-arrow-left" onclick="prevCatalogPage()" aria-label="Pagina anterioară">←</button>
+        <div class="phys-cat-products" id="physCatProducts"></div>
 
-        <img id="catalogImage" src="catlog/1.png" class="catalog-image" alt="Pagina 1 din catalog">
-
-        <button class="catalog-arrow catalog-arrow-right" onclick="nextCatalogPage()" aria-label="Pagina următoare">→</button>
+        <div class="phys-cat-ftr-line"></div>
+        <div class="phys-cat-page-ftr">
+          <span class="phys-cat-ftr-brand">F.E. Josephine Jewelry S.A.</span>
+          <span class="phys-cat-ftr-num" id="physPageNum">— 1 —</span>
+          <span class="phys-cat-ftr-tagline">Rafinament în Fiecare Detaliu</span>
+        </div>
       </div>
 
-      <div class="catalog-nav">
-        <div class="catalog-counter" id="catalogCounter">Pagina 1 / 94</div>
+      <div class="phys-cat-nav">
+        <button class="phys-nav-btn" id="physPrevBtn" onclick="physCatalogNav(-1)">&#8592; Pagina anterioară</button>
+        <span class="phys-nav-info" id="physNavInfo">Pagina 1 din 46</span>
+        <button class="phys-nav-btn" id="physNextBtn" onclick="physCatalogNav(1)">Pagina următoare &#8594;</button>
       </div>
+
     </div>
   </section>
+
+  <script>
+  window.initPhysCatalog = function() {
+    if (typeof productData === 'undefined') return;
+    var exts = ['jpg','jpeg','png','webp'];
+    var TYPE_LABELS = {inele:'Inel',bratari:'Brățară',lanturi:'Lanț',cercei:'Cercei',ceasuri:'Ceas',brose:'Broșă',alte:'Bijuterie'};
+    var GENDER_LABELS = {toate:'Toate Categoriile',femei:'Colecția Femei',barbati:'Colecția Bărbați',copii:'Colecția Copii'};
+    var PER_PAGE = 3;
+    var currentFilter = 'toate';
+    var currentPage = 0;
+    var filteredIds = [];
+
+    function tryImg(img, id, ei) {
+      img.src = 'produse/' + id + '.' + exts[ei];
+      img.onerror = function(){ if(ei+1<exts.length) tryImg(img,id,ei+1); else img.src='logo.png'; };
+    }
+
+    function buildFilteredList(filter) {
+      var ids = Object.keys(productData).map(Number).sort(function(a,b){return a-b;});
+      filteredIds = filter === 'toate' ? ids : ids.filter(function(id){ return productData[id].gender === filter; });
+    }
+
+    function renderPage() {
+      var container = document.getElementById('physCatProducts');
+      container.innerHTML = '';
+      var start = currentPage * PER_PAGE;
+      var pageIds = filteredIds.slice(start, start + PER_PAGE);
+      var totalPages = Math.ceil(filteredIds.length / PER_PAGE);
+
+      pageIds.forEach(function(id, idx) {
+        var p = productData[id];
+        var flipRow = (idx % 2 === 1);
+        var row = document.createElement('div');
+        row.className = 'phys-product-row' + (flipRow ? ' phys-row-flip' : '');
+
+        var imgBox = document.createElement('div');
+        imgBox.className = 'phys-prod-img-box';
+        var img = document.createElement('img');
+        img.className = 'phys-prod-img';
+        img.alt = p.name;
+        tryImg(img, id, 0);
+        imgBox.appendChild(img);
+
+        var info = document.createElement('div');
+        info.className = 'phys-prod-info';
+        info.innerHTML =
+          '<span class="phys-prod-type">' + (TYPE_LABELS[p.type]||p.type).toUpperCase() + '</span>' +
+          '<h3 class="phys-prod-name">' + p.name + '</h3>' +
+          '<p class="phys-prod-desc">' + (p.description||'') + '</p>' +
+          '<div class="phys-prod-sep"></div>' +
+          '<div class="phys-prod-meta">' +
+            '<span class="phys-prod-price">' + p.price + '</span>' +
+            '<span class="phys-prod-code">Cod: #' + String(id).padStart(3,'0') + '</span>' +
+          '</div>' +
+          '';
+
+        if (flipRow) { row.appendChild(info); row.appendChild(imgBox); }
+        else { row.appendChild(imgBox); row.appendChild(info); }
+
+        if (idx < pageIds.length - 1) {
+          var sep = document.createElement('div');
+          sep.className = 'phys-prod-divider';
+          container.appendChild(row);
+          container.appendChild(sep);
+        } else {
+          container.appendChild(row);
+        }
+      });
+
+      document.getElementById('physPageNum').textContent = '— ' + (currentPage+1) + ' —';
+      document.getElementById('physNavInfo').textContent = 'Pagina ' + (currentPage+1) + ' din ' + totalPages;
+      document.getElementById('physPrevBtn').disabled = currentPage === 0;
+      document.getElementById('physNextBtn').disabled = currentPage >= totalPages - 1;
+    }
+
+    buildFilteredList('toate');
+    renderPage();
+
+    window.physCatalogNav = function(dir) {
+      var totalPages = Math.ceil(filteredIds.length / PER_PAGE);
+      currentPage = Math.max(0, Math.min(totalPages-1, currentPage+dir));
+      renderPage();
+      document.getElementById('physCatPage').scrollIntoView({behavior:'smooth', block:'start'});
+    };
+
+    window.physSetFilter = function(btn, filter) {
+      document.querySelectorAll('.phys-tab').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentFilter = filter;
+      currentPage = 0;
+      buildFilteredList(filter);
+      document.getElementById('physCatSub').textContent = 'Colecția 2025 — ' + GENDER_LABELS[filter];
+      renderPage();
+    };
+  };
+  </script>
 
   <!-- CONTOARE ANIMATE -->
   <section class="stats-section" id="stats">
@@ -972,6 +1086,7 @@
 
       <div class="product-modal-info">
         <p class="product-modal-category" id="productModalCategory">Categorie</p>
+        <p class="product-modal-code" id="productModalCode">Cod produs: #000</p>
         <h3 id="productModalTitle">Nume produs</h3>
         <div class="live-viewers" id="liveViewers">
           <span class="live-dot"></span>
@@ -1331,6 +1446,7 @@
   <div class="sp-confetti-wrap" id="spConfettiWrap"></div>
 
   <script src="produse.js"></script>
+  <script>initPhysCatalog();</script>
 
   <script>
     const totalCatalogPages = 94;

@@ -1297,6 +1297,9 @@ function openProductModal(productId) {
   description.textContent = product.description;
   price.textContent = product.price;
 
+  const codeModalEl = document.getElementById("productModalCode");
+  if (codeModalEl) codeModalEl.textContent = "Cod produs: #" + String(product.id).padStart(3, "0");
+
   // Live viewers — pseudo-random but consistent per product
   const viewersEl = document.getElementById("liveViewersText");
   if (viewersEl) {
