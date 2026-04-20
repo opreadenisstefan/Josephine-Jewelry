@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chestionar Angajați — Josephine Jewelry</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:#C9A43A; --gold-light:#E8C060;
+      --purple-deep:#100820;
+      --charcoal:#F0ECFF; --stone:rgba(220,190,255,0.72);
+      --border:rgba(192,132,252,0.22);
+      --font-heading:'Cormorant Garamond',Georgia,serif;
+      --font-display:'Cinzel',serif;
+      --font-body:'Jost',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:var(--font-body);font-weight:300;
+      background:#100820;
+      background-image:
+        radial-gradient(ellipse at 50% -5%,rgba(168,85,247,.42) 0%,transparent 52%),
+        radial-gradient(ellipse at 85% 35%,rgba(192,132,252,.13) 0%,transparent 38%),
+        radial-gradient(ellipse at 15% 65%,rgba(168,85,247,.11) 0%,transparent 38%);
+      background-attachment:fixed;
+      color:var(--charcoal);min-height:100vh;padding-bottom:80px;
+    }
+    .header{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:18px 32px;border-bottom:1px solid var(--border);
+      background:rgba(16,8,32,.85);backdrop-filter:blur(12px);
+      position:sticky;top:0;z-index:100;
+    }
+    .logo-row{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+    .logo-row img{width:40px;height:40px;object-fit:contain}
+    .brand-name{font-family:var(--font-display);font-size:13px;letter-spacing:3px;color:var(--gold)}
+    .brand-sub{font-size:10px;color:var(--stone)}
+    .hero{text-align:center;padding:56px 24px 40px}
+    .eyebrow{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);opacity:.8;margin-bottom:12px}
+    .hero h1{font-family:var(--font-heading);font-size:38px;font-style:italic;font-weight:300;line-height:1.25;margin-bottom:10px}
+    .rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:14px auto 18px;max-width:240px}
+    .rule::before,.rule::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,164,58,.5))}
+    .rule::after{background:linear-gradient(to left,transparent,rgba(201,164,58,.5))}
+    .diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+    .hero-sub{font-size:13px;color:var(--stone);max-width:460px;margin:0 auto;line-height:1.7}
+    .form-wrap{max-width:680px;margin:0 auto;padding:0 20px}
+    .name-block{background:rgba(255,255,255,.03);border:1px solid var(--border);padding:24px 28px;margin-bottom:16px}
+    .name-block label{display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+    .name-input{width:100%;background:rgba(255,255,255,.05);border:none;border-bottom:1px solid rgba(201,164,58,.4);color:var(--charcoal);font-family:var(--font-heading);font-size:18px;font-style:italic;padding:10px 12px;outline:none;transition:border-color .2s}
+    .name-input:focus{border-color:var(--gold)}
+    .name-input::placeholder{color:rgba(220,190,255,.3)}
+    .q-card{background:rgba(255,255,255,.03);border:1px solid var(--border);padding:24px 28px;margin-bottom:14px;transition:border-color .2s}
+    .q-card:focus-within{border-color:rgba(201,164,58,.3)}
+    .q-num{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);opacity:.65;margin-bottom:7px}
+    .q-text{font-family:var(--font-heading);font-size:18px;font-style:italic;color:var(--charcoal);line-height:1.4;margin-bottom:18px}
+    .q-options{display:flex;flex-direction:column;gap:9px}
+    .q-option{display:flex;align-items:center;gap:13px;padding:11px 14px;border:1px solid rgba(192,132,252,.12);cursor:pointer;transition:all .18s;user-select:none}
+    .q-option:hover{border-color:rgba(201,164,58,.38);background:rgba(201,164,58,.04)}
+    .q-option input{display:none}
+    .q-radio{width:17px;height:17px;border:1px solid rgba(201,164,58,.4);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .18s}
+    .q-radio::after{content:'';width:7px;height:7px;background:var(--gold);border-radius:50%;opacity:0;transition:opacity .18s}
+    .q-option input:checked~.q-radio{border-color:var(--gold)}
+    .q-option input:checked~.q-radio::after{opacity:1}
+    .q-option:has(input:checked){border-color:rgba(201,164,58,.45);background:rgba(201,164,58,.07)}
+    .q-option-text{font-size:14px;font-weight:300;color:var(--charcoal)}
+    .q-option:has(input:checked) .q-option-text{color:var(--gold-light)}
+    .q-card.error{border-color:rgba(255,80,80,.45)}
+    .q-err{font-size:11px;color:rgba(255,120,120,.85);margin-top:9px;display:none}
+    .q-card.error .q-err{display:block}
+    .submit-wrap{text-align:center;margin-top:32px}
+    .submit-btn{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--purple-deep);border:none;font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:15px 44px;cursor:pointer;transition:opacity .2s,transform .2s}
+    .submit-btn:hover{opacity:.88;transform:translateY(-2px)}
+    .submit-btn:disabled{opacity:.4;cursor:default;transform:none}
+    .thankyou{display:none;text-align:center;padding:80px 24px;max-width:500px;margin:0 auto}
+    .ty-icon{font-size:44px;margin-bottom:18px;opacity:.7}
+    .thankyou h2{font-family:var(--font-heading);font-size:32px;font-style:italic;font-weight:300;margin-bottom:10px}
+    .thankyou p{font-size:13px;color:var(--stone);line-height:1.7;margin-bottom:26px}
+    .back-btn{display:inline-block;border:1px solid rgba(201,164,58,.4);color:var(--gold);font-family:var(--font-body);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;padding:11px 26px;cursor:pointer;background:transparent;transition:all .2s}
+    .back-btn:hover{background:var(--gold);color:var(--purple-deep)}
+    @media(max-width:600px){
+      .hero h1{font-size:28px}
+      .q-text{font-size:16px}
+      .header{padding:14px 18px}
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo-row">
+    <img src="logo.png" alt="Josephine Jewelry">
+    <div><div class="brand-name">JOSEPHINE</div><div class="brand-sub">Jewelry</div></div>
+  </a>
+</header>
+
+<div class="hero">
+  <p class="eyebrow">Josephine Jewelry — Intern</p>
+  <h1>Chestionar de Satisfacție<br>a Angajaților</h1>
+  <div class="rule"><span class="diamond"></span></div>
+  <p class="hero-sub">Răspunsurile tale sunt anonime și ne ajută să îmbunătățim condițiile de lucru. Completează toate cele 10 întrebări.</p>
+</div>
+
+<div class="form-wrap" id="formWrap">
+  <form id="surveyForm" novalidate>
+
+    <div class="name-block" id="nameBlock">
+      <label for="numeAngajat">Numele tău complet</label>
+      <input type="text" id="numeAngajat" class="name-input" placeholder="ex: Ionescu Maria" autocomplete="name">
+    </div>
+
+    <div class="q-card" data-q="1">
+      <p class="q-num">Întrebarea 1 din 10</p>
+      <p class="q-text">Cât de mulțumit ești de condițiile de lucru din atelier/magazin?</p>
+      <div class="q-options">
+        <label class="q-option"><input type="radio" name="q1" value="4" data-text="Foarte mulțumit"><span class="q-radio"></span><span class="q-option-text">Foarte mulțumit</span></label>
+        <label class="q-option"><input type="radio" name="q1" value="3" data-text="Mulțumit"><span class="q-radio"></span><span class="q-option-text">Mulțumit</span></label>
+        <label class="q-option"><input type="radio" name="q1" value="2" data-text="Nemulțumit"><span class="q-radio"></span><span class="q-option-text">Nemulțumit</span></label>
+        <label class="q-option"><input type="radio" name="q1" value="1" data-text="Foarte nemulțumit"><span class="q-radio"></span><span class="q-option-text">Foarte nemulțumit</span></label>
+      </div>
+      <p class="q-err">Te rugăm să selectezi un răspuns.</p>
+    </div>
+
+    <div class="q-card" data-q="2">
+      <p class="q-num">Întrebarea 2 din 10</p>
+      <p class="q-text">Cum apreciezi comunicarea dintre tine și management?</p>
+      <div class="q-options">
+        <label class="q-option"><input type="radio" name="q2" value="4" data-text="Foarte bună"><span class="q-radio"></span><span class="q-option-text">Foarte bună</span></label>
+        <label class="q-option"><input type="radio" name="q2" value="3" data-text="Bună"><span class="q-radio"></span><span class="q-option-text">Bună</span></label>
+        <label class="q-option"><input type="radio" name="q2" value="2" data-text="Slabă"><span class="q-radio"></span><span class="q-option-text">Slabă</span></label>
+        <label class="q-option"><input type="radio" name="q2" value="1" data-text="Foarte slabă"><span class="q-radio"></span><span class="q-option-text">Foarte slabă</span></label>
+      </div>
+      <p class="q-err">Te rugăm să selectezi un răspuns.</p>
+    </div>
+
+    <div class="q-card" data-q="3">
+      <p class="q-num">Întrebarea 3 din 10</p>
+      <p class="q-text">Consideri că ai resursele și instrumentele necesare pentru a-ți face treaba eficient?</p>
+      <div class="q-options">
+        <label class="q-option"><input type="radio" name="q3" value="4" data-text="Da, întotdeauna"><span class="q-radio"></span><span class="q-option-text">Da, întotdeauna</span></label>
+        <label class="q-option"><input type="radio" name="q3" value="3" data-text="De cele mai multe ori"><span class="q-radio"></span><span class="q-option-text">De cele mai multe ori</span></label>
+        <label class="q-option"><input type="radio" name="q3" value="2" data-text="Rar"><span class="q-radio"></span><span class="q-option-text">Rar</span></label>
+        <label class="q-option"><input type="radio" name="q3" value="1" data-text="Deloc"><span class="q-radio"></span><span class="q-option-text">Deloc</span></label>
+      </div>
+      <p class="q-err">Te rugăm să selectezi un răspuns.</p>
+    </div>
+
+    <div class="q-card" data-q="4">
+      <p class="q-num">Întrebarea 4 din 10</p>
+      <p class="q-text">Cum evaluezi nivelul de respect și colaborare între colegi?</p>
+      <div class="q-options">
+        <label class="q-option"><input type="radio" name="q4" value="4" data-text="Excelent"><span class="q-radio"></span><span class="q-option-text">Excelent</span></label>
+        <label class="q-option"><input type="radio" name="q4" value="3" data-text="Bun"><span class="q-radio"></span><span class="q-option-text">Bun</span></label>
+        <label class="q-option"><input type="radio" name="q4" value="2" data-text="Acceptabil"><span class="q-radio"></span><span class="q-option-text">Acceptabil</span></label>
+        <label class="q-option"><input type="radio" name="q4" value="1" data-text="Nesatisfăcător"><span class="q-radio"></span><span class="q-option-text">Nesatisfăcător</span></label>
+      </div>
+      <p class="q-err">Te rugăm să selectezi un răspuns.</p>
+    </div>
+
+    <div class="q-card" data-q="5">
+      <p class="q-num">Întrebarea 5 din 10</p>
+      <p class="q-text">Cât de mulțumit ești de oportunitățile de dezvoltare profesională?</p>
+      <div class="q-options">
+        <label class="q-option"><input type="radio" name="q5" value="4" data-text="Foarte mulțumit"><span class="q-radio"></span><span class="q-option-text">Foarte mulțumit</span></label>
+        <label class="q-option"><input type="radio" name="q5" value="3" data-text="Mulțumit"><span class="q-radio"></span><span class="q-option-text">Mulțumit</span></label>
+        <label class="q-option"><input type="radio" name="q5" value="2" data-text="Puțin mulțumit"><span class="q-radio"></span><span class="q-option-text">Puțin mulțumit</span></label>
+        <label class="q-option"><input type="radio" name="q5" value="1" data-text="Nemulțumit"><span class="q-radio"></span><span class="q-option-text">Nemulțumit</span></label>
+      </div>
+      <p class="q-err">Te rugăm să selectezi un răspuns.</p>
+    </div>
+
+    <div class="q-card" data-q="6">
+      <p class="q-num">Întrebarea 6 din 10</p>
+      <p class="q-text">Cum apreciezi nivelul de încărcare a sarcinilor zilnice?</p>
+      <div class="q-options">
+        <label class="q-option"><input type="radio" name="q6" value="4" data-text="Echilibrat"><span class="q-radio"></span><span class="q-option-text">Echilibrat</span></label>
+        <label class="q-option"><input type="radio" name="q6" value="3" data-text="Uneori prea mare"><span class="q-radio"></span><span class="q-option-text">Uneori prea mare</span></label>
+        <label class="q-option"><input type="radio" name="q6" value="2" data-text="Adesea prea mare"><span class="q-radio"></span><span class="q-option-text">Adesea prea mare</span></label>
+        <label class="q-option"><input type="radio" name="q6" value="1" data-text="Mult prea mare"><span class="q-radio"></span><span class="q-option-text">Mult prea mare</span></label>
+      </div>
+      <p class="q-err">Te rugăm să selectezi un răspuns.</p>
+    </div>
+
+    <div class="q-card" data-q="7">
+      <p class="q-num">Întrebarea 7 din 10</p>
+      <p class="q-text">Cât de motivat te simți în activitatea ta de zi cu zi?</p>
+      <div class="q-options">
+        <label class="q-option"><input type="radio" name="q7" value="4" data-text="Foarte motivat"><span class="q-radio"></span><span class="q-option-text">Foarte motivat</span></label>
+        <label class="q-option"><input type="radio" name="q7" value="3" data-text="Motivat"><span class="q-radio"></span><span class="q-option-text">Motivat</span></label>
+        <label class="q-option"><input type="radio" name="q7" value="2" data-text="Puțin motivat"><span class="q-radio"></span><span class="q-option-text">Puțin motivat</span></label>
+        <label class="q-option"><input type="radio" name="q7" value="1" data-text="Nemotivat"><span class="q-radio"></span><span class="q-option-text">Nemotivat</span></label>
+      </div>
+      <p class="q-err">Te rugăm să selectezi un răspuns.</p>
+    </div>
+
+    <div class="q-card" data-q="8">
+      <p class="q-num">Întrebarea 8 din 10</p>
+      <p class="q-text">Cum evaluezi politica de recompense și beneficii (salariu, bonusuri, avantaje)?</p>
+      <div class="q-options">
+        <label class="q-option"><input type="radio" name="q8" value="4" data-text="Foarte satisfăcătoare"><span class="q-radio"></span><span class="q-option-text">Foarte satisfăcătoare</span></label>
+        <label class="q-option"><input type="radio" name="q8" value="3" data-text="Satisfăcătoare"><span class="q-radio"></span><span class="q-option-text">Satisfăcătoare</span></label>
+        <label class="q-option"><input type="radio" name="q8" value="2" data-text="Nesatisfăcătoare"><span class="q-radio"></span><span class="q-option-text">Nesatisfăcătoare</span></label>
+        <label class="q-option"><input type="radio" name="q8" value="1" data-text="Foarte nesatisfăcătoare"><span class="q-radio"></span><span class="q-option-text">Foarte nesatisfăcătoare</span></label>
+      </div>
+      <p class="q-err">Te rugăm să selectezi un răspuns.</p>
+    </div>
+
+    <div class="q-card" data-q="9">
+      <p class="q-num">Întrebarea 9 din 10</p>
+      <p class="q-text">Te simți apreciat pentru munca pe care o depui?</p>
+      <div class="q-options">
+        <label class="q-option"><input type="radio" name="q9" value="4" data-text="Da, în mod constant"><span class="q-radio"></span><span class="q-option-text">Da, în mod constant</span></label>
+        <label class="q-option"><input type="radio" name="q9" value="3" data-text="Uneori"><span class="q-radio"></span><span class="q-option-text">Uneori</span></label>
+        <label class="q-option"><input type="radio" name="q9" value="2" data-text="Rar"><span class="q-radio"></span><span class="q-option-text">Rar</span></label>
+        <label class="q-option"><input type="radio" name="q9" value="1" data-text="Deloc"><span class="q-radio"></span><span class="q-option-text">Deloc</span></label>
+      </div>
+      <p class="q-err">Te rugăm să selectezi un răspuns.</p>
+    </div>
+
+    <div class="q-card" data-q="10">
+      <p class="q-num">Întrebarea 10 din 10</p>
+      <p class="q-text">În general, cât de mulțumit ești de locul tău de muncă în cadrul firmei?</p>
+      <div class="q-options">
+        <label class="q-option"><input type="radio" name="q10" value="4" data-text="Foarte mulțumit"><span class="q-radio"></span><span class="q-option-text">Foarte mulțumit</span></label>
+        <label class="q-option"><input type="radio" name="q10" value="3" data-text="Mulțumit"><span class="q-radio"></span><span class="q-option-text">Mulțumit</span></label>
+        <label class="q-option"><input type="radio" name="q10" value="2" data-text="Nemulțumit"><span class="q-radio"></span><span class="q-option-text">Nemulțumit</span></label>
+        <label class="q-option"><input type="radio" name="q10" value="1" data-text="Foarte nemulțumit"><span class="q-radio"></span><span class="q-option-text">Foarte nemulțumit</span></label>
+      </div>
+      <p class="q-err">Te rugăm să selectezi un răspuns.</p>
+    </div>
+
+    <div class="submit-wrap">
+      <button type="submit" class="submit-btn" id="submitBtn">✦ Trimite Răspunsurile</button>
+    </div>
+  </form>
+</div>
+
+<div class="thankyou" id="thankyou">
+  <div class="ty-icon">✦</div>
+  <h2>Mulțumim, <span id="tyName"></span>!</h2>
+  <p>Răspunsurile tale au fost înregistrate. Feedback-ul tău contribuie la îmbunătățirea mediului de lucru.</p>
+  <button class="back-btn" onclick="location.reload()">Completează din nou</button>
+</div>
+
+<script>
+  // ─── CONFIGURARE ───────────────────────────────────────────────
+  // Înlocuiește cu URL-ul tău din Google Apps Script
+  var APPS_SCRIPT_URL = 'PUNE_URL_APPS_SCRIPT_AICI';
+  // ───────────────────────────────────────────────────────────────
+
+  document.getElementById('surveyForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var valid = true;
+    var nameVal = document.getElementById('numeAngajat').value.trim();
+    var nb = document.getElementById('nameBlock');
+
+    if (!nameVal) {
+      nb.style.borderColor = 'rgba(255,80,80,.5)';
+      valid = false;
+    } else {
+      nb.style.borderColor = '';
+    }
+
+    for (var i = 1; i <= 10; i++) {
+      var card = document.querySelector('[data-q="'+i+'"]');
+      var sel = document.querySelector('[name="q'+i+'"]:checked');
+      if (!sel) { card.classList.add('error'); valid = false; }
+      else card.classList.remove('error');
+    }
+
+    if (!valid) {
+      var firstErr = document.querySelector('.q-card.error') || nb;
+      firstErr.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    var btn = document.getElementById('submitBtn');
+    btn.textContent = '⏳ Se trimite…';
+    btn.disabled = true;
+
+    var params = 'action=submit&nume=' + encodeURIComponent(nameVal);
+    for (var j = 1; j <= 10; j++) {
+      var inp = document.querySelector('[name="q'+j+'"]:checked');
+      params += '&q'+j+'_score='+inp.value+'&q'+j+'_text='+encodeURIComponent(inp.getAttribute('data-text'));
+    }
+
+    // Trimite fără a astepta raspuns (no-cors pentru Google Apps Script)
+    fetch(APPS_SCRIPT_URL + '?' + params, {method:'GET', mode:'no-cors'})
+      .catch(function(){}) // ignora eroarea de CORS — datele ajung oricum
+      .finally(function() {
+        document.getElementById('formWrap').style.display = 'none';
+        document.getElementById('tyName').textContent = nameVal.split(' ')[0];
+        document.getElementById('thankyou').style.display = 'block';
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+  });
+</script>
+</body>
+</html>
