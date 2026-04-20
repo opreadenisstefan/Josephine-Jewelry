@@ -22,7 +22,6 @@
         radial-gradient(ellipse at 85% 35%,rgba(192,132,252,.13) 0%,transparent 38%);
       background-attachment:fixed;color:var(--charcoal);min-height:100vh;}
 
-    /* LOGIN */
     .login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center}
     .login-box{background:rgba(255,255,255,.04);border:1px solid var(--border);padding:48px 44px;text-align:center;max-width:380px;width:90%}
     .login-box img{width:52px;margin:0 auto 18px;display:block}
@@ -34,7 +33,6 @@
     .login-btn:hover{opacity:.88}
     .login-error{color:rgba(255,120,120,.9);font-size:12px;margin-top:11px;display:none}
 
-    /* PANEL */
     .panel{display:none;padding-bottom:80px}
     .adm-header{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-bottom:1px solid var(--border);background:rgba(16,8,32,.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:12px}
     .adm-logo-row{display:flex;align-items:center;gap:10px}
@@ -49,7 +47,6 @@
 
     .body{max-width:1060px;margin:0 auto;padding:40px 20px}
 
-    /* STATS CARDS */
     .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:44px}
     .stat-box{background:rgba(255,255,255,.03);border:1px solid var(--border);padding:22px 18px;text-align:center}
     .stat-val{font-family:var(--font-heading);font-size:38px;color:var(--gold);line-height:1;margin-bottom:5px}
@@ -58,14 +55,13 @@
     .sec-title{font-family:var(--font-heading);font-size:24px;font-style:italic;font-weight:300;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid rgba(201,164,58,.18);display:flex;align-items:center;justify-content:space-between}
     .sec-title span{font-family:var(--font-body);font-size:9px;font-style:normal;letter-spacing:2px;color:var(--stone)}
 
-    /* Q BARS */
     .q-grid{display:flex;flex-direction:column;gap:18px;margin-bottom:48px}
     .q-stat{background:rgba(255,255,255,.03);border:1px solid var(--border);padding:22px 26px}
     .q-stat-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
     .q-stat-name{font-family:var(--font-heading);font-size:17px;font-style:italic}
     .q-stat-avg{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:1px}
     .bars{display:flex;flex-direction:column;gap:7px}
-    .bar-row{display:grid;grid-template-columns:150px 1fr 52px;align-items:center;gap:10px}
+    .bar-row{display:grid;grid-template-columns:160px 1fr 60px;align-items:center;gap:10px}
     .bar-lbl{font-size:12px;color:var(--stone);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .bar-track{background:rgba(255,255,255,.07);height:9px;position:relative;overflow:hidden}
     .bar-fill{height:100%;background:linear-gradient(to right,var(--gold),var(--gold-light));transition:width .5s ease}
@@ -73,7 +69,6 @@
     .bar-fill.low{background:linear-gradient(to right,rgba(255,100,80,.7),rgba(255,140,110,.7))}
     .bar-pct{font-size:11px;color:var(--stone);text-align:right}
 
-    /* TABLE */
     .tbl-wrap{overflow-x:auto}
     table{width:100%;border-collapse:collapse;font-size:12px}
     th{background:rgba(201,164,58,.1);font-family:var(--font-body);font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding:10px 12px;text-align:left;white-space:nowrap;border-bottom:1px solid rgba(201,164,58,.22)}
@@ -83,24 +78,13 @@
     .s4{color:#6ee7b7}.s3{color:var(--gold-light)}.s2{color:rgba(255,190,60,.85)}.s1{color:rgba(255,100,80,.85)}
 
     .no-data{text-align:center;padding:80px 24px;font-family:var(--font-heading);font-style:italic;font-size:20px;color:rgba(220,190,255,.3)}
-    .loading{text-align:center;padding:60px;color:var(--stone);font-style:italic}
+    .loading{text-align:center;padding:60px;color:var(--stone);font-style:italic;font-size:16px}
 
-    /* SETUP GUIDE */
-    .setup-guide{background:rgba(201,164,58,.06);border:1px solid rgba(201,164,58,.25);padding:28px 32px;margin-bottom:32px}
-    .setup-guide h3{font-family:var(--font-heading);font-size:22px;font-style:italic;margin-bottom:14px;color:var(--gold)}
-    .setup-guide ol{padding-left:18px;display:flex;flex-direction:column;gap:8px}
-    .setup-guide li{font-size:13px;line-height:1.6;color:var(--stone)}
-    .setup-guide code{background:rgba(255,255,255,.08);padding:2px 7px;font-family:monospace;font-size:12px;color:var(--charcoal);border-radius:2px}
-    .setup-guide .script-box{background:rgba(0,0,0,.3);border:1px solid var(--border);padding:16px;margin:14px 0;font-family:monospace;font-size:11px;color:#a0e0a0;white-space:pre;overflow-x:auto;line-height:1.6}
-    .copy-btn{background:rgba(201,164,58,.15);border:1px solid rgba(201,164,58,.35);color:var(--gold);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;cursor:pointer;transition:all .2s;font-family:var(--font-body)}
-    .copy-btn:hover{background:var(--gold);color:var(--purple-deep)}
-
-    @media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr)}.bar-row{grid-template-columns:100px 1fr 44px}}
+    @media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr)}.bar-row{grid-template-columns:100px 1fr 44px}.adm-header{padding:12px 16px}}
   </style>
 </head>
 <body>
 
-<!-- LOGIN -->
 <div class="login-screen" id="loginScreen">
   <div class="login-box">
     <img src="logo.png" alt="Josephine Jewelry">
@@ -112,7 +96,6 @@
   </div>
 </div>
 
-<!-- PANEL -->
 <div class="panel" id="panel">
   <header class="adm-header">
     <div class="adm-logo-row">
@@ -127,62 +110,27 @@
   </header>
 
   <div class="body" id="panelBody">
-    <div class="loading" id="loadingMsg">Se încarcă datele…</div>
+    <div class="loading">Se încarcă datele…</div>
   </div>
 </div>
 
 <script>
-  // ─── CONFIGURARE ──────────────────────────────────────────────────────────────
   var PASS = 'josephine2025';
-  // Înlocuiește cu URL-ul CSV publicat din Google Sheets
-  // (Fișier → Publicare pe web → Foaie1 → CSV → Publică → copiază linkul)
-  var SHEET_CSV_URL = 'PUNE_URL_CSV_GOOGLE_SHEETS_AICI';
-  // ─────────────────────────────────────────────────────────────────────────────
+  var BUCKET = 'BmpQTBrzqbvSDd3nJEWKT5';
+  var BASE = 'https://kvdb.io/' + BUCKET;
 
   var Q_LABELS = [
-    {key:'q1',  label:'1. Condiții de lucru'},
-    {key:'q2',  label:'2. Comunicare management'},
-    {key:'q3',  label:'3. Resurse și instrumente'},
-    {key:'q4',  label:'4. Respect și colaborare'},
-    {key:'q5',  label:'5. Dezvoltare profesională'},
-    {key:'q6',  label:'6. Încărcare sarcini'},
-    {key:'q7',  label:'7. Motivație'},
-    {key:'q8',  label:'8. Recompense și beneficii'},
-    {key:'q9',  label:'9. Apreciere'},
-    {key:'q10', label:'10. Satisfacție generală'}
+    'Condiții de lucru',
+    'Comunicare management',
+    'Resurse și instrumente',
+    'Respect și colaborare',
+    'Dezvoltare profesională',
+    'Încărcare sarcini',
+    'Motivație',
+    'Recompense și beneficii',
+    'Apreciere',
+    'Satisfacție generală'
   ];
-
-  var APPS_SCRIPT_CODE = `function doGet(e) {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheets()[0];
-
-  if (sheet.getLastRow() === 0) {
-    var hdr = ['Timestamp','Nume'];
-    for (var i=1;i<=10;i++) { hdr.push('Q'+i+' Raspuns'); hdr.push('Q'+i+' Scor'); }
-    hdr.push('Medie');
-    sheet.appendRow(hdr);
-  }
-
-  var p = e.parameter;
-  if (p.action !== 'submit') {
-    return ContentService.createTextOutput('{"ok":0}')
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-
-  var scores = [], row = [new Date().toLocaleString('ro-RO'), p.nume || ''];
-  for (var j=1; j<=10; j++) {
-    var score = parseInt(p['q'+j+'_score']) || 0;
-    row.push(p['q'+j+'_text'] || '');
-    row.push(score);
-    scores.push(score);
-  }
-  var avg = scores.reduce(function(a,b){return a+b},0)/scores.length;
-  row.push(avg.toFixed(2));
-  sheet.appendRow(row);
-
-  return ContentService.createTextOutput('{"ok":1}')
-    .setMimeType(ContentService.MimeType.JSON);
-}`;
 
   var allData = [];
 
@@ -204,44 +152,30 @@
 
   function loadData() {
     var body = document.getElementById('panelBody');
-    body.innerHTML = '<div class="loading">Se încarcă datele…</div>';
+    body.innerHTML = '<div class="loading">Se încarcă răspunsurile…</div>';
 
-    if (SHEET_CSV_URL === 'PUNE_URL_CSV_GOOGLE_SHEETS_AICI') {
-      renderSetupGuide();
-      return;
-    }
-
-    fetch(SHEET_CSV_URL + '&cachebust=' + Date.now())
+    fetch(BASE + '/?keys_only=true&cachebust=' + Date.now())
       .then(function(r) { return r.text(); })
-      .then(function(csv) {
-        allData = parseCSV(csv);
+      .then(function(txt) {
+        var keys = txt.trim().split('\n').filter(function(k) { return k && k[0] === 'r'; });
+        if (!keys.length) {
+          allData = [];
+          renderPanel([]);
+          return;
+        }
+        return Promise.all(keys.map(function(k) {
+          return fetch(BASE + '/' + k).then(function(r) { return r.json(); });
+        }));
+      })
+      .then(function(rows) {
+        if (!rows) return;
+        allData = rows.filter(function(r) { return r && r.nume; });
+        allData.sort(function(a, b) { return a.timestamp > b.timestamp ? -1 : 1; });
         renderPanel(allData);
       })
-      .catch(function() {
-        body.innerHTML = '<div class="no-data">Nu s-au putut încărca datele. Verifică URL-ul CSV sau conexiunea.</div>';
+      .catch(function(err) {
+        body.innerHTML = '<div class="no-data">Eroare la încărcarea datelor. Verifică conexiunea.</div>';
       });
-  }
-
-  function parseCSV(text) {
-    var lines = text.trim().split('\n');
-    if (lines.length < 2) return [];
-    var rows = [];
-    for (var i = 1; i < lines.length; i++) {
-      var cols = lines[i].split(',');
-      if (!cols[1]) continue;
-      var r = {
-        timestamp: cols[0] || '',
-        nume: cols[1] || '',
-        scores: [], texts: [], avg: 0
-      };
-      for (var j = 0; j < 10; j++) {
-        r.texts.push(cols[2 + j*2] || '');
-        r.scores.push(parseInt(cols[3 + j*2]) || 0);
-      }
-      r.avg = parseFloat(cols[22]) || 0;
-      rows.push(r);
-    }
-    return rows;
   }
 
   function sc(s) {
@@ -259,108 +193,80 @@
     }
 
     var totalScore = 0, cnt = 0;
-    data.forEach(function(r) { r.scores.forEach(function(s){ totalScore+=s; cnt++; }); });
-    var globalAvg = (totalScore/cnt).toFixed(2);
-    var pct = Math.round(totalScore/cnt/4*100);
+    data.forEach(function(r) { r.q.forEach(function(q) { totalScore += q.score; cnt++; }); });
+    var globalAvg = (totalScore / cnt).toFixed(2);
+    var pct = Math.round(totalScore / cnt / 4 * 100);
 
-    var qAvgs = Q_LABELS.map(function(q, idx) {
-      var s = 0; data.forEach(function(r){ s+=r.scores[idx]; });
-      return {label:q.label, avg:s/data.length};
+    var qAvgs = Q_LABELS.map(function(lbl, idx) {
+      var s = 0;
+      data.forEach(function(r) { s += r.q[idx].score; });
+      return { label: lbl, avg: s / data.length };
     });
-    var lowest = qAvgs.reduce(function(a,b){ return a.avg<b.avg?a:b; });
+    var lowest = qAvgs.reduce(function(a, b) { return a.avg < b.avg ? a : b; });
 
     var html = '<div class="stats-row">' +
-      '<div class="stat-box"><div class="stat-val">'+data.length+'</div><div class="stat-lbl">Răspunsuri</div></div>' +
-      '<div class="stat-box"><div class="stat-val">'+globalAvg+'</div><div class="stat-lbl">Scor mediu (1–4)</div></div>' +
-      '<div class="stat-box"><div class="stat-val">'+pct+'%</div><div class="stat-lbl">Satisfacție</div></div>' +
-      '<div class="stat-box"><div class="stat-val" style="font-size:16px;padding-top:8px">'+lowest.label.split('.')[0]+'</div><div class="stat-lbl">Cel mai slab capitol</div></div>' +
+      '<div class="stat-box"><div class="stat-val">' + data.length + '</div><div class="stat-lbl">Răspunsuri</div></div>' +
+      '<div class="stat-box"><div class="stat-val">' + globalAvg + '</div><div class="stat-lbl">Scor mediu (1–4)</div></div>' +
+      '<div class="stat-box"><div class="stat-val">' + pct + '%</div><div class="stat-lbl">Satisfacție</div></div>' +
+      '<div class="stat-box"><div class="stat-val" style="font-size:15px;padding-top:8px">' + lowest.label + '</div><div class="stat-lbl">Cel mai slab capitol</div></div>' +
     '</div>';
 
-    // Q stats
     html += '<div class="sec-title">Statistici pe întrebări <span>DISTRIBUȚIE RĂSPUNSURI</span></div><div class="q-grid">';
-    Q_LABELS.forEach(function(q, qi) {
-      var counts = {4:0,3:0,2:0,1:0}, sum = 0;
-      data.forEach(function(r){ counts[r.scores[qi]]++; sum+=r.scores[qi]; });
-      var avg = (sum/data.length).toFixed(2);
+    Q_LABELS.forEach(function(lbl, qi) {
+      var counts = { 4: 0, 3: 0, 2: 0, 1: 0 }, sum = 0;
+      var texts = { 4: '', 3: '', 2: '', 1: '' };
+      data.forEach(function(r) {
+        var s = r.q[qi].score;
+        counts[s]++;
+        sum += s;
+        if (!texts[s]) texts[s] = r.q[qi].text;
+      });
+      var avg = (sum / data.length).toFixed(2);
       var n = data.length;
 
-      html += '<div class="q-stat"><div class="q-stat-head"><span class="q-stat-name">'+q.label+'</span><span class="q-stat-avg">Medie: '+avg+' / 4</span></div><div class="bars">';
-      [4,3,2,1].forEach(function(score) {
-        var cnt = counts[score];
-        var p = n>0 ? Math.round(cnt/n*100) : 0;
-        var cls = score>=3?'':(score===2?'mid':'low');
-        // Get text label from first response that has this score
-        var txt = '';
-        data.forEach(function(r){ if(r.scores[qi]===score && !txt) txt=r.texts[qi]; });
-        if (!txt) txt = 'Scor '+score;
-        html += '<div class="bar-row"><span class="bar-lbl">'+txt+'</span><div class="bar-track"><div class="bar-fill '+cls+'" style="width:'+p+'%"></div></div><span class="bar-pct">'+p+'% ('+cnt+')</span></div>';
+      html += '<div class="q-stat"><div class="q-stat-head"><span class="q-stat-name">' + (qi+1) + '. ' + lbl + '</span><span class="q-stat-avg">Medie: ' + avg + ' / 4</span></div><div class="bars">';
+      [4, 3, 2, 1].forEach(function(score) {
+        var c = counts[score];
+        var p = n > 0 ? Math.round(c / n * 100) : 0;
+        var cls = score >= 3 ? '' : (score === 2 ? 'mid' : 'low');
+        var txt = texts[score] || ('Scor ' + score);
+        html += '<div class="bar-row"><span class="bar-lbl">' + txt + '</span><div class="bar-track"><div class="bar-fill ' + cls + '" style="width:' + p + '%"></div></div><span class="bar-pct">' + p + '% (' + c + ')</span></div>';
       });
       html += '</div></div>';
     });
     html += '</div>';
 
-    // Table
-    html += '<div class="sec-title">Răspunsuri individuale <span>'+data.length+' ÎNREGISTRĂRI</span></div><div class="tbl-wrap"><table><thead><tr><th>#</th><th>Nume</th><th>Data</th>';
-    for (var i=1;i<=10;i++) html += '<th>Î'+i+'</th>';
+    html += '<div class="sec-title">Răspunsuri individuale <span>' + data.length + ' ÎNREGISTRĂRI</span></div><div class="tbl-wrap"><table><thead><tr><th>#</th><th>Nume</th><th>Data</th>';
+    for (var i = 1; i <= 10; i++) html += '<th>Î' + i + '</th>';
     html += '<th>Medie</th></tr></thead><tbody>';
     data.forEach(function(r, idx) {
-      html += '<tr><td style="color:var(--stone);font-size:11px">'+(idx+1)+'</td>' +
-        '<td style="font-family:var(--font-heading);font-style:italic;font-size:15px">'+r.nume+'</td>' +
-        '<td style="font-size:11px;color:var(--stone)">'+r.timestamp+'</td>';
-      r.scores.forEach(function(s){ html += '<td class="sc '+sc(s)+'">'+s+'</td>'; });
-      html += '<td class="sc '+sc(r.avg)+'" style="font-weight:700">'+r.avg+'</td></tr>';
+      html += '<tr><td style="color:var(--stone);font-size:11px">' + (idx+1) + '</td>' +
+        '<td style="font-family:var(--font-heading);font-style:italic;font-size:15px">' + r.nume + '</td>' +
+        '<td style="font-size:11px;color:var(--stone)">' + r.timestamp + '</td>';
+      r.q.forEach(function(q) { html += '<td class="sc ' + sc(q.score) + '">' + q.score + '</td>'; });
+      html += '<td class="sc ' + sc(parseFloat(r.avg)) + '" style="font-weight:700">' + r.avg + '</td></tr>';
     });
     html += '</tbody></table></div>';
 
     body.innerHTML = html;
   }
 
-  function renderSetupGuide() {
-    var body = document.getElementById('panelBody');
-    body.innerHTML = '<div class="setup-guide">' +
-      '<h3>Configurare necesară — 5 minute</h3>' +
-      '<p style="font-size:13px;color:var(--stone);margin-bottom:18px">Trebuie să conectezi un Google Sheet pentru a stoca răspunsurile. Urmează pașii de mai jos:</p>' +
-      '<ol>' +
-      '<li>Mergi la <code>sheets.google.com</code> și creează un fișier nou numit <code>Chestionar Josephine</code>.</li>' +
-      '<li>Click pe <code>Extensii → Apps Script</code>, șterge tot ce e acolo și lipești codul de mai jos:</li>' +
-      '</ol>' +
-      '<div class="script-box" id="scriptCode">'+APPS_SCRIPT_CODE+'</div>' +
-      '<button class="copy-btn" onclick="copyScript()">Copiază codul</button>' +
-      '<ol start="3" style="margin-top:18px">' +
-      '<li>Click <code>Deploy → New deployment → Web app</code>. La <em>Execute as</em>: <strong>Me</strong>. La <em>Who has access</em>: <strong>Anyone</strong>. Click <code>Deploy</code> și copiază URL-ul.</li>' +
-      '<li>Deschide fișierul <code>chestionar.html</code> și înlocuiește <code>PUNE_URL_APPS_SCRIPT_AICI</code> cu URL-ul copiat.</li>' +
-      '<li>Înapoi în Google Sheets: <code>Fișier → Publicare pe web → Foaie1 → CSV → Publică</code> și copiază linkul.</li>' +
-      '<li>Deschide fișierul <code>chestionar-admin.html</code> și înlocuiește <code>PUNE_URL_CSV_GOOGLE_SHEETS_AICI</code> cu linkul copiat.</li>' +
-      '<li>Fă <strong>git add + commit + push</strong> și gata — angajații accesează linkul de pe orice telefon.</li>' +
-      '</ol>' +
-    '</div>';
-  }
-
-  function copyScript() {
-    var txt = document.getElementById('scriptCode').textContent;
-    navigator.clipboard.writeText(txt).then(function() {
-      var btn = document.querySelector('.copy-btn');
-      btn.textContent = '✓ Copiat!';
-      setTimeout(function(){ btn.textContent='Copiază codul'; }, 2000);
-    });
-  }
-
   function exportCSV() {
     if (!allData.length) { alert('Nu există date de exportat.'); return; }
-    var headers = ['#','Nume','Data'];
-    Q_LABELS.forEach(function(q){ headers.push(q.label+' - Raspuns'); headers.push(q.label+' - Scor'); });
+    var headers = ['#', 'Nume', 'Data'];
+    Q_LABELS.forEach(function(lbl) { headers.push(lbl + ' - Raspuns'); headers.push(lbl + ' - Scor'); });
     headers.push('Medie');
     var rows = [headers.join(';')];
     allData.forEach(function(r, idx) {
-      var row = [idx+1, '"'+r.nume+'"', r.timestamp];
-      r.texts.forEach(function(t,i){ row.push('"'+t+'"'); row.push(r.scores[i]); });
+      var row = [idx+1, '"' + r.nume + '"', r.timestamp];
+      r.q.forEach(function(q) { row.push('"' + q.text + '"'); row.push(q.score); });
       row.push(r.avg);
       rows.push(row.join(';'));
     });
-    var blob = new Blob(['\uFEFF'+rows.join('\n')], {type:'text/csv;charset=utf-8;'});
+    var blob = new Blob(['\uFEFF' + rows.join('\n')], { type: 'text/csv;charset=utf-8;' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'chestionar-josephine-'+new Date().toISOString().slice(0,10)+'.csv';
+    a.download = 'chestionar-josephine-' + new Date().toISOString().slice(0,10) + '.csv';
     a.click();
   }
 </script>
