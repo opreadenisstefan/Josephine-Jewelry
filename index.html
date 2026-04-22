@@ -6,7 +6,7 @@
   <title>Josephine Jewelry</title>
   <meta name="description" content="Josephine Jewelry - bijuterii premium elegante pentru momente speciale.">
   <link rel="icon" type="image/png" href="logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,13 +27,13 @@
   </div>
 
   <header class="header overlay-header" id="mainHeader">
-    <div class="logo-container">
+    <a href="index.html" class="logo-container" aria-label="Josephine Jewelry — acasă">
       <img src="logo.png" class="logo" alt="Logo Josephine Jewelry">
       <div class="brand-text">
         <h1>JOSEPHINE</h1>
         <p>JEWELRY</p>
       </div>
-    </div>
+    </a>
 
     <nav class="menu premium-menu">
       <a href="#noutati">Noutăți</a>
@@ -68,15 +68,22 @@
       </div>
 
       <a href="#catalog">Catalog</a>
-      <a href="jewelry-configurator-app/index.html" style="color:#C9A86C;font-weight:500;">✦ Configurator 3D</a>
-      <a href="#oferte" style="color:#D4AF5A;font-weight:400;">✦ Ofertele Lunii</a>
-      <a href="wishlist.html" style="color:rgba(224,85,119,0.85)">♥ Favorite<span class="wishlist-badge" id="wishlistNavBadge" style="display:none"></span></a>
+      <a href="jewelry-configurator-app/index.html" style="color:#C9A86C;font-weight:500;">Configurator 3D</a>
+      <a href="#oferte" style="color:#D4AF5A;font-weight:400;">Ofertele Lunii</a>
+      <a href="wishlist.html" style="color:rgba(224,85,119,0.85)">Favorite<span class="wishlist-badge" id="wishlistNavBadge" style="display:none"></span></a>
       <a href="#contact">Contact</a>
       <a href="#despre">Despre noi</a>
       <a href="#echipa">Echipa</a>
     </nav>
 
     <div class="header-actions">
+      <!-- SELECTOR LIMBĂ -->
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn lang-active" onclick="switchLang('ro')" id="langRO" lang="ro" title="Română">RO</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" onclick="switchLang('en')" id="langEN" lang="en" title="English">EN</button>
+      </div>
+
       <div class="header-search-wrap" id="headerSearchWrap">
         <input type="text" class="header-search-input" id="headerSearchInput" placeholder="Caută bijuterie..." oninput="headerSearchLive(this.value)" onkeydown="if(event.key==='Escape')closeHeaderSearch()">
         <div class="header-search-results" id="headerSearchResults"></div>
@@ -96,15 +103,14 @@
 
   <!-- MOBILE NAV OVERLAY -->
   <div class="mobile-nav-overlay" id="mobileNav">
-    <span class="mobile-nav-gem">◆ ◆ ◆</span>
     <a href="#noutati" onclick="closeMobileNav()">Noutăți</a>
     <a href="categorie.html?gen=femei&tip=toate&titlu=Femei" onclick="closeMobileNav()">Femei</a>
     <a href="categorie.html?gen=barbati&tip=toate&titlu=Bărbați" onclick="closeMobileNav()">Bărbați</a>
     <a href="categorie.html?gen=copii&tip=toate&titlu=Copii" onclick="closeMobileNav()">Copii</a>
     <div class="mobile-nav-divider"></div>
     <a href="#catalog" onclick="closeMobileNav()">Catalog</a>
-    <a href="jewelry-configurator-app/index.html" onclick="closeMobileNav()" style="color:var(--gold-light)">✦ Configurator 3D</a>
-    <a href="wishlist.html" onclick="closeMobileNav()" style="color:rgba(224,85,119,0.85)">♥ Favorite</a>
+    <a href="jewelry-configurator-app/index.html" onclick="closeMobileNav()" style="color:var(--gold-light)">Configurator 3D</a>
+    <a href="wishlist.html" onclick="closeMobileNav()" style="color:rgba(224,85,119,0.85)">Favorite</a>
     <a href="#contact" onclick="closeMobileNav()">Contact</a>
   </div>
 
@@ -124,23 +130,16 @@
       </p>
 
       <div class="hero-video-buttons">
-        <a href="#produse" class="hero-btn">Cumpără acum</a>
-        <a href="#catalog" class="hero-btn-outline">Descoperă catalogul</a>
+        <a href="#produse" class="hero-btn">Descoperă colecția</a>
       </div>
-      <div class="hero-extra-btns">
-        <button class="hero-extra-btn" onclick="openGravura()">✦ Gravură Virtuală</button>
-        <button class="hero-extra-btn" onclick="openQuiz()">◆ Quiz de Stil</button>
-        <button class="hero-extra-btn" onclick="openSurprise()">✦ Surprinde-mă</button>
-        <a href="#gift-finder" class="hero-extra-btn">🎁 Gift Finder</a>
-        <a href="#pietre-pretioase" class="hero-extra-btn">◈ Pietre Prețioase</a>
-      </div>
+      <a href="#catalog" class="hero-secondary-link">Explorează catalogul complet</a>
     </div>
   </section>
 
-  <!-- ROATĂ NOROC — BANNER -->
-  <div class="wheel-promo-bar">
-    <span class="wheel-promo-text">✦ Încearcă norocul — câștigă o reducere exclusivă!</span>
-    <button class="wheel-promo-btn" onclick="openWheel()">Rotește roata ✦</button>
+  <!-- ROATĂ NOROC — BANNER (ascuns, accesibil din meniu dacă e nevoie) -->
+  <div class="wheel-promo-bar" style="display:none">
+    <span class="wheel-promo-text">Încearcă norocul — câștigă o reducere exclusivă!</span>
+    <button class="wheel-promo-btn" onclick="openWheel()">Rotește roata</button>
   </div>
 
   <!-- ROATĂ NOROC — MODAL -->
@@ -199,15 +198,15 @@
   <!-- BANDĂ GARANȚII -->
   <div class="guarantee-strip">
     <div class="guarantee-strip-inner">
-      <span class="guarantee-item"><span class="gi-icon">✦</span> 30 Zile Retur</span>
+      <span class="guarantee-item">30 Zile Retur</span>
       <span class="guarantee-sep">•</span>
-      <span class="guarantee-item"><span class="gi-icon">✦</span> Livrare Rapidă</span>
+      <span class="guarantee-item">Livrare Rapidă</span>
       <span class="guarantee-sep">•</span>
-      <span class="guarantee-item"><span class="gi-icon">✦</span> Calitate Garantată</span>
+      <span class="guarantee-item">Calitate Garantată</span>
       <span class="guarantee-sep">•</span>
-      <span class="guarantee-item"><span class="gi-icon">✦</span> Ambalaj Premium</span>
+      <span class="guarantee-item">Ambalaj Premium</span>
       <span class="guarantee-sep">•</span>
-      <span class="guarantee-item"><span class="gi-icon">✦</span> Bijuterii Autentice</span>
+      <span class="guarantee-item">Bijuterii Autentice</span>
     </div>
   </div>
 
@@ -236,7 +235,7 @@
       </select>
 
       <select id="sortFilter" class="sort-filter" onchange="renderHomeProducts()">
-        <option value="noutati">✦ Noutăți</option>
+        <option value="noutati">Noutăți</option>
         <option value="pret-asc">Preț ↑ (mic → mare)</option>
         <option value="pret-desc">Preț ↓ (mare → mic)</option>
         <option value="az">A → Z</option>
@@ -248,6 +247,8 @@
   </section>
 
   <!-- GIFT FINDER WIZARD -->
+  <div class="section-divider-gem" aria-hidden="true">✦</div>
+
   <section class="gift-finder-section" id="gift-finder">
     <h2>Gift Finder</h2>
     <p class="catalog-text">Spune-ne pentru cine și găsim bijuteria perfectă</p>
@@ -283,7 +284,7 @@
           <option value="6000+">Fără limită</option>
         </select>
       </div>
-      <button class="gf-find-btn" onclick="runGiftFinder()">✦ Găsește cadoul</button>
+      <button class="gf-find-btn" onclick="runGiftFinder()">Găsește cadoul</button>
     </div>
 
     <div class="gf-results" id="gfResults" style="display:none">
@@ -332,21 +333,18 @@
     <div class="how-it-works-grid">
       <div class="how-step">
         <div class="how-step-circle">01</div>
-        <span class="how-step-icon">◈</span>
         <h4>Alege</h4>
         <p>Explorează colecțiile noastre premium și găsește bijuteria care îți reflectă personalitatea.</p>
       </div>
 
       <div class="how-step">
         <div class="how-step-circle">02</div>
-        <span class="how-step-icon">◇</span>
         <h4>Comandă</h4>
         <p>Adaugă în coș și finalizează comanda în câteva secunde, sau contactează-ne pe WhatsApp.</p>
       </div>
 
       <div class="how-step">
         <div class="how-step-circle">03</div>
-        <span class="how-step-icon">✦</span>
         <h4>Primești</h4>
         <p>Bijuteria ajunge la tine în ambalaj premium, gata de oferit sau de purtat cu mândrie.</p>
       </div>
@@ -463,6 +461,8 @@
       </div>
     </div>
   </section>
+
+  <div class="section-divider-gem" aria-hidden="true">✦</div>
 
   <section class="section" id="catalog">
     <h2 style="text-align:center;margin-bottom:6px">Catalog Josephine Jewelry</h2>
@@ -605,6 +605,13 @@
   };
   </script>
 
+  <!-- TRENDING ACUM -->
+  <section class="section" id="trending">
+    <h2>Trending acum</h2>
+    <p class="catalog-text">Cele mai populare bijuterii Josephine în această săptămână</p>
+    <div class="product-grid" id="trendingGrid"></div>
+  </section>
+
   <!-- CONTOARE ANIMATE -->
   <section class="stats-section" id="stats">
     <div class="stats-grid">
@@ -656,7 +663,7 @@
             <span class="despre-value-label">Eleganță Atemporală</span>
           </div>
           <div class="despre-value">
-            <span class="despre-value-num">♦</span>
+            <span class="despre-value-num">✦</span>
             <span class="despre-value-label">Selecție Curatoriată</span>
           </div>
         </div>
@@ -667,23 +674,10 @@
         </blockquote>
         <cite>— Josephine Jewelry</cite>
 
-        <!-- CERTIFICATE / AWARD BADGES -->
-        <div class="award-badges-row">
-          <div class="award-badge reveal">
-            <span class="award-badge-icon">✦</span>
-            <span class="award-badge-title">Excelență</span>
-            <span class="award-badge-sub">Business 2024</span>
-          </div>
-          <div class="award-badge reveal">
-            <span class="award-badge-icon">◆</span>
-            <span class="award-badge-title">Premium</span>
-            <span class="award-badge-sub">Calitate Certificată</span>
-          </div>
-          <div class="award-badge reveal">
-            <span class="award-badge-icon">♦</span>
-            <span class="award-badge-title">Top Brand</span>
-            <span class="award-badge-sub">Firmă de Exercițiu</span>
-          </div>
+        <!-- SCHOOL MENTION -->
+        <div class="school-mention reveal">
+          <img src="logo-cevmg/logo-cevmg.png" alt="Colegiul Economic Virgil Madgearu Galați" class="school-mention-logo">
+          <p class="school-mention-text">Proiect educațional realizat în cadrul<br><strong>Colegiului Economic „Virgil Madgearu" Galați</strong><br><span class="school-mention-sub">Firmă de Exercițiu — F.E. Josephine Jewelry S.A.</span></p>
         </div>
       </div>
     </div>
@@ -884,72 +878,99 @@
 
   <section class="section" id="contact">
     <h2>Contact</h2>
-    <div class="contact-box">
-      <p>Email:
-        <a href="mailto:societate@josephinejewelry.ro">societate@josephinejewelry.ro</a>
-      </p>
+    <p class="catalog-text">Sediu, date de identificare și informații de contact</p>
 
-      <p>Telefon:
-        <a href="tel:+40754334877">0754334877</a>
-      </p>
+    <div class="contact-layout">
 
-      <p>F.E Josephine Jewelry S.A</p>
-    </div>
+      <!-- Coloana stângă: date firmă -->
+      <div class="contact-details">
 
-    <div class="antet-liceu-wrap">
-      <div class="antet-liceu-corners">
-        <span class="antet-corner antet-tl"></span>
-        <span class="antet-corner antet-tr"></span>
-        <span class="antet-corner antet-bl"></span>
-        <span class="antet-corner antet-br"></span>
+        <div class="contact-firm-block">
+          <p class="contact-firm-name">F.E. Josephine Jewelry S.A.</p>
+          <p class="contact-firm-sub">Firmă de exercițiu — proiect educațional</p>
+        </div>
+
+        <div class="contact-rows">
+          <div class="contact-row">
+            <span class="contact-label">Adresă</span>
+            <span class="contact-val">Strada Strungarilor nr. 31, Galați</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Telefon</span>
+            <span class="contact-val"><a href="tel:+40754334877">0754 334 877</a></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Email</span>
+            <span class="contact-val"><a href="mailto:societate@josephinejewelry.ro">societate@josephinejewelry.ro</a></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">WhatsApp</span>
+            <span class="contact-val"><a href="https://wa.me/40754334877" target="_blank" rel="noopener">0754 334 877</a></span>
+          </div>
+          <div class="contact-divider"></div>
+          <div class="contact-row">
+            <span class="contact-label">Nr. înregistrare</span>
+            <span class="contact-val">J17/295/07.10.2021</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">CUI / CIF</span>
+            <span class="contact-val">RO2110020417</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Capital social</span>
+            <span class="contact-val">1.210.000 lei</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Cont bancar</span>
+            <span class="contact-val">RO17ROCT110231210020417</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Bancă</span>
+            <span class="contact-val">ROCT — Banca Centrală a Firmelor de Exercițiu</span>
+          </div>
+          <div class="contact-divider"></div>
+          <div class="contact-row">
+            <span class="contact-label">Persoană contact</span>
+            <span class="contact-val">Sandu Adina — Manager General</span>
+          </div>
+        </div>
+
+        <!-- Antet liceu -->
+        <div class="contact-school">
+          <img src="logo-cevmg/logo-cevmg.png" alt="Colegiul Economic Virgil Madgearu Galați" class="contact-school-logo">
+          <div>
+            <p class="contact-school-name">Colegiul Economic „Virgil Madgearu" Galați</p>
+            <p class="contact-school-sub">Proiect realizat în cadrul programului firmelor de exercițiu</p>
+          </div>
+        </div>
+
       </div>
-      <div class="antet-liceu-inner">
-        <p class="antet-eyebrow">Proiect realizat în cadrul</p>
-        <img
-          src="logo-cevmg/logo-cevmg.png"
-          alt="Colegiul Economic Virgil Madgearu Galați"
-          class="antet-liceu-img"
-        >
-      </div>
-    </div>
 
-    <!-- MINI-HARTĂ LIVRARE -->
-    <div class="delivery-zone">
-      <div class="delivery-zone-text">
-        <h4>Livrare în toată România</h4>
-        <p>Expediăm bijuteriile Josephine oriunde în România. Livrare rapidă prin curier, în ambalaj premium sigilat.</p>
-        <div class="delivery-cities">
+      <!-- Coloana dreaptă: Google Maps -->
+      <div class="contact-map-wrap">
+        <p class="contact-map-label">Situare geografică — Galați, România</p>
+        <iframe
+          class="contact-map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.3!2d28.0457!3d45.4353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b6e1e1d3b3b3b3%3A0x0!2sStrada+Strungarilor+31%2C+Gala%C8%9Bi!5e0!3m2!1sro!2sro!4v1714000000000!5m2!1sro!2sro"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Sediul F.E. Josephine Jewelry — Strada Strungarilor 31, Galați">
+        </iframe>
+        <div class="delivery-cities" style="margin-top:20px;justify-content:center">
           <span class="delivery-city">București</span>
           <span class="delivery-city">Cluj</span>
           <span class="delivery-city">Iași</span>
-          <span class="delivery-city">Timișoara</span>
           <span class="delivery-city">Brașov</span>
           <span class="delivery-city">Galați</span>
-          <span class="delivery-city">Constanța</span>
           <span class="delivery-city">+ toate județele</span>
         </div>
       </div>
-      <div class="delivery-map-visual">
-        <div class="delivery-map-text">
-          <strong>ROMÂNIA</strong>
-          LIVRARE<br>NAȚIONALĂ
-        </div>
-      </div>
+
     </div>
   </section>
 
-  <!-- TRENDING ACUM -->
-  <section class="section" id="trending">
-    <h2>Trending acum</h2>
-    <p class="catalog-text">Cele mai populare bijuterii Josephine în această săptămână</p>
-    <div class="product-grid" id="trendingGrid"></div>
-  </section>
 
-  <!-- VAZUTE RECENT -->
-  <section class="section recently-viewed-section" id="recentlyViewedSection" style="display:none">
-    <h3>Văzute recent</h3>
-    <div class="product-grid" id="recentlyViewedGrid"></div>
-  </section>
 
   <footer class="footer">
     <div class="footer-grid">
@@ -997,7 +1018,7 @@
           <li><a href="categorie.html?gen=femei&tip=lanturi&titlu=Lănțișoare">Lănțișoare</a></li>
           <li><a href="categorie.html?gen=barbati&tip=toate&titlu=Bărbați">Bărbați</a></li>
           <li><a href="categorie.html?gen=copii&tip=toate&titlu=Copii">Copii</a></li>
-          <li><a href="jewelry-configurator-app/index.html">✦ Configurator 3D</a></li>
+          <li><a href="jewelry-configurator-app/index.html">Configurator 3D</a></li>
         </ul>
       </div>
 
@@ -1011,7 +1032,7 @@
           <li><a href="prevenire-frauda.html">Prevenire fraudă</a></li>
           <li><a href="#produse">Noutăți</a></li>
           <li><a href="#oferte">Oferte lunii</a></li>
-          <li><a href="wishlist.html">♥ Favorite</a></li>
+          <li><a href="wishlist.html">Favorite</a></li>
         </ul>
       </div>
 
@@ -1021,7 +1042,7 @@
         <ul class="footer-links">
           <li><a href="#echipa">Organigramă</a></li>
           <li><a href="#despre">Despre noi</a></li>
-          <li><a href="#despre">Misiune și Viziune</a></li>
+          <li><a href="#feedback">Feedback angajați</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="https://wa.me/40754334877" target="_blank">WhatsApp</a></li>
           <li><a href="mailto:societate@josephinejewelry.ro">Email</a></li>
@@ -1032,8 +1053,10 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Josephine Jewelry — Firmă de exercițiu creată în scop educațional</p>
-      <p>Adresă: Str. Strungarilor nr. 31 • Tel: 0754 334 877</p>
+      <p>© 2025 F.E. Josephine Jewelry S.A. — Firmă de exercițiu creată în scop educațional</p>
+      <p>J17/295/07.10.2021 &nbsp;·&nbsp; CUI: RO2110020417 &nbsp;·&nbsp; Capital social: 1.210.000 lei &nbsp;·&nbsp; Cont: RO17ROCT110231210020417</p>
+      <p>Str. Strungarilor nr. 31, Galați &nbsp;·&nbsp; Tel: <a href="tel:+40754334877">0754 334 877</a> &nbsp;·&nbsp; <a href="mailto:societate@josephinejewelry.ro">societate@josephinejewelry.ro</a></p>
+      <p class="footer-updated">Actualizat: aprilie 2026</p>
     </div>
   </footer>
 
@@ -1051,17 +1074,60 @@
     </a>
 
     <button class="float-asistent-btn" onclick="toggleJosephineChat()" id="chatTriggerBtn">
-      <span class="float-asistent-icon">◆</span>
+      <span class="float-asistent-icon">✦</span>
       Asistent Josephine
       <span class="jchat-trigger-badge" id="jchatBadge" style="display:none">1</span>
     </button>
+
+    <button class="float-feedback-btn" onclick="toggleFeedbackPanel()" id="feedbackTriggerBtn" title="Feedback angajați">
+      <svg class="float-feedback-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Feedback
+    </button>
+  </div>
+
+  <!-- ══ FEEDBACK PANEL ══ -->
+  <div class="feedback-panel" id="feedbackPanel">
+    <div class="fpanel-header">
+      <div class="fpanel-header-info">
+        <span class="fpanel-title">Feedback Angajați</span>
+        <span class="fpanel-sub">Chestionar de satisfacție — confidențial</span>
+      </div>
+      <button class="fpanel-close" onclick="toggleFeedbackPanel()">×</button>
+    </div>
+    <div class="fpanel-body">
+      <form class="fb-form" id="fbForm" novalidate>
+        <div class="fb-name-block">
+          <label class="fb-label" for="fbNume">Numele tău complet</label>
+          <input type="text" id="fbNume" class="fb-name-input" placeholder="ex: Ionescu Maria" autocomplete="name">
+        </div>
+        <div class="fb-card"><p class="fb-q-num">1 / 10</p><p class="fb-q-text">Cât de mulțumit ești de condițiile de lucru?</p><div class="fb-options"><label class="fb-opt"><input type="radio" name="fbq1" value="4" data-text="Foarte mulțumit"><span class="fb-radio"></span>Foarte mulțumit</label><label class="fb-opt"><input type="radio" name="fbq1" value="3" data-text="Mulțumit"><span class="fb-radio"></span>Mulțumit</label><label class="fb-opt"><input type="radio" name="fbq1" value="2" data-text="Nemulțumit"><span class="fb-radio"></span>Nemulțumit</label><label class="fb-opt"><input type="radio" name="fbq1" value="1" data-text="Foarte nemulțumit"><span class="fb-radio"></span>Foarte nemulțumit</label></div></div>
+        <div class="fb-card"><p class="fb-q-num">2 / 10</p><p class="fb-q-text">Cum apreciezi comunicarea cu managementul?</p><div class="fb-options"><label class="fb-opt"><input type="radio" name="fbq2" value="4" data-text="Foarte bună"><span class="fb-radio"></span>Foarte bună</label><label class="fb-opt"><input type="radio" name="fbq2" value="3" data-text="Bună"><span class="fb-radio"></span>Bună</label><label class="fb-opt"><input type="radio" name="fbq2" value="2" data-text="Slabă"><span class="fb-radio"></span>Slabă</label><label class="fb-opt"><input type="radio" name="fbq2" value="1" data-text="Foarte slabă"><span class="fb-radio"></span>Foarte slabă</label></div></div>
+        <div class="fb-card"><p class="fb-q-num">3 / 10</p><p class="fb-q-text">Ai resursele necesare pentru a-ți face treaba eficient?</p><div class="fb-options"><label class="fb-opt"><input type="radio" name="fbq3" value="4" data-text="Da, întotdeauna"><span class="fb-radio"></span>Da, întotdeauna</label><label class="fb-opt"><input type="radio" name="fbq3" value="3" data-text="De cele mai multe ori"><span class="fb-radio"></span>De cele mai multe ori</label><label class="fb-opt"><input type="radio" name="fbq3" value="2" data-text="Rar"><span class="fb-radio"></span>Rar</label><label class="fb-opt"><input type="radio" name="fbq3" value="1" data-text="Deloc"><span class="fb-radio"></span>Deloc</label></div></div>
+        <div class="fb-card"><p class="fb-q-num">4 / 10</p><p class="fb-q-text">Cum evaluezi colaborarea și respectul între colegi?</p><div class="fb-options"><label class="fb-opt"><input type="radio" name="fbq4" value="4" data-text="Excelent"><span class="fb-radio"></span>Excelent</label><label class="fb-opt"><input type="radio" name="fbq4" value="3" data-text="Bun"><span class="fb-radio"></span>Bun</label><label class="fb-opt"><input type="radio" name="fbq4" value="2" data-text="Acceptabil"><span class="fb-radio"></span>Acceptabil</label><label class="fb-opt"><input type="radio" name="fbq4" value="1" data-text="Nesatisfăcător"><span class="fb-radio"></span>Nesatisfăcător</label></div></div>
+        <div class="fb-card"><p class="fb-q-num">5 / 10</p><p class="fb-q-text">Cât de mulțumit ești de oportunitățile de dezvoltare profesională?</p><div class="fb-options"><label class="fb-opt"><input type="radio" name="fbq5" value="4" data-text="Foarte mulțumit"><span class="fb-radio"></span>Foarte mulțumit</label><label class="fb-opt"><input type="radio" name="fbq5" value="3" data-text="Mulțumit"><span class="fb-radio"></span>Mulțumit</label><label class="fb-opt"><input type="radio" name="fbq5" value="2" data-text="Puțin mulțumit"><span class="fb-radio"></span>Puțin mulțumit</label><label class="fb-opt"><input type="radio" name="fbq5" value="1" data-text="Nemulțumit"><span class="fb-radio"></span>Nemulțumit</label></div></div>
+        <div class="fb-card"><p class="fb-q-num">6 / 10</p><p class="fb-q-text">Cum apreciezi nivelul de încărcare a sarcinilor zilnice?</p><div class="fb-options"><label class="fb-opt"><input type="radio" name="fbq6" value="4" data-text="Echilibrat"><span class="fb-radio"></span>Echilibrat</label><label class="fb-opt"><input type="radio" name="fbq6" value="3" data-text="Uneori prea mare"><span class="fb-radio"></span>Uneori prea mare</label><label class="fb-opt"><input type="radio" name="fbq6" value="2" data-text="Adesea prea mare"><span class="fb-radio"></span>Adesea prea mare</label><label class="fb-opt"><input type="radio" name="fbq6" value="1" data-text="Mult prea mare"><span class="fb-radio"></span>Mult prea mare</label></div></div>
+        <div class="fb-card"><p class="fb-q-num">7 / 10</p><p class="fb-q-text">Cât de motivat te simți în activitatea zilnică?</p><div class="fb-options"><label class="fb-opt"><input type="radio" name="fbq7" value="4" data-text="Foarte motivat"><span class="fb-radio"></span>Foarte motivat</label><label class="fb-opt"><input type="radio" name="fbq7" value="3" data-text="Motivat"><span class="fb-radio"></span>Motivat</label><label class="fb-opt"><input type="radio" name="fbq7" value="2" data-text="Puțin motivat"><span class="fb-radio"></span>Puțin motivat</label><label class="fb-opt"><input type="radio" name="fbq7" value="1" data-text="Nemotivat"><span class="fb-radio"></span>Nemotivat</label></div></div>
+        <div class="fb-card"><p class="fb-q-num">8 / 10</p><p class="fb-q-text">Cum evaluezi politica de recompense și beneficii?</p><div class="fb-options"><label class="fb-opt"><input type="radio" name="fbq8" value="4" data-text="Foarte satisfăcătoare"><span class="fb-radio"></span>Foarte satisfăcătoare</label><label class="fb-opt"><input type="radio" name="fbq8" value="3" data-text="Satisfăcătoare"><span class="fb-radio"></span>Satisfăcătoare</label><label class="fb-opt"><input type="radio" name="fbq8" value="2" data-text="Nesatisfăcătoare"><span class="fb-radio"></span>Nesatisfăcătoare</label><label class="fb-opt"><input type="radio" name="fbq8" value="1" data-text="Foarte nesatisfăcătoare"><span class="fb-radio"></span>Foarte nesatisfăcătoare</label></div></div>
+        <div class="fb-card"><p class="fb-q-num">9 / 10</p><p class="fb-q-text">Te simți apreciat pentru munca pe care o depui?</p><div class="fb-options"><label class="fb-opt"><input type="radio" name="fbq9" value="4" data-text="Da, în mod constant"><span class="fb-radio"></span>Da, în mod constant</label><label class="fb-opt"><input type="radio" name="fbq9" value="3" data-text="Uneori"><span class="fb-radio"></span>Uneori</label><label class="fb-opt"><input type="radio" name="fbq9" value="2" data-text="Rar"><span class="fb-radio"></span>Rar</label><label class="fb-opt"><input type="radio" name="fbq9" value="1" data-text="Deloc"><span class="fb-radio"></span>Deloc</label></div></div>
+        <div class="fb-card"><p class="fb-q-num">10 / 10</p><p class="fb-q-text">În general, cât de mulțumit ești de locul tău de muncă?</p><div class="fb-options"><label class="fb-opt"><input type="radio" name="fbq10" value="4" data-text="Foarte mulțumit"><span class="fb-radio"></span>Foarte mulțumit</label><label class="fb-opt"><input type="radio" name="fbq10" value="3" data-text="Mulțumit"><span class="fb-radio"></span>Mulțumit</label><label class="fb-opt"><input type="radio" name="fbq10" value="2" data-text="Nemulțumit"><span class="fb-radio"></span>Nemulțumit</label><label class="fb-opt"><input type="radio" name="fbq10" value="1" data-text="Foarte nemulțumit"><span class="fb-radio"></span>Foarte nemulțumit</label></div></div>
+        <div class="fb-submit-wrap">
+          <button type="submit" class="fb-submit-btn" id="fbSubmitBtn">Trimite răspunsurile</button>
+        </div>
+      </form>
+      <div class="fb-thankyou" id="fbThankyou">
+        <p class="fb-ty-icon">✦</p>
+        <h3 class="fb-ty-title">Mulțumim, <span id="fbTyName"></span>!</h3>
+        <p class="fb-ty-sub">Răspunsurile tale au fost înregistrate. Feedback-ul tău contribuie la îmbunătățirea firmei.</p>
+        <button class="fb-ty-btn" onclick="document.getElementById('fbThankyou').style.display='none';document.getElementById('fbForm').style.display='block';">Completează din nou</button>
+      </div>
+    </div>
   </div>
 
   <!-- ══ JOSEPHINE AI CHAT WIDGET ══ -->
   <div class="josephine-chat" id="josephineChat">
 
     <div class="jchat-header">
-      <div class="jchat-avatar">◆</div>
+      <div class="jchat-avatar">✦</div>
       <div class="jchat-header-info">
         <span class="jchat-name">Luna ✦</span>
         <span class="jchat-status"><span class="jchat-dot"></span> Online</span>
@@ -1116,7 +1182,7 @@
       </div>
 
       <div class="cart-buttons">
-        <button class="cart-checkout" onclick="window.location.href='comanda.html'">✦ Plasează comanda</button>
+        <button class="cart-checkout" onclick="window.location.href='comanda.html'">Plasează comanda</button>
         <button class="cart-wa-ask" onclick="sendOrderWhatsApp()">💬 Întreabă pe WhatsApp</button>
         <button class="cart-clear" onclick="clearCart()">Golește coșul</button>
       </div>
@@ -2206,6 +2272,167 @@
 
       resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  </script>
+
+  <!-- ══ FEEDBACK PANEL JS ══ -->
+  <script>
+  function toggleFeedbackPanel() {
+    var panel = document.getElementById('feedbackPanel');
+    panel.classList.toggle('open');
+  }
+
+  (function() {
+    var form = document.getElementById('fbForm');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('fbNume').value.trim() || 'Anonim';
+      var allAnswered = true;
+      for (var i = 1; i <= 10; i++) {
+        if (!form.querySelector('[name="fbq' + i + '"]:checked')) { allAnswered = false; break; }
+      }
+      if (!allAnswered) {
+        alert('Te rugăm să răspunzi la toate cele 10 întrebări.');
+        return;
+      }
+      var questions = [];
+      var total = 0;
+      for (var i = 1; i <= 10; i++) {
+        var checked = form.querySelector('[name="fbq' + i + '"]:checked');
+        var score = parseInt(checked.value, 10);
+        var text = checked.getAttribute('data-text') || checked.value;
+        questions.push({ score: score, text: text });
+        total += score;
+      }
+      var avg = Math.round((total / 10) * 10) / 10;
+      var payload = { timestamp: new Date().toISOString(), nume: name, q: questions, avg: avg };
+      var key = 'r' + Date.now();
+      var btn = document.getElementById('fbSubmitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Se trimite...';
+      fetch('https://kvdb.io/BmpQTBrzqbvSDd3nJEWKT5/' + key, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function() {
+        form.style.display = 'none';
+        document.getElementById('fbTyName').textContent = name;
+        document.getElementById('fbThankyou').style.display = 'block';
+      }).catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Trimite feedback';
+        alert('Eroare la trimitere. Verifică conexiunea și încearcă din nou.');
+      });
+    });
+  })();
+  </script>
+
+  <!-- ══ SELECTOR LIMBĂ ══ -->
+  <script>
+  (function() {
+    var TRANSLATIONS = {
+      ro: {
+        'nav-noutati': 'Noutăți',
+        'nav-catalog': 'Catalog',
+        'nav-contact': 'Contact',
+        'nav-despre': 'Despre noi',
+        'nav-echipa': 'Echipa',
+        'hero-cta': 'Descoperă colecția',
+        'hero-secondary': 'Explorează catalogul complet',
+        'top-bar': 'LIVRARE RAPIDĂ • BIJUTERII PREMIUM • JOSEPHINE JEWELRY',
+        'sec-produse': 'Produse',
+        'sec-contact': 'Contact',
+        'sec-despre': 'Despre noi',
+        'sec-echipa': 'Echipa noastră',
+        'sec-faq': 'Întrebări frecvente',
+        'sec-catalog': 'Catalog Josephine Jewelry',
+        'sec-trending': 'Trending acum',
+        'cart-btn': 'Plasează comanda',
+        'cart-clear': 'Golește coșul',
+        'footer-updated': 'Actualizat: aprilie 2026',
+      },
+      en: {
+        'nav-noutati': 'New In',
+        'nav-catalog': 'Catalog',
+        'nav-contact': 'Contact',
+        'nav-despre': 'About us',
+        'nav-echipa': 'Team',
+        'hero-cta': 'Discover the collection',
+        'hero-secondary': 'Browse the full catalog',
+        'top-bar': 'FAST DELIVERY • PREMIUM JEWELRY • JOSEPHINE JEWELRY',
+        'sec-produse': 'Products',
+        'sec-contact': 'Contact',
+        'sec-despre': 'About us',
+        'sec-echipa': 'Our team',
+        'sec-faq': 'Frequently asked questions',
+        'sec-catalog': 'Josephine Jewelry Catalog',
+        'sec-trending': 'Trending now',
+        'cart-btn': 'Place order',
+        'cart-clear': 'Empty cart',
+        'footer-updated': 'Updated: April 2026',
+      }
+    };
+
+    var DATA_KEYS = {
+      'nav-noutati': '[href="#noutati"]',
+      'nav-catalog':  '[href="#catalog"]',
+      'nav-contact':  '[href="#contact"]',
+      'nav-despre':   '[href="#despre"]',
+      'nav-echipa':   '[href="#echipa"]',
+    };
+
+    function applyLang(lang) {
+      var t = TRANSLATIONS[lang];
+      document.documentElement.lang = lang;
+      localStorage.setItem('jj-lang', lang);
+
+      // top bar
+      var tb = document.querySelector('.top-bar');
+      if (tb) tb.textContent = t['top-bar'];
+
+      // hero CTA
+      var heroCta = document.querySelector('.hero-btn');
+      if (heroCta) heroCta.textContent = t['hero-cta'];
+      var heroSec = document.querySelector('.hero-secondary-link');
+      if (heroSec) heroSec.textContent = t['hero-secondary'];
+
+      // section h2 by id
+      var sectionMap = {
+        'produse': 'sec-produse', 'contact': 'sec-contact',
+        'despre': 'sec-despre', 'echipa': 'sec-echipa',
+        'faq': 'sec-faq', 'catalog': 'sec-catalog', 'trending': 'sec-trending'
+      };
+      Object.keys(sectionMap).forEach(function(id) {
+        var sec = document.getElementById(id);
+        if (sec) {
+          var h2 = sec.querySelector('h2');
+          if (h2 && t[sectionMap[id]]) {
+            h2.textContent = t[sectionMap[id]];
+          }
+        }
+      });
+
+      // cart buttons
+      var cartCheckout = document.querySelector('.cart-checkout');
+      if (cartCheckout) cartCheckout.textContent = t['cart-btn'];
+      var cartClear = document.querySelector('.cart-clear');
+      if (cartClear) cartClear.textContent = t['cart-clear'];
+
+      // footer updated
+      var fu = document.querySelector('.footer-updated');
+      if (fu) fu.textContent = t['footer-updated'];
+
+      // active btn style
+      document.getElementById('langRO').classList.toggle('lang-active', lang === 'ro');
+      document.getElementById('langEN').classList.toggle('lang-active', lang === 'en');
+    }
+
+    window.switchLang = function(lang) { applyLang(lang); };
+
+    // Restore on load
+    var saved = localStorage.getItem('jj-lang') || 'ro';
+    if (saved !== 'ro') applyLang(saved);
+  })();
   </script>
 </body>
 </html>

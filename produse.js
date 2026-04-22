@@ -1617,8 +1617,6 @@ window.addEventListener("DOMContentLoaded", function () {
   updateCartCount();
   renderCart();
   initCategoryPageFromUrl();
-  initScrollProgress();
-  initCustomCursor();
   initNewsletter();
   initSplash();
   initLightbox();

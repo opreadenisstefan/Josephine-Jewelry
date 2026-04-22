@@ -6,31 +6,31 @@
   <title>Favorite — Josephine Jewelry</title>
   <meta name="description" content="Produsele tale favorite Josephine Jewelry">
   <link rel="icon" type="image/png" href="logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 
   <div class="top-bar">
     LIVRARE RAPIDĂ • BIJUTERII PREMIUM • JOSEPHINE JEWELRY
   </div>
 
   <header class="header normal-header">
-    <div class="logo-container">
-      <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+    <a href="index.html" class="logo-container" aria-label="Josephine Jewelry — acasă">
+
         <img src="logo.png" class="logo" alt="Logo Josephine Jewelry">
         <div class="brand-text">
           <h1>JOSEPHINE</h1>
           <p>JEWELRY</p>
         </div>
-      </a>
-    </div>
+    </a>
 
     <nav class="menu premium-menu">
       <a href="index.html#noutati">Noutăți</a>
       <a href="index.html#produse">Produse</a>
       <a href="index.html#catalog">Catalog</a>
-      <a href="jewelry-configurator-app/index.html" style="color:#C9A86C;font-weight:500;">✦ Configurator 3D</a>
+      <a href="jewelry-configurator-app/index.html" style="color:#C9A86C;font-weight:500;">Configurator 3D</a>
       <a href="wishlist.html" style="color:rgba(224,85,119,0.85)">♥ Favorite</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -39,8 +39,23 @@
       <button class="cart-toggle" onclick="toggleCart()">
         Coș <span id="cartCount">0</span>
       </button>
+      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Meniu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <a href="index.html#noutati" onclick="closeMobileNav()">Noutăți</a>
+    <a href="categorie.html?gen=femei&tip=toate&titlu=Femei" onclick="closeMobileNav()">Femei</a>
+    <a href="categorie.html?gen=barbati&tip=toate&titlu=Bărbați" onclick="closeMobileNav()">Bărbați</a>
+    <a href="categorie.html?gen=copii&tip=toate&titlu=Copii" onclick="closeMobileNav()">Copii</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="index.html#catalog" onclick="closeMobileNav()">Catalog</a>
+    <a href="jewelry-configurator-app/index.html" onclick="closeMobileNav()" style="color:var(--gold-light)">Configurator 3D</a>
+    <a href="wishlist.html" onclick="closeMobileNav()" style="color:rgba(224,85,119,0.85)">Favorite</a>
+    <a href="index.html#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
 
   <section class="section">
     <h2 style="margin-bottom:8px">♥ Produsele tale favorite</h2>
@@ -98,7 +113,7 @@
           <li><a href="categorie.html?gen=femei&tip=toate&titlu=Femei">Femei</a></li>
           <li><a href="categorie.html?gen=barbati&tip=toate&titlu=Bărbați">Bărbați</a></li>
           <li><a href="categorie.html?gen=copii&tip=toate&titlu=Copii">Copii</a></li>
-          <li><a href="jewelry-configurator-app/index.html">✦ Configurator 3D</a></li>
+          <li><a href="jewelry-configurator-app/index.html">Configurator 3D</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -132,7 +147,7 @@
       <div class="float-whatsapp-info"><strong>WhatsApp</strong><span>0754 334 877</span></div>
     </a>
     <a href="https://wa.me/40754334877?text=Bună! Aș dori ajutor să aleg o bijuterie." target="_blank" class="float-asistent-btn">
-      <span class="float-asistent-icon">◆</span> Asistent Josephine
+      <span class="float-asistent-icon">✦</span> Asistent Josephine
     </a>
   </div>
 
@@ -154,7 +169,7 @@
         <strong id="cartTotal">0,00 lei</strong>
       </div>
       <div class="cart-buttons">
-        <button class="cart-checkout" onclick="window.location.href='comanda.html'">✦ Plasează comanda</button>
+        <button class="cart-checkout" onclick="window.location.href='comanda.html'">Plasează comanda</button>
         <button class="cart-wa-ask" onclick="sendOrderWhatsApp()">💬 Întreabă pe WhatsApp</button>
         <button class="cart-clear" onclick="clearCart()">Golește coșul</button>
       </div>
