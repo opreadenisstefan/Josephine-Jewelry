@@ -1501,7 +1501,7 @@ body::after {
   margin-bottom: 16px;
   max-width: 240px;
 }
-.footer-school-badge img { width: 28px; height: auto; }
+.footer-school-badge img { width: 56px; height: auto; }
 .footer-school-badge span {
   font-size: 9px;
   letter-spacing: 0.5px;
