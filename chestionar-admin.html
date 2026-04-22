@@ -161,20 +161,24 @@
         if (!keys.length) {
           allData = [];
           renderPanel([]);
-          return;
+          return Promise.resolve(null);
         }
         return Promise.all(keys.map(function(k) {
-          return fetch(BASE + '/' + k).then(function(r) { return r.json(); });
+          return fetch(BASE + '/' + k)
+            .then(function(r) { return r.text(); })
+            .then(function(t) {
+              try { return JSON.parse(t); } catch(e) { return null; }
+            });
         }));
       })
       .then(function(rows) {
         if (!rows) return;
-        allData = rows.filter(function(r) { return r && r.nume; });
+        allData = rows.filter(function(r) { return r && r.nume && r.q; });
         allData.sort(function(a, b) { return a.timestamp > b.timestamp ? -1 : 1; });
         renderPanel(allData);
       })
       .catch(function(err) {
-        body.innerHTML = '<div class="no-data">Eroare la încărcarea datelor. Verifică conexiunea.</div>';
+        body.innerHTML = '<div class="no-data">Eroare: ' + err.message + '<br><small style="font-size:12px;opacity:.6">Verifică conexiunea și încearcă Reîncarcă.</small></div>';
       });
   }
 

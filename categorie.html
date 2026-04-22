@@ -43,6 +43,7 @@
   </header>
 
   <section class="section">
+    <nav class="breadcrumb" id="breadcrumb" aria-label="Navigare"></nav>
     <h2 id="categoryTitle">Categorie</h2>
     <div id="categoryGrid" class="product-grid"></div>
   </section>
@@ -65,9 +66,10 @@
           <p>Email: <a href="mailto:societate@josephinejewelry.ro">societate@josephinejewelry.ro</a></p>
         </div>
         <div class="footer-socials">
-          <a href="#" class="footer-social-btn">f</a>
-          <a href="#" class="footer-social-btn">&#9678;</a>
-          <a href="#" class="footer-social-btn">&#9835;</a>
+          <!-- TODO: înlocuiește cu URL-ul contului real -->
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">&#9678;</a>
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="TikTok">&#9835;</a>
         </div>
       </div>
       <div class="footer-col">
@@ -83,7 +85,7 @@
         <p class="footer-col-title">Suport</p>
         <ul class="footer-links">
           <li><a href="index.html">Înapoi acasă</a></li>
-          <li><a href="#">Politică retur</a></li>
+          <li><a href="retur.html">Politică retur</a></li>
           <li><a href="wishlist.html">♥ Favorite</a></li>
           <li><a href="index.html#oferte">Oferte lunii</a></li>
         </ul>
@@ -100,7 +102,7 @@
     </div>
     <div class="footer-bottom">
       <p>© 2025 Josephine Jewelry — Firmă de exercițiu creată în scop educațional</p>
-      <p>Adresă: Str. Strungarilor nr. 31 • Tel: 0236 446 248</p>
+      <p>Adresă: Str. Strungarilor nr. 31 • Tel: 0754 334 877</p>
     </div>
   </footer>
 
@@ -168,5 +170,25 @@
   </div>
 
   <script src="produse.js"></script>
+  <script>
+    (function buildBreadcrumb() {
+      var bc = document.getElementById('breadcrumb');
+      if (!bc) return;
+      var params = new URLSearchParams(window.location.search);
+      var gen = params.get('gen') || '';
+      var tip = params.get('tip') || '';
+      var titlu = params.get('titlu') || '';
+
+      var genLabel = gen === 'femei' ? 'Femei' : gen === 'barbati' ? 'Bărbați' : gen === 'copii' ? 'Copii' : '';
+      var tipLabel = tip && tip !== 'toate' ? titlu.split(' — ').pop() : '';
+      var genHref = gen ? 'categorie.html?gen=' + gen + '&tip=toate&titlu=' + encodeURIComponent(genLabel) : '';
+
+      var parts = ['<a href="index.html">Acasă</a>'];
+      if (genLabel) parts.push(tipLabel ? '<a href="' + genHref + '">' + genLabel + '</a>' : '<strong>' + genLabel + '</strong>');
+      if (tipLabel) parts.push('<strong>' + titlu + '</strong>');
+
+      bc.innerHTML = parts.join('<span>›</span>');
+    })();
+  </script>
 </body>
 </html>

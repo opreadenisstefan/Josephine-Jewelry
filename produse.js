@@ -2034,6 +2034,108 @@ function closeSizeGuide() {
   if (overlay) overlay.classList.remove("show");
 }
 
+/* ── SIZE GUIDE TABS ── */
+function sgTab(btn, panelId) {
+  btn.closest('.size-guide-box').querySelectorAll('.sg-tab').forEach(function(t){ t.classList.remove('active'); });
+  btn.classList.add('active');
+  btn.closest('.size-guide-box').querySelectorAll('.sg-panel').forEach(function(p){ p.style.display='none'; });
+  var panel = document.getElementById(panelId);
+  if (panel) panel.style.display = 'block';
+}
+
+/* ── COUNTER ANIMATION ── */
+(function initCounters() {
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1600;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var counters = document.querySelectorAll('.stat-counter');
+  if (!counters.length) return;
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function(c) { observer.observe(c); });
+  } else {
+    counters.forEach(function(c) { animateCounter(c); });
+  }
+})();
+
+/* ── HEADER SEARCH ── */
+function toggleHeaderSearch() {
+  var wrap = document.getElementById('headerSearchWrap');
+  var input = document.getElementById('headerSearchInput');
+  if (!wrap) return;
+  var open = wrap.classList.toggle('open');
+  if (open) { setTimeout(function(){ input && input.focus(); }, 80); }
+  else { closeHeaderSearch(); }
+}
+
+function closeHeaderSearch() {
+  var wrap = document.getElementById('headerSearchWrap');
+  var input = document.getElementById('headerSearchInput');
+  var results = document.getElementById('headerSearchResults');
+  if (wrap) wrap.classList.remove('open');
+  if (input) input.value = '';
+  if (results) results.innerHTML = '';
+}
+
+function headerSearchLive(query) {
+  var results = document.getElementById('headerSearchResults');
+  if (!results) return;
+  query = query.trim().toLowerCase();
+  if (query.length < 2) { results.innerHTML = ''; return; }
+
+  var all = typeof productData !== 'undefined' ? Object.values(productData) : [];
+  var matches = all.filter(function(p) {
+    return (p.name && p.name.toLowerCase().includes(query)) ||
+           (p.category && p.category.toLowerCase().includes(query)) ||
+           (p.type && p.type.toLowerCase().includes(query)) ||
+           (p.description && p.description.toLowerCase().includes(query));
+  }).slice(0, 6);
+
+  if (!matches.length) {
+    results.innerHTML = '<div class="hsr-empty">Niciun rezultat pentru „' + query + '"</div>';
+    return;
+  }
+
+  results.innerHTML = matches.map(function(p) {
+    var img = p.images && p.images[0] ? p.images[0] : 'logo.png';
+    var price = p.price ? p.price : '';
+    return '<div class="hsr-item" onclick="openProductModal(' + JSON.stringify(p.id) + ');closeHeaderSearch()">' +
+      '<img class="hsr-img" src="' + img + '" onerror="this.src=\'logo.png\'" alt="">' +
+      '<div class="hsr-info"><span class="hsr-name">' + p.name + '</span>' +
+      (price ? '<span class="hsr-price">' + price + '</span>' : '') + '</div>' +
+    '</div>';
+  }).join('');
+}
+
+document.addEventListener('click', function(e) {
+  var wrap = document.getElementById('headerSearchWrap');
+  var btn = document.querySelector('.header-search-btn');
+  if (wrap && wrap.classList.contains('open') && !wrap.contains(e.target) && e.target !== btn) {
+    closeHeaderSearch();
+  }
+});
+
 /* ── HAMBURGER MOBILE NAV ── */
 function toggleMobileNav() {
   const nav = document.getElementById("mobileNav");

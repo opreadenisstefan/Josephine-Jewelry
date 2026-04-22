@@ -77,6 +77,13 @@
     </nav>
 
     <div class="header-actions">
+      <div class="header-search-wrap" id="headerSearchWrap">
+        <input type="text" class="header-search-input" id="headerSearchInput" placeholder="Caută bijuterie..." oninput="headerSearchLive(this.value)" onkeydown="if(event.key==='Escape')closeHeaderSearch()">
+        <div class="header-search-results" id="headerSearchResults"></div>
+      </div>
+      <button class="header-search-btn" onclick="toggleHeaderSearch()" title="Caută" aria-label="Caută">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
       <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" title="Schimbă tema">☀</button>
       <button class="cart-toggle" onclick="toggleCart()">
         Coș <span id="cartCount">0</span>
@@ -602,19 +609,19 @@
   <section class="stats-section" id="stats">
     <div class="stats-grid">
       <div class="stat-item">
-        <span class="stat-counter" data-target="150" data-suffix="+">0+</span>
+        <span class="stat-counter" data-target="136" data-suffix="+">0</span>
         <span class="stat-label">Produse Premium</span>
       </div>
       <div class="stat-item">
-        <span class="stat-counter" data-target="500" data-suffix="+">0+</span>
+        <span class="stat-counter" data-target="500" data-suffix="+">0</span>
         <span class="stat-label">Clienți Fericiți</span>
       </div>
       <div class="stat-item">
-        <span class="stat-counter" data-target="3" data-suffix=" ani">0 ani</span>
+        <span class="stat-counter" data-target="2" data-suffix=" ani">0</span>
         <span class="stat-label">De Excelență</span>
       </div>
       <div class="stat-item">
-        <span class="stat-counter" data-target="100" data-suffix="%">0%</span>
+        <span class="stat-counter" data-target="100" data-suffix="%">0</span>
         <span class="stat-label">Calitate Garantată</span>
       </div>
     </div>
@@ -832,6 +839,46 @@
         <div class="faq-answer"><p>Da! Prin Configuratorul 3D Josephine poți crea bijuteria visată — alege materialul, forma și piatra prețioasă. Sau contactează-ne pe WhatsApp pentru comenzi speciale.</p></div>
       </div>
 
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Cum curăț și întrețin bijuteriile din argint 925?</span>
+          <span class="faq-question-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Argintul 925 se poate oxida în timp. Curăță-l cu o cârpă moale sau cu o soluție ușoară de apă caldă și săpun neutru, clătind bine și uscând complet. Păstrează bijuteriile ferite de umiditate, parfumuri și produse chimice. Depozitează separat, în pungă sau cutie închisă, pentru a preveni zgârierea și oxidarea.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Cum îngrijesc bijuteriile din aur 14k / 18k?</span>
+          <span class="faq-question-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Aurul este rezistent, dar se poate zgâria. Curăță cu apă caldă, câteva picături de detergent blând și o periuță moale. Evită clorul (piscine, produse de curățenie), parfumurile și loțiunile aplicate direct pe bijuterie. Scoate bijuteriile la sport sau activități fizice intense.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Cum întrețin bijuteriile din oțel inoxidabil?</span>
+          <span class="faq-question-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Oțelul inoxidabil este cel mai rezistent la coroziune și uzură zilnică. Curăță periodic cu o cârpă umedă și usucă bine. Poate fi purtat la duș, dar evitați expunerea îndelungată la apă sărată sau clor. Nu necesită tratamente speciale.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Cum protejez pietrele prețioase ale bijuteriei?</span>
+          <span class="faq-question-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Evită lovitura directă și expunerea la produse chimice (parfumuri, creme). Curăță cu o cârpă moale și apă caldă — fără ultrasunete pentru pietre fragile (opale, smaralde, perle). Depozitează separat pentru a evita zgârierea. Verifică periodic fixarea pietrelor în montură.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -932,9 +979,17 @@
         </div>
 
         <div class="footer-socials">
-          <a href="#" class="footer-social-btn" aria-label="Facebook">f</a>
-          <a href="#" class="footer-social-btn" aria-label="Instagram">&#9678;</a>
-          <a href="#" class="footer-social-btn" aria-label="TikTok">&#9835;</a>
+          <!-- TODO: înlocuiește cu URL-ul contului real -->
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">&#9678;</a>
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="TikTok">&#9835;</a>
+        </div>
+
+        <div class="footer-company-data">
+          <p><strong>CUI:</strong> [DE COMPLETAT]</p>
+          <p><strong>Nr. ROCT:</strong> [DE COMPLETAT]</p>
+          <p><strong>IBAN:</strong> [DE COMPLETAT]</p>
+          <p><strong>Capital social:</strong> [DE COMPLETAT] lei</p>
         </div>
       </div>
 
@@ -956,10 +1011,10 @@
       <div class="footer-col">
         <p class="footer-col-title">Suport</p>
         <ul class="footer-links">
-          <li><a href="index.html">Harta site</a></li>
-          <li><a href="#">Confidențialitate</a></li>
-          <li><a href="#">Politică retur</a></li>
-          <li><a href="#">Prevenire fraudă</a></li>
+          <li><a href="sitemap.html">Harta site</a></li>
+          <li><a href="confidentialitate.html">Confidențialitate</a></li>
+          <li><a href="retur.html">Politică retur</a></li>
+          <li><a href="prevenire-frauda.html">Prevenire fraudă</a></li>
           <li><a href="#produse">Noutăți</a></li>
           <li><a href="#oferte">Oferte lunii</a></li>
           <li><a href="wishlist.html">♥ Favorite</a></li>
@@ -984,7 +1039,7 @@
 
     <div class="footer-bottom">
       <p>© 2025 Josephine Jewelry — Firmă de exercițiu creată în scop educațional</p>
-      <p>Adresă: Str. Strungarilor nr. 31 • Tel: 0236 446 248</p>
+      <p>Adresă: Str. Strungarilor nr. 31 • Tel: 0754 334 877</p>
     </div>
   </footer>
 
@@ -1127,33 +1182,62 @@
   <!-- BACK TO TOP -->
   <button class="back-to-top" id="backToTopBtn" aria-label="Înapoi sus">&#8679;</button>
 
-  <!-- RING SIZE GUIDE OVERLAY -->
+  <!-- SIZE GUIDE OVERLAY -->
   <div class="size-guide-overlay" id="sizeGuideOverlay" onclick="if(event.target===this)closeSizeGuide()">
     <div class="size-guide-box">
       <button class="size-guide-close" onclick="closeSizeGuide()">&#10005;</button>
-      <h3>Ghid Mărimi Inele</h3>
-      <table class="size-guide-table">
-        <thead>
-          <tr>
-            <th>Mărime EU</th>
-            <th>Mărime US</th>
-            <th>Circumferință (mm)</th>
-            <th>Diametru (mm)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>46</td><td>3</td><td>46</td><td>14.6</td></tr>
-          <tr><td>48</td><td>4</td><td>48</td><td>15.3</td></tr>
-          <tr><td>50</td><td>5</td><td>50</td><td>15.9</td></tr>
-          <tr><td>52</td><td>6</td><td>52</td><td>16.5</td></tr>
-          <tr><td>54</td><td>7</td><td>54</td><td>17.2</td></tr>
-          <tr><td>56</td><td>8</td><td>56</td><td>17.8</td></tr>
-          <tr><td>58</td><td>9</td><td>58</td><td>18.5</td></tr>
-          <tr><td>60</td><td>10</td><td>60</td><td>19.1</td></tr>
-          <tr><td>62</td><td>11</td><td>62</td><td>19.7</td></tr>
-        </tbody>
-      </table>
-      <p class="size-guide-note">Măsoară cu o sfoară circumferința degetului și compară cu valorile de mai sus.</p>
+      <h3>Ghid Mărimi</h3>
+      <div class="sg-tabs">
+        <button class="sg-tab active" onclick="sgTab(this,'sg-inele')">Inele</button>
+        <button class="sg-tab" onclick="sgTab(this,'sg-bratari')">Brățări</button>
+        <button class="sg-tab" onclick="sgTab(this,'sg-lanturi')">Lănțișoare</button>
+      </div>
+
+      <div class="sg-panel" id="sg-inele">
+        <table class="size-guide-table">
+          <thead><tr><th>Mărime EU</th><th>Mărime US</th><th>Circumferință (mm)</th><th>Diametru (mm)</th></tr></thead>
+          <tbody>
+            <tr><td>46</td><td>3</td><td>46</td><td>14.6</td></tr>
+            <tr><td>48</td><td>4</td><td>48</td><td>15.3</td></tr>
+            <tr><td>50</td><td>5</td><td>50</td><td>15.9</td></tr>
+            <tr><td>52</td><td>6</td><td>52</td><td>16.5</td></tr>
+            <tr><td>54</td><td>7</td><td>54</td><td>17.2</td></tr>
+            <tr><td>56</td><td>8</td><td>56</td><td>17.8</td></tr>
+            <tr><td>58</td><td>9</td><td>58</td><td>18.5</td></tr>
+            <tr><td>60</td><td>10</td><td>60</td><td>19.1</td></tr>
+            <tr><td>62</td><td>11</td><td>62</td><td>19.7</td></tr>
+          </tbody>
+        </table>
+        <p class="size-guide-note">Măsoară cu o sfoară circumferința degetului și compară cu tabelul de mai sus.</p>
+      </div>
+
+      <div class="sg-panel" id="sg-bratari" style="display:none">
+        <table class="size-guide-table">
+          <thead><tr><th>Mărime</th><th>Circumferință încheietura (cm)</th><th>Lungime brățară (cm)</th></tr></thead>
+          <tbody>
+            <tr><td>XS</td><td>13–15 cm</td><td>16 cm</td></tr>
+            <tr><td>S</td><td>15–16 cm</td><td>17 cm</td></tr>
+            <tr><td>M</td><td>16–18 cm</td><td>19 cm</td></tr>
+            <tr><td>L</td><td>18–20 cm</td><td>21 cm</td></tr>
+            <tr><td>XL</td><td>20–22 cm</td><td>23 cm</td></tr>
+          </tbody>
+        </table>
+        <p class="size-guide-note">Măsoară circumferința încheieturii cu o bandă de croitorie. Brățara trebuie să fie cu 1–2 cm mai lungă pentru confort.</p>
+      </div>
+
+      <div class="sg-panel" id="sg-lanturi" style="display:none">
+        <table class="size-guide-table">
+          <thead><tr><th>Stil</th><th>Lungime</th><th>Poziție pe corp</th></tr></thead>
+          <tbody>
+            <tr><td>Choker</td><td>40 cm</td><td>Baza gâtului</td></tr>
+            <tr><td>Princess</td><td>45 cm</td><td>Claviculă</td></tr>
+            <tr><td>Matinée</td><td>50 cm</td><td>Bust superior</td></tr>
+            <tr><td>Opera</td><td>60 cm</td><td>Bust inferior</td></tr>
+            <tr><td>Rope</td><td>70–90 cm</td><td>Talie / se poartă dublu</td></tr>
+          </tbody>
+        </table>
+        <p class="size-guide-note">Alegerea lungimii depinde de decolteu și preferință personală. Lungimile Princess (45 cm) și Matinée (50 cm) sunt cele mai versatile.</p>
+      </div>
     </div>
   </div>
 
@@ -1174,7 +1258,7 @@
 
   <!-- GDPR COOKIE CONSENT -->
   <div id="cookieConsent" class="cookie-consent">
-    <p class="cookie-text">Folosim cookie-uri pentru a-ți oferi cea mai bună experiență pe site-ul nostru. Continuând navigarea, ești de acord cu <a href="#">Politica de confidențialitate</a> și utilizarea cookie-urilor.</p>
+    <p class="cookie-text">Folosim cookie-uri pentru a-ți oferi cea mai bună experiență pe site-ul nostru. Continuând navigarea, ești de acord cu <a href="confidentialitate.html">Politica de confidențialitate</a> și utilizarea cookie-urilor.</p>
     <div class="cookie-btns">
       <button class="cookie-accept" onclick="acceptCookies()">Acceptă toate</button>
       <button class="cookie-reject" onclick="rejectCookies()">Refuz</button>
